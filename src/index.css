@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@theme {
+  /* Font families */
+  --font-space: "Space Mono", monospace;
+  --font-roboto: "Roboto Flex";
+
+  /* Colors */
+  --color-primary: #000000;
+  --color-secondary-600: #1e212833;
+  --color-secondary-300: #668aff33;
+  --color-accent: #668affff;
+  --color-neutral-100: #f3f4f6ff;
+  --color-neutral-200: #bdc1caff;
+  --color-neutral-300: #9095a0;
+  --color-accent-dblue: #00124d;
+  --color-red-accent: #ef4444ff;
+  --color-green-accent: #22c55eff;
+
+  /* Gradients */
+  --gradient-accent: linear-gradient(90deg, #668affff 0%, #00d154ff 100%);
+  --gradient-bg: linear-gradient(
+    138.82deg,
+    #000000ff 0%,
+    #3b076433 50%,
+    #000000ff 100%
+  );
+
+  /* Shadows */
+  --shadow-sm: 0px 0px 1px var(--clr-shadow), 0px 0px 2px var(--clr-shadow-sup);
+}
+
+:root {
+  --clr-shadow: #171a1f;
+  --clr-shadow-sup: #171a1f14;
+  --card-border: 1px solid var(--clr-accent);
+}

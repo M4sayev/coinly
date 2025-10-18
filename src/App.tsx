@@ -4,7 +4,9 @@ function App() {
   return (
     <main>
       <div className="text-5xl">
-        <h1>Setup</h1>
+        <div className="bg-(image:--gradient-accent) font-roboto">
+          <h1>Bebra</h1>
+        </div>
       </div>
     </main>
   );
