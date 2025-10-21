@@ -1,13 +1,14 @@
 import "./App.css";
+import About from "./pages/About";
+import Coin from "./pages/Coin";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <main>
-      <div className="text-5xl">
-        <div className="bg-(image:--gradient-accent) font-roboto">
-          <h1>Bebra</h1>
-        </div>
-      </div>
+      <Home />
+      <About />
+      <Coin />
     </main>
   );
 }
