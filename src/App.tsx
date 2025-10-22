@@ -3,10 +3,12 @@ import "./App.css";
 import About from "./pages/About";
 import Coin from "./pages/Coin";
 import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <main>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
