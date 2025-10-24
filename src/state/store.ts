@@ -1,9 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
+import uiReducer from "./ui/uiSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    ui: uiReducer,
+  },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+export type AppStore = typeof store;
 
-export type AppDispatch = typeof store.dispatch;
+export type AppDispatch = AppStore["dispatch"];
+
+export type RootState = ReturnType<AppStore["getState"]>;
