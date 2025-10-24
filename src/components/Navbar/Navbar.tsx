@@ -4,21 +4,15 @@ import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
 import { GoArrowRight } from "react-icons/go";
 import ActionButton from "../UI/ActionButton";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { closeSignUp, openSignUp } from "../../state/ui/uiSlice";
+import { useAppDispatch } from "../../hooks/reduxHooks";
+import { openSignUp } from "../../state/ui/uiSlice";
+import SignUp from "../SingUp/SingUp";
 
 function Navbar() {
-  const isSignUpModalOpen = useAppSelector(
-    (state) => state.ui.isSignUpModalOpen
-  );
   const dispatch = useAppDispatch();
 
   const handleSignUpClick = () => {
     dispatch(openSignUp());
-  };
-
-  const handlCloseSingUpPopupClick = () => {
-    dispatch(closeSignUp());
   };
 
   return (
@@ -40,6 +34,7 @@ function Navbar() {
             <GoArrowRight />
           </span>
         </ActionButton>
+        <SignUp />
       </div>
     </nav>
   );
