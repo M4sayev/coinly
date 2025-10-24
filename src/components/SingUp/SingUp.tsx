@@ -5,8 +5,19 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import ActionButton from "../UI/ActionButton";
 import { IoClose } from "react-icons/io5";
 import FormElement from "../UI/FormElement";
+import {
+  useForm,
+  type SubmitErrorHandler,
+  type SubmitHandler,
+} from "react-hook-form";
+import type { FormValues } from "../../types/form";
 
 function SingUp() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ mode: "onBlur" });
   const dialogRef = useRef<HTMLDialogElement>(null);
   const dispatch = useAppDispatch();
 
@@ -15,6 +26,10 @@ function SingUp() {
   const handlCloseSingUpPopupClick = () => {
     dispatch(closeSignUp());
   };
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+  const onError: SubmitErrorHandler<FormValues> = (errors) =>
+    console.log(errors);
 
   useEffect(() => {
     const dialogEl = dialogRef.current;
@@ -36,7 +51,7 @@ function SingUp() {
       ref={dialogRef}
       onCancel={handlCloseSingUpPopupClick}
       titleId="Signup"
-      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 px-4 lg:max-w-lg"
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 px-4 lg:max-w-lg focus:outline-none"
     >
       <div className="bg-black text-white rounded-2xl p-6 font-roboto ">
         <header className="text-center mb-2">
@@ -57,26 +72,43 @@ function SingUp() {
             <IoClose aria-hidden="true" />
           </button>
         </header>
-        <form method="dialog" className="mb-4 flex flex-col gap-1">
+        <form
+          method="dialog"
+          className="mb-4 flex flex-col gap-1"
+          onSubmit={handleSubmit(onSubmit, onError)}
+        >
           <FormElement
-            id={"gewgegefwedw"}
+            register={register}
+            id={"email"}
             label={"Email/Username"}
             type="email"
             placeholder="Enter your email or username"
+            rules={{
+              required: "Email or username is required",
+            }}
+            error={errors.email}
           />
+
           <FormElement
+            register={register}
             id={"password"}
             label={"Password"}
             type="password"
             placeholder="Enter your password"
+            error={errors.password}
+            rules={{
+              required: "Password is required",
+              minLength: {
+                value: 8,
+                message: "Password must be at least 8 characters long",
+              },
+            }}
           />
+          <footer className="flex flex-col gap-3">
+            <ActionButton type="submit">Sign Up</ActionButton>
+            <ActionButton variant="secondary">Log In</ActionButton>
+          </footer>
         </form>
-        <footer className="flex flex-col gap-3">
-          <ActionButton onClick={() => {}}>Sign Up</ActionButton>
-          <ActionButton variant="secondary" onClick={() => {}}>
-            Log In
-          </ActionButton>
-        </footer>
       </div>
     </Modal>
   );

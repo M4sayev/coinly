@@ -1,15 +1,18 @@
 import React from "react";
 
 type ButtonVariant = "primary" | "secondary";
+type ButtonType = "button" | "submit";
 
 interface ActionButtonProps extends React.PropsWithChildren<{}> {
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: ButtonVariant;
+  type?: ButtonType;
 }
 function ActionButton({
   children,
   onClick,
   variant = "primary",
+  type = "button",
   ...rest
 }: ActionButtonProps) {
   const baseClasses =
@@ -22,7 +25,7 @@ function ActionButton({
 
   const finalClasses = `${baseClasses} ${variantClasses[variant]}`;
   return (
-    <button className={finalClasses} {...rest} onClick={onClick}>
+    <button type={type} className={finalClasses} {...rest} onClick={onClick}>
       {children}
     </button>
   );
