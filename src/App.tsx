@@ -3,7 +3,7 @@ import "./App.css";
 import About from "./pages/About";
 import Coin from "./pages/Coin";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (

@@ -30,6 +30,10 @@
   --shadow-sm: 0px 0px 1px var(--clr-shadow), 0px 0px 2px var(--clr-shadow-sup);
 }
 
+button {
+  @apply cursor-pointer;
+}
+
 :root {
   --clr-shadow: #171a1f;
   --clr-shadow-sup: #171a1f14;
