@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
 import { GoArrowRight } from "react-icons/go";
 import ActionButton from "../UI/ActionButton";
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { openSignUp } from "../../state/ui/uiSlice";
 import SignUp from "../SingUp/SingUp";
 
@@ -34,6 +34,7 @@ function Navbar() {
             <GoArrowRight />
           </span>
         </ActionButton>
+
         <SignUp />
       </div>
     </nav>

@@ -5,12 +5,14 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import ActionButton from "../UI/ActionButton";
 import { IoClose } from "react-icons/io5";
 import FormElement from "../UI/FormElement";
+import { createFocusTrap } from "focus-trap";
 import {
   useForm,
   type SubmitErrorHandler,
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../types/form";
+import type FocusTrap from "focus-trap-react";
 
 function SingUp() {
   const {
@@ -19,6 +21,7 @@ function SingUp() {
     formState: { errors },
   } = useForm<FormValues>({ mode: "onBlur" });
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const trapRef = useRef<FocusTrap | null>(null);
   const dispatch = useAppDispatch();
 
   const isOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
@@ -35,12 +38,22 @@ function SingUp() {
     const dialogEl = dialogRef.current;
     if (!dialogEl) return;
 
+    if (!trapRef.current) {
+      trapRef.current = createFocusTrap(dialogEl, {
+        escapeDeactivates: true,
+        clickOutsideDeactivates: true,
+        fallbackFocus: dialogEl,
+      });
+    }
+
     if (isOpen) {
       if (!dialogEl.open) {
+        trapRef.current.activate();
         dialogEl.showModal();
       }
     } else {
       if (dialogEl.open) {
+        trapRef.current.deactivate();
         dialogEl.close();
       }
     }
