@@ -23,7 +23,7 @@ function Navbar() {
         </Link>
         <div className="flex gap-3 md:gap-5">
           <CustomNavLink to="/">Home</CustomNavLink>
-          <CustomNavLink to="/about">About</CustomNavLink>
+          <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
         </div>
         <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
           Sign up

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import About from "./pages/About";
+import Watchlist from "./pages/Watchlist";
 import Coin from "./pages/Coin";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar";
@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/watchlist" element={<Watchlist />} />
         <Route path="/coin" element={<Coin />} />
       </Routes>
     </main>

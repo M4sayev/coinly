@@ -13,6 +13,7 @@ import {
 import type { FormValues } from "../../types/form";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import useClickOutside from "../../hooks/useClickOutside";
+import { cn } from "../../utils/utils";
 
 function SignUp() {
   const {
@@ -62,7 +63,11 @@ function SignUp() {
     >
       <div
         ref={signUpcontainerRef}
-        className="bg-black text-white rounded-2xl p-6 font-roboto "
+        className={cn(
+          "relative overflow-hidden rounded-2xl bg-black p-6 font-roboto text-white",
+          "before:absolute before:bottom-0 before:right-0 before:h-27 before:w-25 before:rounded-ss-full before:bg-green-accent before:opacity-15",
+          "after:absolute after:-left-3 after:-top-3 after:h-30 after:w-30 after:rounded-ee-full after:bg-accent after:opacity-20 "
+        )}
       >
         <header className="text-center mb-2">
           <h1
@@ -84,7 +89,7 @@ function SignUp() {
         </header>
         <form
           method="dialog"
-          className="mb-4 flex flex-col gap-1"
+          className="flex flex-col gap-1 z-10"
           onSubmit={handleSubmit(onSubmit, onError)}
         >
           <FormElement
@@ -114,7 +119,7 @@ function SignUp() {
               },
             }}
           />
-          <footer className="flex flex-col gap-3">
+          <footer className="flex flex-col gap-3 mt-2 z-10">
             <ActionButton type="submit">Sign Up</ActionButton>
             <ActionButton variant="secondary">Log In</ActionButton>
           </footer>
