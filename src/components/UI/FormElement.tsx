@@ -30,6 +30,7 @@ function FormElement({
     " w-full border-1 opacity-40 border-accent rounded px-3 py-2 text-xs mt-2 focus:opacity-90" +
     "sm:px-4 sm:py-2.5 " +
     "lg:text-sm";
+
   return (
     <div>
       <label htmlFor={id} className={labelClasses}>
@@ -42,6 +43,7 @@ function FormElement({
         name={id}
         placeholder={placeholder}
         className={inputClasses}
+        autoComplete={type}
       />
       {error && <p className="text-red-accent text-xs mt-1">{error.message}</p>}
     </div>

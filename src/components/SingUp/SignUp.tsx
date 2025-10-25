@@ -94,14 +94,14 @@ function SignUp() {
         >
           <FormElement
             register={register}
-            id={"email"}
+            id={"username"}
             label={"Email/Username"}
-            type="email"
+            type="text"
             placeholder="Enter your email or username"
             rules={{
               required: "Email or username is required",
             }}
-            error={errors.email}
+            error={errors.username}
           />
 
           <FormElement
