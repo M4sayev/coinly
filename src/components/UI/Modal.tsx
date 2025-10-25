@@ -1,4 +1,4 @@
-import React, { forwardRef, type Ref } from "react";
+import React, { forwardRef, useEffect, type Ref } from "react";
 
 interface ModalProps extends React.PropsWithChildren<{}> {
   onCancel: () => void;

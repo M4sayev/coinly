@@ -34,8 +34,27 @@ button {
   @apply cursor-pointer;
 }
 
+dialog::backdrop {
+  @apply bg-black opacity-50;
+}
+
 :root {
   --clr-shadow: #171a1f;
   --clr-shadow-sup: #171a1f14;
   --card-border: 1px solid var(--clr-accent);
+}
+
+dialog[open] {
+  animation: open 1s forwards;
+}
+
+@keyframes open {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
