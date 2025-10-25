@@ -6,7 +6,7 @@ import { GoArrowRight } from "react-icons/go";
 import ActionButton from "../UI/ActionButton";
 import { useAppDispatch } from "../../hooks/reduxHooks";
 import { openSignUp } from "../../state/ui/uiSlice";
-import SignUp from "../SingUp/SingUp";
+import SignUp from "../SingUp/SignUp";
 
 function Navbar() {
   const dispatch = useAppDispatch();

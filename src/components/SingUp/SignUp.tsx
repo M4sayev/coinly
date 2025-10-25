@@ -1,11 +1,10 @@
-import React, { useEffect, useRef, type SyntheticEvent } from "react";
+import React, { useEffect, useRef } from "react";
 import Modal from "../UI/Modal";
 import { closeSignUp } from "../../state/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import ActionButton from "../UI/ActionButton";
 import { IoClose } from "react-icons/io5";
 import FormElement from "../UI/FormElement";
-
 import {
   useForm,
   type SubmitErrorHandler,
@@ -13,14 +12,16 @@ import {
 } from "react-hook-form";
 import type { FormValues } from "../../types/form";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
+import useClickOutside from "../../hooks/useClickOutside";
 
-function SingUp() {
+function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FormValues>({ mode: "onBlur" });
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const signUpcontainerRef = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
   const isOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
@@ -33,7 +34,24 @@ function SingUp() {
   const onError: SubmitErrorHandler<FormValues> = (errors) =>
     console.log(errors);
 
+  useEffect(() => {
+    const dialogEl = dialogRef.current;
+    if (!dialogEl) return;
+
+    if (isOpen) {
+      if (!dialogEl.open) {
+        dialogEl.showModal();
+      }
+    } else {
+      if (dialogEl.open) {
+        dialogEl.close();
+      }
+    }
+  }, [isOpen]);
+
   useTrapFocus(dialogRef, isOpen);
+
+  useClickOutside(signUpcontainerRef, handlCloseSingUpPopupClick);
 
   return (
     <Modal
@@ -42,7 +60,10 @@ function SingUp() {
       titleId="Signup"
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 px-4 lg:max-w-lg focus:outline-none"
     >
-      <div className="bg-black text-white rounded-2xl p-6 font-roboto ">
+      <div
+        ref={signUpcontainerRef}
+        className="bg-black text-white rounded-2xl p-6 font-roboto "
+      >
         <header className="text-center mb-2">
           <h1
             id="Signup"
@@ -103,4 +124,4 @@ function SingUp() {
   );
 }
 
-export default SingUp;
+export default SignUp;
