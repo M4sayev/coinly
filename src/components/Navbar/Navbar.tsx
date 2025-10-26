@@ -16,10 +16,10 @@ function Navbar() {
   };
 
   return (
-    <nav className=" bg-black">
+    <nav className="absolute left-0 right-0 z-10 ">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-2 font-roboto">
         <Link to="/" className="cursor-pointer" aria-label="Go to home page">
-          <Logo className="w-8 h-8 md:w-10 md:h-10" />
+          <Logo className="w-6 h-6 md:w-8 md:h-8" />
         </Link>
         <div className="flex gap-3 md:gap-5">
           <CustomNavLink to="/">Home</CustomNavLink>
