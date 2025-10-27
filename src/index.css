@@ -48,6 +48,10 @@ dialog[open] {
   animation: open 1s forwards;
 }
 
+.coin-mobile {
+  animation: drift 8s ease-in-out infinite;
+}
+
 @keyframes open {
   from {
     transform: scale(0.8);
@@ -59,18 +63,20 @@ dialog[open] {
   }
 }
 
-.coin-mobile {
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
+@keyframes drift {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, -20px) rotate(5deg);
   }
   50% {
-    transform: translateY(-15px) rotate(10deg);
+    transform: translate(-10px, -10px) rotate(-5deg);
+  }
+  75% {
+    transform: translate(10px, 20px) rotate(5deg);
   }
   100% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate(0, 0) rotate(0deg);
   }
 }
