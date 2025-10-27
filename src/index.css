@@ -59,10 +59,18 @@ dialog[open] {
   }
 }
 
-@keyframes ping {
-  75%,
+.coin-mobile {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(10deg);
+  }
   100% {
-    transform: scale(2);
-    opacity: 0;
+    transform: translateY(0) rotate(0deg);
   }
 }

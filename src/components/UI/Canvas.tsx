@@ -9,13 +9,6 @@ interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {}
 const Canvas: React.FC<CanvasProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const draw = (ctx: CanvasRenderingContext2D) => {
-    ctx.fillStyle = "#668affff";
-    ctx.beginPath();
-    ctx.arc(Math.random() * 2000, Math.random() * 1000, 10, 0, 2 * Math.PI);
-    ctx.fill();
-  };
-
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
@@ -29,7 +22,7 @@ const Canvas: React.FC<CanvasProps> = (props) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = Dollar;
+    img.src = Bitcoin;
     img.onload = () => {
       const offscreen = document.createElement("canvas");
 
