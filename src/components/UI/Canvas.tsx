@@ -9,12 +9,12 @@ interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {}
 const Canvas: React.FC<CanvasProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // const draw = (ctx: CanvasRenderingContext2D) => {
-  //   ctx.fillStyle = "white";
-  //   ctx.beginPath();
-  //   ctx.arc(Math.random() * 2000, Math.random() * 1000, 10, 0, 2 * Math.PI);
-  //   ctx.fill();
-  // };
+  const draw = (ctx: CanvasRenderingContext2D) => {
+    ctx.fillStyle = "#668affff";
+    ctx.beginPath();
+    ctx.arc(Math.random() * 2000, Math.random() * 1000, 10, 0, 2 * Math.PI);
+    ctx.fill();
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -29,7 +29,7 @@ const Canvas: React.FC<CanvasProps> = (props) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = Azn;
+    img.src = Dollar;
     img.onload = () => {
       const offscreen = document.createElement("canvas");
 
@@ -40,7 +40,11 @@ const Canvas: React.FC<CanvasProps> = (props) => {
 
       const imageData = offCtx?.getImageData(0, 0, img.width, img.height);
 
-      const particles: { x: number; y: number }[] = [];
+      const particles: { x: number; y: number; tx: number; ty: number }[] = [];
+
+      const scaleFactor = 0.8;
+      const leftOffset = rect.width * 0.05;
+      const topOffset = rect.height / 2 - (img.height * scaleFactor) / 2;
 
       const step = 6;
       for (let y = 0; y < img.height; y += step) {
@@ -48,32 +52,48 @@ const Canvas: React.FC<CanvasProps> = (props) => {
           const index = (y * img.width + x) * 4;
           const alpha = imageData?.data[index + 3];
           if (alpha && alpha > 128) {
-            particles.push({ x, y });
+            particles.push({
+              x: Math.random() * rect.width,
+              y: Math.random() * rect.height,
+              tx: x * scaleFactor + leftOffset,
+              ty: y * scaleFactor + topOffset,
+            });
           }
         }
       }
 
-      const scaleFactor = 0.8;
-      const leftOffset = rect.width * 0.05;
-      const topOffset = rect.height / 2 - (img.height * scaleFactor) / 2;
-
       function render() {
-        ctx?.clearRect(0, 0, rect.width, rect.height);
+        if (!ctx) return;
+        ctx.clearRect(0, 0, rect.width, rect.height);
 
-        if (ctx) ctx.fillStyle = "#668affff";
+        ctx.globalCompositeOperation = "source-in";
+        ctx.drawImage(
+          img,
+          leftOffset,
+          topOffset,
+          img.width * scaleFactor,
+          img.height * scaleFactor
+        );
+
+        ctx.globalCompositeOperation = "source-over";
+
+        ctx.fillStyle = "#668affff";
+
         particles.forEach((p) => {
-          const px = p.x * scaleFactor + leftOffset;
-          const py = p.y * scaleFactor + topOffset;
+          p.x += (p.tx - p.x) * 0.005;
+          p.y += (p.ty - p.y) * 0.005;
 
-          ctx?.beginPath();
-          ctx?.arc(px, py, 1.5, 0, Math.PI * 2);
-          ctx?.fill();
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+          ctx.fill();
         });
+
         requestAnimationFrame(render);
       }
       render();
     };
   }, []);
+
   return <canvas ref={canvasRef} {...props} />;
 };
 
