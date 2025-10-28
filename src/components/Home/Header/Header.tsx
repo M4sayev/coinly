@@ -18,7 +18,12 @@ function Header() {
           <h1 className="font-mono text-4xl md:text-5xl font-bold mb-6 ">
             Track the future of finance
           </h1>
-          <p className="text-neutral-200">
+          <p
+            className={cn(
+              "text-neutral-200 relative",
+              "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-[image:var(--gradient-accent)] before:opacity-30 before:rounded"
+            )}
+          >
             Follow coins by adding to watchlist
           </p>
         </div>
