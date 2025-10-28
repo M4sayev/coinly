@@ -1,10 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import Bitcoin from "../../assets/bitcoin_outline.svg";
-import Azn from "../../assets/azn_outline.svg";
-import Dollar from "../../assets/dollar_outline.svg";
-import Euro from "../../assets/euro_outline.svg";
+import {
+  IMAGE_DENSITY,
+  IMAGE_MAP,
+  IMG_SCALE,
+  JITTER,
+  JITTER_THRESHOLD,
+  LEFT_OFFSET_COEFFICIENT,
+  PARTICLE_SPEED,
+} from "../../constants/particles";
 
-interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {}
+interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
+  img: keyof typeof IMAGE_MAP;
+  color?: string;
+}
 
 interface Particle {
   x: number;
@@ -13,21 +21,17 @@ interface Particle {
   ty: number;
 }
 
-const IMAGE_MAP: { [key: string]: string } = {
-  bitcoin: Bitcoin,
-  azn: Azn,
-  dollar: Dollar,
-  euro: Euro,
-};
+function applyJitter(p: Particle, range: number) {
+  p.x += (Math.random() * 2 - 1) * range;
+  p.y += (Math.random() * 2 - 1) * range;
+}
 
-const PARTICLE_SPEED = 0.005;
-const IMG_SCALE = 0.8;
-const LEFT_OFFSET_COEFFICIENT = 0.05;
-const IMAGE_DENSITY = 6; // lower the value, more particles
-const JITTER = 70;
-const JITTER_THRESHOLD = 0.5;
+function moveParticle(p: Particle, speed: number) {
+  p.x += (p.tx - p.x) * speed;
+  p.y += (p.ty - p.y) * speed;
+}
 
-const Canvas: React.FC<CanvasProps> = (props) => {
+const Particles: React.FC<CanvasProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -43,7 +47,7 @@ const Canvas: React.FC<CanvasProps> = (props) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = IMAGE_MAP["bitcoin"];
+    img.src = IMAGE_MAP[props.img];
 
     const particles: Particle[] = [];
 
@@ -90,19 +94,17 @@ const Canvas: React.FC<CanvasProps> = (props) => {
 
         ctx.globalCompositeOperation = "source-over";
 
-        ctx.fillStyle = "#00124d";
+        ctx.fillStyle = props.color || "#00124d";
 
         particles.forEach((p) => {
           if (
             Math.abs(p.x - p.tx) < JITTER_THRESHOLD &&
             Math.abs(p.y - p.ty) < JITTER_THRESHOLD
           ) {
-            p.x += Math.random() * JITTER - Math.random() * JITTER;
-            p.y += Math.random() * JITTER - Math.random() * JITTER;
+            applyJitter(p, JITTER);
           }
 
-          p.x += (p.tx - p.x) * PARTICLE_SPEED;
-          p.y += (p.ty - p.y) * PARTICLE_SPEED;
+          moveParticle(p, PARTICLE_SPEED);
 
           ctx.beginPath();
           ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
@@ -118,4 +120,4 @@ const Canvas: React.FC<CanvasProps> = (props) => {
   return <canvas ref={canvasRef} {...props} />;
 };
 
-export default Canvas;
+export default Particles;
