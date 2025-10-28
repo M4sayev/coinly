@@ -47,7 +47,7 @@ const Particles: React.FC<CanvasProps> = (props) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = IMAGE_MAP[props.img];
+    img.src = IMAGE_MAP[props.img] || IMAGE_MAP["bitcoin"];
 
     const particles: Particle[] = [];
 

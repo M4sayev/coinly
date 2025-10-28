@@ -10,9 +10,9 @@ function Header() {
         img={"bitcoin"}
         className="w-full h-auto absolute p-15 hidden lg:block"
       />
-      <div className="max-w-7xl mx-auto w-full h-140 flex items-center justify-center lg:justify-between gap-10 px-4 py-10">
+      <div className="max-w-7xl mx-auto w-full h-140 flex items-center justify-center lg:justify-between gap-10 px-4 py-12">
         <div className="absolute lg:relative flex justify-center z-0 max-w-lg gap-4 lg:ml-10 w-full h-full">
-          <Azn className="coin-mobile w-full h-full opacity-10 lg:hidden" />
+          <Azn className="coin-mobile w-full h-full opacity-15 lg:hidden" />
         </div>
         <div className="relative z-10 text-center  lg:text-left px-4 lg:max-w-1/2">
           <h1 className="font-mono text-4xl md:text-5xl font-bold mb-6 ">
