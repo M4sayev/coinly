@@ -5,13 +5,21 @@ import CustomNavLink from "../UI/CustomNavLink";
 import { GoArrowRight } from "react-icons/go";
 import ActionButton from "../UI/ActionButton";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { closeSidebar, openSidebar, openSignUp } from "../../state/ui/uiSlice";
+import {
+  closeSidebar,
+  openSidebar,
+  openSignUp,
+  setCurrency,
+} from "../../state/ui/uiSlice";
 import SignUp from "../SingUp/SignUp";
 import Hamburger from "./Hamburger";
 import MobileSidebar from "./MobileSidebar";
+import SelectInput from "../UI/SelectInput";
+import { currencies } from "../../constants/currencies";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
+  const currecy = useAppSelector((state) => state.ui.currency);
   const dispatch = useAppDispatch();
 
   const handleSignUpClick = () => {
@@ -33,7 +41,13 @@ function Navbar() {
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:flex gap-5">
+          <SelectInput
+            id="currency"
+            value={currecy}
+            options={currencies}
+            onChange={(value) => dispatch(setCurrency(value))}
+          />
           <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
             Sign up
             <span
@@ -44,6 +58,7 @@ function Navbar() {
             </span>
           </ActionButton>
         </div>
+
         <div className="md:hidden">
           <Hamburger
             isSidebarOpen={isSidebarOpen}

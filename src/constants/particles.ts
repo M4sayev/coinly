@@ -6,8 +6,8 @@ import Euro from "../assets/euro_outline.svg";
 export const IMAGE_MAP: { [key: string]: string } = {
   bitcoin: Bitcoin,
   azn: Azn,
-  dollar: Dollar,
-  euro: Euro,
+  usd: Dollar,
+  eur: Euro,
 };
 
 export const PARTICLE_SPEED = 0.005;

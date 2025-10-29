@@ -115,7 +115,7 @@ const Particles: React.FC<CanvasProps> = (props) => {
       }
       render();
     };
-  }, []);
+  }, [props.img]);
 
   return <canvas ref={canvasRef} {...props} />;
 };

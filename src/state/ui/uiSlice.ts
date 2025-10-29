@@ -1,13 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface uiState {
   isSignUpModalOpen: boolean;
   isSidebarOpen: boolean;
+  currency: string;
 }
 
 const initialState: uiState = {
   isSignUpModalOpen: false,
   isSidebarOpen: false,
+  currency: "BTC",
 };
 
 const uiSlice = createSlice({
@@ -26,10 +28,18 @@ const uiSlice = createSlice({
     closeSidebar: (state) => {
       state.isSidebarOpen = false;
     },
+    setCurrency: (state, action: PayloadAction<string>) => {
+      state.currency = action.payload;
+    },
   },
 });
 
-export const { openSignUp, closeSignUp, openSidebar, closeSidebar } =
-  uiSlice.actions;
+export const {
+  openSignUp,
+  closeSignUp,
+  openSidebar,
+  closeSidebar,
+  setCurrency,
+} = uiSlice.actions;
 
 export default uiSlice.reducer;
