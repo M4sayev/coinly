@@ -51,7 +51,7 @@ function Navbar() {
           <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
             Sign up
             <span
-              className="text-white invisible absolute md:visible md:relative"
+              className="hidden text-white absolute lg:block md:relative transition-all"
               aria-hidden="true"
             >
               <GoArrowRight />

@@ -33,14 +33,21 @@ function moveParticle(p: Particle, speed: number) {
 
 const Particles: React.FC<CanvasProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rerenderedRef = useRef<boolean>(false);
+  let animationFrameId: number;
 
-  useEffect(() => {
+  const initCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
 
     if (!ctx || !canvas) return;
     const scale = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
+
+    if (rect.width === 0 || rect.height === 0) {
+      requestAnimationFrame(initCanvas);
+      return;
+    }
 
     canvas.width = rect.width * scale;
     canvas.height = rect.height * scale;
@@ -111,9 +118,26 @@ const Particles: React.FC<CanvasProps> = (props) => {
           ctx.fill();
         });
 
-        requestAnimationFrame(render);
+        animationFrameId = requestAnimationFrame(render);
       }
       render();
+    };
+  };
+
+  useEffect(() => {
+    initCanvas();
+
+    const handleResize = () => {
+      if (!rerenderedRef.current && window.innerWidth >= 1024) {
+        initCanvas();
+        rerenderedRef.current = true;
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      cancelAnimationFrame(animationFrameId);
     };
   }, [props.img]);
 
