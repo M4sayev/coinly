@@ -13,7 +13,7 @@ function Hamburger({ handleOpenMobileNav, isSidebarOpen }: HamburgerProps) {
       aria-haspopup="true"
       aria-expanded={isSidebarOpen}
       aria-label="Open menu"
-      className="pl-1 w-9 h-9 "
+      className="pl-1 w-9 h-9 z-20 relative"
     >
       <svg stroke="#668aff" fill="none" viewBox="2 -5 115 105">
         <path

@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { closeSidebar, openSidebar, openSignUp } from "../../state/ui/uiSlice";
 import SignUp from "../SingUp/SignUp";
 import Hamburger from "./Hamburger";
+import MobileSidebar from "./MobileSidebar";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
@@ -23,7 +24,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="absolute left-0 right-0 z-10 ">
+    <nav className="fixed left-0 right-0 z-10 ">
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
         <Link to="/" className="cursor-pointer" aria-label="Go to home page">
           <Logo className="w-9 h-9" />
@@ -49,6 +50,12 @@ function Navbar() {
             handleOpenMobileNav={handleOpenMobileNav}
           />
         </div>
+      </div>
+      <div className="md:hidden">
+        <MobileSidebar
+          handleSignUpClick={handleSignUpClick}
+          isSidebarOpen={isSidebarOpen}
+        />
       </div>
       <SignUp />
     </nav>

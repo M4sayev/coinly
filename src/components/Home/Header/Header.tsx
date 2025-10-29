@@ -14,7 +14,7 @@ function Header() {
         <div className="absolute lg:relative flex justify-center z-0 max-w-lg gap-4 lg:ml-10 w-full h-full">
           <Azn className="coin-mobile w-full h-full opacity-15 lg:hidden" />
         </div>
-        <div className="relative z-10 text-center  lg:text-left px-4 lg:max-w-1/2">
+        <div className="relative text-center  lg:text-left px-4 lg:max-w-1/2">
           <h1 className="font-mono text-4xl md:text-5xl font-bold mb-6 ">
             Track the future of finance
           </h1>
