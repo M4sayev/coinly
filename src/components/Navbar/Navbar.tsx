@@ -24,7 +24,7 @@ function Navbar() {
 
   return (
     <nav className="absolute left-0 right-0 z-10 ">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-5 font-roboto">
+      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
         <Link to="/" className="cursor-pointer" aria-label="Go to home page">
           <Logo className="w-9 h-9" />
         </Link>
@@ -43,10 +43,12 @@ function Navbar() {
             </span>
           </ActionButton>
         </div>
-        <Hamburger
-          isSidebarOpen={isSidebarOpen}
-          handleOpenMobileNav={handleOpenMobileNav}
-        />
+        <div className="md:hidden">
+          <Hamburger
+            isSidebarOpen={isSidebarOpen}
+            handleOpenMobileNav={handleOpenMobileNav}
+          />
+        </div>
       </div>
       <SignUp />
     </nav>

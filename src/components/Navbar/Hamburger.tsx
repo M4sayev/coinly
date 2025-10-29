@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "../../utils/utils";
-import { useAppSelector } from "../../hooks/reduxHooks";
 
 interface HamburgerProps {
   handleOpenMobileNav: () => void;
@@ -14,32 +13,38 @@ function Hamburger({ handleOpenMobileNav, isSidebarOpen }: HamburgerProps) {
       aria-haspopup="true"
       aria-expanded={isSidebarOpen}
       aria-label="Open menu"
-      className={cn(
-        "leading-none roboto-flex relative lg:hidden w-8 h-8 flex flex-col justify-around"
-      )}
+      className="pl-1 w-9 h-9 "
     >
-      <span
-        className={cn(
-          "block h-0.5 bg-accent origin-left transition-all duration-300 ease-in-out",
-          isSidebarOpen
-            ? "rotate-45 w-[50%] translate-x-[4px] -translate-y-0.25"
-            : "w-[70%]"
-        )}
-      ></span>
-      <span
-        className={cn(
-          "block h-0.5 w-full bg-accent transition-all duration-300 ease-in-out",
-          isSidebarOpen ? "-rotate-45 " : ""
-        )}
-      ></span>
-      <span
-        className={cn(
-          "block h-0.5 bg-accent origin-left w-[50%] transition-all duration-300 ease-in-out",
-          isSidebarOpen
-            ? "origin-right rotate-45 translate-x-[11px] translate-y-[1px]"
-            : ""
-        )}
-      ></span>
+      <svg stroke="#668aff" fill="none" viewBox="2 -5 115 105">
+        <path
+          strokeWidth="8"
+          strokeLinejoin="round"
+          d="m 51 51 l -41 -41 a 1 1 0 0 0 0 10 h 60 "
+          className={`[stroke-dasharray:64_100] [stroke-dashoffset:-74] transition-all duration-1000  ${
+            isSidebarOpen ? "[stroke-dashoffset:10]" : ""
+          }`}
+        ></path>
+        <path
+          strokeWidth="8"
+          strokeLinejoin="round"
+          d="m 10 90 l 80 -80 a 1 1 0 0 1 0 40 h -80 "
+          className={`[stroke-dasharray:80_200] [stroke-dashoffset:-176] transition-all duration-1000  ${
+            isSidebarOpen
+              ? "[stroke-dashoffset:10] [stroke-dasharray:120_300]"
+              : ""
+          }`}
+        ></path>
+        <path
+          strokeWidth="8"
+          strokeLinejoin="round"
+          d="m 50 50 l 40 40 h -20 l -10 -10 h -50 "
+          className={`[stroke-dasharray:40_200] [stroke-dashoffset:-100] transition-all duration-1000  ${
+            isSidebarOpen
+              ? "[stroke-dashoffset:10] [stroke-dasharray:66_300]"
+              : ""
+          }`}
+        ></path>
+      </svg>
     </button>
   );
 }
