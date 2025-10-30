@@ -1,5 +1,4 @@
 import React from "react";
-import { useAppSelector } from "../../hooks/reduxHooks";
 
 interface Option {
   id: string;
@@ -18,8 +17,6 @@ function SelectInput({
   options,
   value = options[0].id,
 }: SelectInputProps) {
-  const currecy = useAppSelector((state) => state.ui.currency);
-  console.log({ currecy });
   return (
     <div className="relative">
       <select

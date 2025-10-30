@@ -12,7 +12,6 @@ import {
   setCurrency,
 } from "../../state/ui/uiSlice";
 import SignUp from "../SingUp/SignUp";
-import Hamburger from "./Hamburger";
 import MobileSidebar from "./MobileSidebar";
 import SelectInput from "../UI/SelectInput";
 import { currencies } from "../../constants/currencies";
@@ -58,18 +57,12 @@ function Navbar() {
             </span>
           </ActionButton>
         </div>
-
-        <div className="md:hidden">
-          <Hamburger
-            isSidebarOpen={isSidebarOpen}
-            handleOpenMobileNav={handleOpenMobileNav}
-          />
-        </div>
       </div>
       <div className="md:hidden">
         <MobileSidebar
           handleSignUpClick={handleSignUpClick}
           isSidebarOpen={isSidebarOpen}
+          handleOpenMobileNav={handleOpenMobileNav}
         />
       </div>
       <SignUp />

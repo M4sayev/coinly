@@ -2,22 +2,24 @@ import type FocusTrap from "focus-trap-react";
 import { useEffect, useRef } from "react";
 import { createFocusTrap } from "focus-trap";
 
+type RefType = HTMLDialogElement | HTMLDivElement | null;
+
 export const useTrapFocus = (
-  dialogRef: React.RefObject<HTMLDialogElement | null>,
+  ref: React.RefObject<RefType>,
   isOpen: boolean
 ) => {
   const trapRef = useRef<FocusTrap | null>(null);
 
   useEffect(() => {
-    const dialogEl = dialogRef.current;
+    const element = ref.current;
 
-    if (!dialogEl) return;
+    if (!element) return;
 
     if (!trapRef.current) {
-      trapRef.current = createFocusTrap(dialogEl, {
+      trapRef.current = createFocusTrap(element, {
         escapeDeactivates: true,
         clickOutsideDeactivates: true,
-        fallbackFocus: dialogEl,
+        fallbackFocus: element,
       });
     }
 
@@ -26,5 +28,5 @@ export const useTrapFocus = (
     } else {
       trapRef.current.deactivate();
     }
-  }, [isOpen, dialogRef]);
+  }, [isOpen, ref]);
 };
