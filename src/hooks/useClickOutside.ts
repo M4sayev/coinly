@@ -2,7 +2,8 @@ import { useEffect, type SyntheticEvent } from "react";
 
 export const useClickOutside = (
   ref: React.RefObject<HTMLDivElement | null>,
-  handleClose: () => void
+  handleClose: () => void,
+  isIgnoringClick = false
 ): void => {
   const handleClickOutside = (event: MouseEvent | SyntheticEvent): void => {
     if (ref && !ref.current?.contains(event.target as Node)) {
@@ -11,7 +12,7 @@ export const useClickOutside = (
   };
 
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || isIgnoringClick) return;
 
     document.addEventListener("mousedown", handleClickOutside);
 

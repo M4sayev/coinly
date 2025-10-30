@@ -23,12 +23,13 @@ function MobileSidebar({
   handleCloseMobileNav,
 }: SidebarProps) {
   const currency = useAppSelector((state) => state.ui.currency);
+  const isSignUpOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
   const dispatch = useAppDispatch();
   const sidebarRef = useRef<HTMLDivElement>(null);
 
   useTrapFocus(sidebarRef, isSidebarOpen);
 
-  useClickOutside(sidebarRef, handleCloseMobileNav);
+  useClickOutside(sidebarRef, handleCloseMobileNav, isSignUpOpen);
 
   return (
     <aside ref={sidebarRef}>
