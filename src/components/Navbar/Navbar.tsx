@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "../../assets/logo.svg?react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
@@ -33,6 +33,20 @@ function Navbar() {
   const handleCloseMobileNav = () => {
     dispatch(closeSidebar());
   };
+
+  // Close the sidebar if the window is resized to a bigger while its open
+  useEffect(() => {
+    if (!isSidebarOpen) return;
+    const handleResize = () => {
+      if (isSidebarOpen && window.innerWidth > 768) {
+        console.log("resize");
+        handleCloseMobileNav();
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isSidebarOpen]);
 
   return (
     <nav className="fixed left-0 right-0 z-10 ">
