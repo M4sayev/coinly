@@ -7,17 +7,20 @@ import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setCurrency } from "../../state/ui/uiSlice";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
+import useClickOutside from "../../hooks/useClickOutside";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
   handleSignUpClick: () => void;
-  handleOpenMobileNav: () => void;
+  handleHamburgerClick: () => void;
+  handleCloseMobileNav: () => void;
 }
 
 function MobileSidebar({
   isSidebarOpen,
   handleSignUpClick,
-  handleOpenMobileNav,
+  handleHamburgerClick,
+  handleCloseMobileNav,
 }: SidebarProps) {
   const currency = useAppSelector((state) => state.ui.currency);
   const dispatch = useAppDispatch();
@@ -25,13 +28,13 @@ function MobileSidebar({
 
   useTrapFocus(sidebarRef, isSidebarOpen);
 
-  // menu is broken its not trappable fix this, useCLickOuside
-  // the menu should also close on resize if it was previously
+  useClickOutside(sidebarRef, handleCloseMobileNav);
+
   return (
     <aside ref={sidebarRef}>
       <Hamburger
         isSidebarOpen={isSidebarOpen}
-        handleOpenMobileNav={handleOpenMobileNav}
+        handleOpenMobileNav={handleHamburgerClick}
       />
       <div
         className={`z-10 fixed right-0 px-8 pr-[min(30vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 ${

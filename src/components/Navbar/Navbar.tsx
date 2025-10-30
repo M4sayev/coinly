@@ -25,9 +25,13 @@ function Navbar() {
     dispatch(openSignUp());
   };
 
-  const handleOpenMobileNav = () => {
+  const handleHamburgerClick = () => {
     if (!isSidebarOpen) dispatch(openSidebar());
-    else dispatch(closeSidebar());
+    else handleCloseMobileNav();
+  };
+
+  const handleCloseMobileNav = () => {
+    dispatch(closeSidebar());
   };
 
   return (
@@ -62,7 +66,8 @@ function Navbar() {
         <MobileSidebar
           handleSignUpClick={handleSignUpClick}
           isSidebarOpen={isSidebarOpen}
-          handleOpenMobileNav={handleOpenMobileNav}
+          handleHamburgerClick={handleHamburgerClick}
+          handleCloseMobileNav={handleCloseMobileNav}
         />
       </div>
       <SignUp />
