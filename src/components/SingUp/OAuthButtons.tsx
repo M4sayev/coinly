@@ -2,6 +2,7 @@ import React from "react";
 import FacebookIcon from "../../assets/social-icons/facebook-icon.svg?react";
 import GoogleIcon from "../../assets/social-icons/google-icon.svg?react";
 import AppleIcon from "../../assets/social-icons/apple-icon.svg?react";
+import { cn } from "../../utils/utils";
 
 type OAuthProvider = {
   name: string;
@@ -49,7 +50,11 @@ function SocialAuthButtons() {
             type="button"
             key={`OAuth-${provider.name}`}
             aria-label={provider.text}
-            className="p-3 border-1 rounded-full"
+            className={cn(
+              "p-3 border border-white rounded-full transition-colors",
+              "focus:border-accent focus:outline-none",
+              "hover:border-accent"
+            )}
             onClick={() => handleOAuth(provider)}
           >
             <provider.icon className="w-4 h-4" />

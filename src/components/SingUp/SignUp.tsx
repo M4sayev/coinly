@@ -90,7 +90,7 @@ function SignUp() {
             aria-label="Close Sign up dialog"
             onClick={handlCloseSingUpPopupClick}
           >
-            <X aria-hidden="true" className="text-white" />
+            <X aria-hidden="true" />
           </button>
         </header>
         <form
