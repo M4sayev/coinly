@@ -1,7 +1,7 @@
-import Bitcoin from "../assets/bitcoin_outline.svg?react";
-import Usd from "../assets/dollar_outline.svg?react";
-import Euro from "../assets/euro_outline.svg?react";
-import Azn from "../assets/azn_outline.svg?react";
+import Bitcoin from "../assets/currency/bitcoin.svg?react";
+import Usd from "../assets/currency/dollar.svg?react";
+import Euro from "../assets/currency/euro.svg?react";
+import Azn from "../assets/currency/azn.svg?react";
 
 export const coinImages: Record<
   string,
