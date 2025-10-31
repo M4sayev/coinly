@@ -59,14 +59,13 @@ function SignUp() {
       ref={dialogRef}
       onCancel={handlCloseSingUpPopupClick}
       titleId="Signup"
-      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 px-4 lg:max-w-lg focus:outline-none"
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 mx-4 lg:max-w-lg focus:outline-none  backdrop-blur-xl"
     >
       <div
         ref={signUpcontainerRef}
         className={cn(
-          "relative overflow-hidden rounded-2xl bg-black p-6 font-roboto text-white",
-          "before:absolute before:bottom-0 before:right-0 before:h-27 before:w-25 before:rounded-ss-full before:bg-green-accent before:opacity-15",
-          "after:absolute after:-left-3 after:-top-3 after:h-30 after:w-30 after:rounded-ee-full after:bg-accent after:opacity-20 "
+          "bg-[rgba(102,138,255,0.10)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.26)]",
+          "relative overflow-hidden p-6 font-roboto text-white"
         )}
       >
         <header className="text-center mb-2">
@@ -119,9 +118,17 @@ function SignUp() {
               },
             }}
           />
-          <footer className="flex flex-col gap-3 mt-2 z-10">
-            <ActionButton type="submit">Sign Up</ActionButton>
-            <ActionButton variant="secondary">Log In</ActionButton>
+          <footer className="relative flex flex-col gap-3 mt-5 z-10">
+            <ActionButton type="submit">
+              <span className="py-0.5">Create account</span>
+            </ActionButton>
+            <div className="flex items-center justify-center">
+              <span className="flex-1 h-px bg-secondary-300"></span>
+              <span className="mx-3 text-xs text-neutral-300 whitespace-nowrap">
+                Or continue with
+              </span>
+              <span className="flex-1 h-px bg-secondary-300"></span>
+            </div>
           </footer>
         </form>
       </div>
