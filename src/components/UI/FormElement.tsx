@@ -14,7 +14,7 @@ function FormElement({
   return (
     <div>
       <label htmlFor={id} className={labelClasses}>
-        <span>{label}</span>
+        {label}
       </label>
       <input
         {...register(id, rules)}

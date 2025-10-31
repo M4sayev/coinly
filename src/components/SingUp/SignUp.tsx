@@ -71,7 +71,7 @@ function SignUp() {
           "relative overflow-hidden p-10 font-roboto text-white"
         )}
       >
-        <header className="mb-5">
+        <header className="mb-3">
           <h1
             id="Signup"
             className="title font-space text-2xl mb-2 lg:text-4xl"
@@ -90,7 +90,7 @@ function SignUp() {
             aria-label="Close Sign up dialog"
             onClick={handlCloseSingUpPopupClick}
           >
-            <X aria-hidden="true" />
+            <X aria-hidden="true" className="text-white" />
           </button>
         </header>
         <form

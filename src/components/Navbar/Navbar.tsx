@@ -48,8 +48,6 @@ function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, [isSidebarOpen]);
 
-  console.log({ isOpen });
-
   return (
     <nav className="fixed left-0 right-0 z-10 ">
       <div className="relative max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
@@ -73,7 +71,7 @@ function Navbar() {
               className="hidden text-white absolute lg:block md:relative transition-all"
               aria-hidden="true"
             >
-              <LogIn className="w-4 h-4" aria-hidden="true" />
+              <LogIn className="w-4 h-4 text-white" aria-hidden="true" />
             </span>
           </ActionButton>
         </div>
