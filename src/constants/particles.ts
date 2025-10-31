@@ -1,7 +1,7 @@
-import Bitcoin from "../assets/bitcoin_outline.svg";
-import Azn from "../assets/azn_outline.svg";
-import Dollar from "../assets/dollar_outline.svg";
-import Euro from "../assets/euro_outline.svg";
+import Bitcoin from "../assets/currency/bitcoin.svg";
+import Azn from "../assets/currency/azn.svg";
+import Dollar from "../assets/currency/dollar.svg";
+import Euro from "../assets/currency/euro.svg";
 
 export const IMAGE_MAP: { [key: string]: string } = {
   bitcoin: Bitcoin,

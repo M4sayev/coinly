@@ -14,6 +14,7 @@ import type { FormValues } from "../../types/form";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import useClickOutside from "../../hooks/useClickOutside";
 import { cn } from "../../utils/utils";
+import SocialAuthButtons from "./OAuthButtons";
 
 function SignUp() {
   const {
@@ -59,27 +60,27 @@ function SignUp() {
       ref={dialogRef}
       onCancel={handlCloseSingUpPopupClick}
       titleId="Signup"
-      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 mx-4 lg:max-w-lg focus:outline-none  backdrop-blur-xl"
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent w-full max-w-96 lg:max-w-lg focus:outline-none  backdrop-blur-lg"
     >
       <div
         ref={signUpcontainerRef}
         className={cn(
-          "bg-[rgba(102,138,255,0.10)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.26)]",
-          "relative overflow-hidden p-6 font-roboto text-white"
+          "bg-[rgba(102,138,255,0.05)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.8)]",
+          "relative overflow-hidden p-10 font-roboto text-white"
         )}
       >
-        <header className="text-center mb-2">
+        <header className="mb-5">
           <h1
             id="Signup"
-            className="title font-space text-2xl mb-4 lg:text-4xl lg:mb-6"
+            className="title font-space text-2xl mb-2 lg:text-4xl"
           >
             Sign up now
           </h1>
-          <p className="capitalize font-roboto text-xs text-neutral-200 w-[80%] m-auto lg:text-sm">
+          <p className="capitalize font-roboto text-xs text-neutral-200 w-[80%]  lg:text-sm">
             Sign in or create an account to track cryptos
           </p>
           <button
-            className="absolute top-4 right-7 cursor-pointer text-2xl text-white hover:text-accent transition-colors duration-300 ease-in-out"
+            className="absolute top-7 right-7 cursor-pointer text-2xl text-white hover:text-accent transition-all duration-300 ease-in-out  hover:scale-110 "
             aria-label="Close Sign up dialog"
             onClick={handlCloseSingUpPopupClick}
           >
@@ -118,17 +119,11 @@ function SignUp() {
               },
             }}
           />
-          <footer className="relative flex flex-col gap-3 mt-5 z-10">
+          <footer className="relative flex flex-col gap-5 mt-5 z-10">
             <ActionButton type="submit">
               <span className="py-0.5">Create account</span>
             </ActionButton>
-            <div className="flex items-center justify-center">
-              <span className="flex-1 h-px bg-secondary-300"></span>
-              <span className="mx-3 text-xs text-neutral-300 whitespace-nowrap">
-                Or continue with
-              </span>
-              <span className="flex-1 h-px bg-secondary-300"></span>
-            </div>
+            <SocialAuthButtons />
           </footer>
         </form>
       </div>

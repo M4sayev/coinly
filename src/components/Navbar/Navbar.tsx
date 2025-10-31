@@ -18,6 +18,7 @@ import { currencies } from "../../constants/currencies";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
+  const isOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
   const currecy = useAppSelector((state) => state.ui.currency);
   const dispatch = useAppDispatch();
 
@@ -39,7 +40,6 @@ function Navbar() {
     if (!isSidebarOpen) return;
     const handleResize = () => {
       if (isSidebarOpen && window.innerWidth > 768) {
-        console.log("resize");
         handleCloseMobileNav();
       }
     };
@@ -47,6 +47,8 @@ function Navbar() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isSidebarOpen]);
+
+  console.log({ isOpen });
 
   return (
     <nav className="fixed left-0 right-0 z-10 ">
