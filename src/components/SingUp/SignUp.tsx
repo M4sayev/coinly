@@ -3,7 +3,7 @@ import Modal from "../UI/Modal";
 import { closeSignUp } from "../../state/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import ActionButton from "../UI/ActionButton";
-import { IoClose } from "react-icons/io5";
+
 import FormElement from "../UI/FormElement";
 import {
   useForm,
@@ -16,6 +16,7 @@ import useClickOutside from "../../hooks/useClickOutside";
 import { cn } from "../../utils/utils";
 import SocialAuthButtons from "./OAuthButtons";
 import PasswordField from "../UI/PasswordField";
+import { X } from "lucide-react";
 
 function SignUp() {
   const {
@@ -89,7 +90,7 @@ function SignUp() {
             aria-label="Close Sign up dialog"
             onClick={handlCloseSingUpPopupClick}
           >
-            <IoClose aria-hidden="true" />
+            <X aria-hidden="true" />
           </button>
         </header>
         <form
