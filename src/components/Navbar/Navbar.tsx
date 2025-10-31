@@ -50,11 +50,11 @@ function Navbar() {
 
   return (
     <nav className="fixed left-0 right-0 z-10 ">
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
+      <div className="relative max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
         <Link to="/" className="cursor-pointer" aria-label="Go to home page">
           <Logo className="w-9 h-9" />
         </Link>
-        <div className="md:gap-5 hidden md:flex">
+        <div className="absolute md:gap-5 hidden md:flex left-0 right-0 justify-center">
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
         </div>
