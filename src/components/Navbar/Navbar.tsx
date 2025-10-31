@@ -10,15 +10,14 @@ import {
   openSignUp,
   setCurrency,
 } from "../../state/ui/uiSlice";
-import SignUp from "../SingUp/SignUp";
 import MobileSidebar from "./MobileSidebar";
 import SelectInput from "../UI/SelectInput";
 import { currencies } from "../../constants/currencies";
-import { ArrowRight, LogIn, MoveRight } from "lucide-react";
+import { LogIn } from "lucide-react";
+import AuthDialog from "../Auth/AuthDialog";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
-  const isOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
   const currecy = useAppSelector((state) => state.ui.currency);
   const dispatch = useAppDispatch();
 
@@ -84,7 +83,7 @@ function Navbar() {
           handleCloseMobileNav={handleCloseMobileNav}
         />
       </div>
-      <SignUp />
+      <AuthDialog />
     </nav>
   );
 }
