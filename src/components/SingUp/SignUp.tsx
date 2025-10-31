@@ -15,6 +15,7 @@ import { useTrapFocus } from "../../hooks/useTrapFocus";
 import useClickOutside from "../../hooks/useClickOutside";
 import { cn } from "../../utils/utils";
 import SocialAuthButtons from "./OAuthButtons";
+import PasswordField from "../UI/PasswordField";
 
 function SignUp() {
   const {
@@ -80,7 +81,11 @@ function SignUp() {
             Sign in or create an account to track cryptos
           </p>
           <button
-            className="absolute top-7 right-7 cursor-pointer text-2xl text-white hover:text-accent transition-all duration-300 ease-in-out  hover:scale-110 "
+            className={cn(
+              "absolute top-7 right-7 cursor-pointer text-2xl text-white",
+              " transition-all duration-300 ease-in-out",
+              "hover:text-accent hover:scale-120"
+            )}
             aria-label="Close Sign up dialog"
             onClick={handlCloseSingUpPopupClick}
           >
@@ -104,11 +109,10 @@ function SignUp() {
             error={errors.username}
           />
 
-          <FormElement
+          <PasswordField
             register={register}
             id={"password"}
             label={"Password"}
-            type="password"
             placeholder="Enter your password"
             error={errors.password}
             rules={{

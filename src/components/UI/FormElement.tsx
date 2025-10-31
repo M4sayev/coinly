@@ -1,20 +1,6 @@
 import React from "react";
-import type {
-  FieldError,
-  RegisterOptions,
-  UseFormRegister,
-} from "react-hook-form";
-import type { FormValues } from "../../types/form";
-
-interface FormElementProps {
-  id: keyof FormValues;
-  type: string;
-  label: string;
-  placeholder: string;
-  register: UseFormRegister<FormValues>;
-  error?: FieldError;
-  rules?: RegisterOptions<FormValues>;
-}
+import type { FormElementProps } from "../../types/form";
+import { errorClasses, inputClasses, labelClasses } from "../../constants/form";
 
 function FormElement({
   register,
@@ -25,16 +11,10 @@ function FormElement({
   error,
   rules,
 }: FormElementProps) {
-  const labelClasses = "text-xs text-white capitalize lg:text-sm";
-  const inputClasses =
-    " w-full border-1 opacity-40 border-accent rounded px-3 py-2 text-xs mt-2 focus:opacity-90" +
-    "sm:px-4 sm:py-2.5 " +
-    "lg:text-sm";
-
   return (
     <div>
       <label htmlFor={id} className={labelClasses}>
-        {label}
+        <span>{label}</span>
       </label>
       <input
         {...register(id, rules)}
@@ -45,7 +25,7 @@ function FormElement({
         className={inputClasses}
         autoComplete={type}
       />
-      {error && <p className="text-red-accent text-xs mt-1">{error.message}</p>}
+      {error && <p className={errorClasses}>{error.message}</p>}
     </div>
   );
 }
