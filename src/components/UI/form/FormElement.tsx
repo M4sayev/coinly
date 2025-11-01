@@ -1,6 +1,10 @@
 import React from "react";
-import type { FormElementProps } from "../../types/form";
-import { errorClasses, inputClasses, labelClasses } from "../../constants/form";
+import type { FormElementProps } from "../../../types/form";
+import {
+  errorClasses,
+  inputClasses,
+  labelClasses,
+} from "../../../constants/form";
 
 function FormElement({
   register,
@@ -21,6 +25,7 @@ function FormElement({
         id={id}
         type={type}
         name={id}
+        aria-invalid={error ? "true" : "false"}
         placeholder={placeholder}
         className={inputClasses}
         autoComplete={type}

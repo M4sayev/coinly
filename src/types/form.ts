@@ -5,8 +5,9 @@ import type {
 } from "react-hook-form";
 
 export type FormValues = {
-  username: string;
+  email: string;
   password: string;
+  agreeToTerms: string;
 };
 
 export interface FormElementProps {
@@ -17,4 +18,8 @@ export interface FormElementProps {
   register: UseFormRegister<FormValues>;
   error?: FieldError;
   rules?: RegisterOptions<FormValues>;
+}
+
+export interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
+  showForgot?: boolean;
 }

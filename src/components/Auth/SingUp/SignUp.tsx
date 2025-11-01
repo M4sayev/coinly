@@ -1,8 +1,8 @@
 import React, { forwardRef, type Ref, type SetStateAction } from "react";
 import ActionButton from "../../UI/ActionButton";
 import SocialAuthButtons from "../OAuthButtons";
-import PasswordField from "../../UI/PasswordField";
-import FormElement from "../../UI/FormElement";
+import PasswordField from "../../UI/form/PasswordField";
+import FormElement from "../../UI/form/FormElement";
 import { cn } from "../../../utils/utils";
 import SignUpHeader from "./SignUpHeader";
 import {

@@ -1,6 +1,6 @@
 import React from "react";
-import PasswordField from "../../UI/PasswordField";
-import FormElement from "../../UI/FormElement";
+import PasswordField from "../../UI/form/PasswordField";
+import FormElement from "../../UI/form/FormElement";
 import {
   useForm,
   type SubmitErrorHandler,
@@ -28,20 +28,20 @@ function SignUpForm() {
     >
       <FormElement
         register={register}
-        id={"username"}
-        label={"Email/Username"}
-        type="text"
-        placeholder="Enter your email or username"
+        id="email"
+        label="Email"
+        type="email"
+        placeholder="yourname@example.com"
         rules={{
-          required: "Email or username is required",
+          required: "Email is required",
         }}
-        error={errors.username}
+        error={errors.email}
       />
 
       <PasswordField
         register={register}
-        id={"password"}
-        label={"Password"}
+        id="password"
+        label="Password"
         placeholder="Enter your password"
         error={errors.password}
         rules={{

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import type { FormElementProps } from "../../types/form";
-import { errorClasses, inputClasses, labelClasses } from "../../constants/form";
+import type { PasswordFieldProps } from "../../../types/form";
+import {
+  errorClasses,
+  inputClasses,
+  labelClasses,
+} from "../../../constants/form";
 import { Eye, EyeOff } from "lucide-react";
-
-interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
-  showForgot?: boolean;
-}
 
 function PasswordField({
   register,
@@ -37,6 +37,7 @@ function PasswordField({
           id={id}
           type={showPassword ? "text" : "password"}
           name={id}
+          aria-invalid={error ? "true" : "false"}
           placeholder={placeholder}
           className={inputClasses}
           autoComplete={"current-password"}
