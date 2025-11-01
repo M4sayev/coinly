@@ -23,3 +23,8 @@ export interface FormElementProps {
 export interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
   showForgot?: boolean;
 }
+
+export type TermKeysToRemove = "type" | "label" | "placeholder";
+
+export interface AgreeToTermsProps
+  extends Omit<FormElementProps, TermKeysToRemove> {}

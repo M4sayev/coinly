@@ -8,6 +8,7 @@ import {
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
 import ActionButton from "../../UI/ActionButton";
+import AgreeToTerms from "../../UI/form/AgreeToTerms";
 
 function SignUpForm() {
   const {
@@ -23,7 +24,7 @@ function SignUpForm() {
   return (
     <form
       method="dialog"
-      className="flex flex-col gap-6 z-10"
+      className="flex flex-col gap-4 lg:gap-6 z-10"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
       <FormElement
@@ -53,7 +54,14 @@ function SignUpForm() {
         }}
         showForgot={false}
       />
-
+      <AgreeToTerms
+        register={register}
+        id="agreeToTerms"
+        rules={{
+          required: "You have to agree to our terms to proceed.",
+        }}
+        error={errors.agreeToTerms}
+      />
       <ActionButton type="submit">
         <span className="py-0.5">Create account</span>
       </ActionButton>
