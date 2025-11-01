@@ -65,15 +65,17 @@ function Navbar() {
             options={currencies}
             onChange={(value) => dispatch(setCurrency(value))}
           />
-          <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
-            Sign up
-            <span
-              className="hidden text-[var(--color-neutral-100)] absolute lg:block md:relative transition-all"
-              aria-hidden="true"
-            >
-              <LogIn className="w-4 h-4 text-white" aria-hidden="true" />
-            </span>
-          </ActionButton>
+          <div className="group">
+            <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
+              Sign up
+              <span
+                className="hidden text-[var(--color-neutral-100)] absolute lg:block md:relative transition-all group-hover:translate-x-0.5"
+                aria-hidden="true"
+              >
+                <LogIn className="w-4 h-4 text-white" aria-hidden="true" />
+              </span>
+            </ActionButton>
+          </div>
           <ToggleTheme />
         </div>
       </div>

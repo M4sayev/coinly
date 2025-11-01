@@ -1,5 +1,5 @@
 import { Moon, Sun } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setTheme } from "../../state/ui/uiSlice";
 
@@ -21,7 +21,10 @@ function ToggleTheme() {
   }
 
   return (
-    <button className="text-[var(--color-neutral-100)]" onClick={toggleTheme}>
+    <button
+      className="text-[var(--color-neutral-100)] transition-all duration-500"
+      onClick={toggleTheme}
+    >
       {theme === "dark" ? <Sun /> : <Moon />}
     </button>
   );
