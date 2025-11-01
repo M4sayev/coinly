@@ -46,7 +46,7 @@ function AuthDialog() {
     >
       <SignUp
         ref={signUpcontainerRef}
-        closeDialog={handlCloseSingUpPopupClick}
+        onCloseDialog={handlCloseSingUpPopupClick}
       />
     </Modal>
   );

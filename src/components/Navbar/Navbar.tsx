@@ -81,10 +81,10 @@ function Navbar() {
       </div>
       <div className="md:hidden">
         <MobileSidebar
-          handleSignUpClick={handleSignUpClick}
+          onSignUpClick={handleSignUpClick}
           isSidebarOpen={isSidebarOpen}
-          handleHamburgerClick={handleHamburgerClick}
-          handleCloseMobileNav={handleCloseMobileNav}
+          onHamburgerClick={handleHamburgerClick}
+          onCloseMobileNav={handleCloseMobileNav}
         />
       </div>
       <AuthDialog />

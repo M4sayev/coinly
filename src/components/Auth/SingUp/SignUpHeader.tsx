@@ -3,10 +3,10 @@ import React from "react";
 import { cn } from "../../../utils/utils";
 
 interface SignUpHeaderProps {
-  closeDialog: () => void;
+  onClose: () => void;
 }
 
-function SignUpHeader({ closeDialog }: SignUpHeaderProps) {
+function SignUpHeader({ onClose }: SignUpHeaderProps) {
   return (
     <header className="mb-7">
       <h1 id="Signup" className="title font-space text-2xl mb-2 lg:text-4xl">
@@ -23,7 +23,7 @@ function SignUpHeader({ closeDialog }: SignUpHeaderProps) {
           "hover:text-accent hover:scale-120"
         )}
         aria-label="Close Sign up dialog"
-        onClick={closeDialog}
+        onClick={onClose}
       >
         <X aria-hidden="true" />
       </button>

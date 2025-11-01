@@ -12,16 +12,16 @@ import ToggleTheme from "./ToggleTheme";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
-  handleSignUpClick: () => void;
-  handleHamburgerClick: () => void;
-  handleCloseMobileNav: () => void;
+  onSignUpClick: () => void;
+  onHamburgerClick: () => void;
+  onCloseMobileNav: () => void;
 }
 
 function MobileSidebar({
   isSidebarOpen,
-  handleSignUpClick,
-  handleHamburgerClick,
-  handleCloseMobileNav,
+  onSignUpClick,
+  onHamburgerClick,
+  onCloseMobileNav,
 }: SidebarProps) {
   const currency = useAppSelector((state) => state.ui.currency);
   const isSignUpOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
@@ -30,13 +30,13 @@ function MobileSidebar({
 
   useTrapFocus(sidebarRef, isSidebarOpen);
 
-  useClickOutside(sidebarRef, handleCloseMobileNav, isSignUpOpen);
+  useClickOutside(sidebarRef, onCloseMobileNav, isSignUpOpen);
 
   return (
     <aside ref={sidebarRef}>
       <Hamburger
         isSidebarOpen={isSidebarOpen}
-        handleOpenMobileNav={handleHamburgerClick}
+        onOpenMobileNav={onHamburgerClick}
       />
       <div
         className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
@@ -54,7 +54,7 @@ function MobileSidebar({
               onChange={(value) => dispatch(setCurrency(value))}
             />
             <div>
-              <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
+              <ActionButton onClick={onSignUpClick} aria-label="Sign up">
                 Sign up
               </ActionButton>
             </div>

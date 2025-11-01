@@ -1,14 +1,14 @@
 import React from "react";
 
 interface HamburgerProps {
-  handleOpenMobileNav: () => void;
+  onOpenMobileNav: () => void;
   isSidebarOpen: boolean;
 }
 
-function Hamburger({ handleOpenMobileNav, isSidebarOpen }: HamburgerProps) {
+function Hamburger({ onOpenMobileNav, isSidebarOpen }: HamburgerProps) {
   return (
     <button
-      onClick={handleOpenMobileNav}
+      onClick={onOpenMobileNav}
       aria-haspopup="true"
       aria-expanded={isSidebarOpen}
       aria-label="Open menu"

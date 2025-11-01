@@ -1,5 +1,4 @@
 import React from "react";
-import ActionButton from "../../UI/ActionButton";
 import SocialAuthButtons from "../OAuthButtons";
 
 function SignUpFooter() {

@@ -1,24 +1,17 @@
-import React, { forwardRef, type Ref, type SetStateAction } from "react";
-import ActionButton from "../../UI/ActionButton";
-import SocialAuthButtons from "../OAuthButtons";
-import PasswordField from "../../UI/form/PasswordField";
-import FormElement from "../../UI/form/FormElement";
+import React, { forwardRef, type Ref } from "react";
 import { cn } from "../../../utils/utils";
 import SignUpHeader from "./SignUpHeader";
-import {
-  useForm,
-  type SubmitErrorHandler,
-  type SubmitHandler,
-} from "react-hook-form";
-import type { FormValues } from "../../../types/form";
 import SignUpForm from "./SignUpForm";
 import SignUpFooter from "./SignUpFooter";
 
 interface SingUpProps {
-  closeDialog: () => void;
+  onCloseDialog: () => void;
 }
 
-function SignUp({ closeDialog }: SingUpProps, ref: Ref<HTMLDivElement | null>) {
+function SignUp(
+  { onCloseDialog }: SingUpProps,
+  ref: Ref<HTMLDivElement | null>
+) {
   return (
     <div
       ref={ref}
@@ -27,7 +20,7 @@ function SignUp({ closeDialog }: SingUpProps, ref: Ref<HTMLDivElement | null>) {
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >
-      <SignUpHeader closeDialog={closeDialog} />
+      <SignUpHeader onClose={onCloseDialog} />
       <SignUpForm />
       <SignUpFooter />
     </div>
