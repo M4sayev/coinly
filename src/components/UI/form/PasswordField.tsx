@@ -24,7 +24,7 @@ function PasswordField({
       <label htmlFor={id} className={`${labelClasses} flex justify-between`}>
         <span>{label}</span>
         {showForgot ? (
-          <button type="button" className="text-xs text-accent">
+          <button type="button" className="text-xs text-[var(--color-accent)]">
             Forgot Password?
           </button>
         ) : (
@@ -50,7 +50,7 @@ function PasswordField({
         >
           <EyeIcon
             aria-hidden="true"
-            className="w-4 h-4 text-white group-focus-visible:outline-1"
+            className="w-4 h-4 text-[var(--color-neutral-100)] group-focus-visible:outline-1"
           />
         </button>
       </div>

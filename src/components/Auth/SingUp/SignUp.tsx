@@ -23,8 +23,8 @@ function SignUp({ closeDialog }: SingUpProps, ref: Ref<HTMLDivElement | null>) {
     <div
       ref={ref}
       className={cn(
-        "bg-[rgba(102,138,255,0.05)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.8)]",
-        "relative overflow-hidden p-10 font-roboto text-white"
+        "bg-[var(--color-modal)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.8)]",
+        "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >
       <SignUpHeader closeDialog={closeDialog} />

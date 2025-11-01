@@ -20,7 +20,7 @@ function SelectInput({
   return (
     <div className="relative">
       <select
-        className="cursor-pointer appearance-none border rounded-md px-4 py-1 pr-8 bg-secondary-600 text-accent focus:ring-2 transition-colors h-full"
+        className="cursor-pointer appearance-none border rounded-md px-4 py-1 pr-8 bg-transparent text-accent focus:ring-2 transition-colors h-full"
         name={id}
         id={id}
         value={value}

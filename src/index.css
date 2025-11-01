@@ -17,9 +17,14 @@
   --color-red-accent: #ef4444ff;
   --color-green-accent: #22c55eff;
 
+  --color-bg: var(--color-primary);
+
+  --color-modal: rgba(102, 138, 255, 0.05);
+
   /* Gradients */
   --gradient-accent: linear-gradient(90deg, #668affff 0%, #00d154ff 100%);
-  --gradient-bg: linear-gradient(
+  --gradient-bg: linear-gradient(to bottom, #000000, #000005);
+  --gradient-secondary: linear-gradient(
     138.82deg,
     #000000ff 0%,
     #3c07648f 50%,
@@ -42,6 +47,31 @@ dialog::backdrop {
   --clr-shadow: #171a1f;
   --clr-shadow-sup: #171a1f14;
   --card-border: 1px solid var(--clr-accent);
+}
+
+html[data-theme="dark"] {
+  @theme;
+}
+
+html[data-theme="light"] {
+  /* Colors */
+  --color-primary: #f9fafb;
+  --color-neutral-100: #111827;
+  --color-neutral-200: #4b5563;
+  --color-neutral-300: #0f1013;
+  --color-accent: #00124d;
+  --color-accent-dblue: #1e3a8a;
+  --color-red-accent: #ab1313;
+  --color-secondary-600: #d1d5db;
+  --color-secondary-300: #d1d5db;
+
+  --color-bg: #d1d5db;
+
+  --color-modal: rgba(185, 211, 194, 0.493);
+
+  /* Gradients */
+
+  --gradient-bg: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
 }
 
 dialog[open] {

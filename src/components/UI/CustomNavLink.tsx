@@ -13,7 +13,11 @@ function CustomNavLink({ to, children }: NavLinkProps) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        `${baseClasses} ${isActive ? "text-accent" : "text-white"}`
+        `${baseClasses} ${
+          isActive
+            ? "text-[var(--color-accent)]"
+            : "text-[var(--color-neutral-100)]"
+        }`
       }
     >
       {children}

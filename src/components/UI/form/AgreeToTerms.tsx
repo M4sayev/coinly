@@ -13,11 +13,11 @@ function AgreeToTerms({ id, register, error, rules }: AgreeToTermsProps) {
           name={id}
           id={id}
         />
-        <div className="text-xs text-neutral-300 lg:text-sm">
+        <div className="text-xs text-[var(--color-neutral-300)] lg:text-sm">
           <span>I agree to the</span>
           <button
             type="button"
-            className="ml-1 text-accent"
+            className="ml-1 text-[var(--color-accent)]"
             aria-label="View our Terms and Conditions"
           >
             Terms and Conditions

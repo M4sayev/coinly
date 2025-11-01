@@ -1,15 +1,19 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
+type ThemeType = "dark" | "light";
+
 interface uiState {
   isSignUpModalOpen: boolean;
   isSidebarOpen: boolean;
   currency: string;
+  theme: ThemeType;
 }
 
 const initialState: uiState = {
   isSignUpModalOpen: false,
   isSidebarOpen: false,
   currency: "BTC",
+  theme: "dark",
 };
 
 const uiSlice = createSlice({
@@ -31,6 +35,9 @@ const uiSlice = createSlice({
     setCurrency: (state, action: PayloadAction<string>) => {
       state.currency = action.payload;
     },
+    setTheme: (state, action: PayloadAction<ThemeType>) => {
+      state.theme = action.payload;
+    },
   },
 });
 
@@ -40,6 +47,7 @@ export const {
   openSidebar,
   closeSidebar,
   setCurrency,
+  setTheme,
 } = uiSlice.actions;
 
 export default uiSlice.reducer;

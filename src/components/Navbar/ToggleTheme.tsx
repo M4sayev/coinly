@@ -1,0 +1,30 @@
+import { Moon, Sun } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { setTheme } from "../../state/ui/uiSlice";
+
+function ToggleTheme() {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.ui.theme);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    const currentTheme = (html.dataset.theme as "dark" | "light") || "light";
+    dispatch(setTheme(currentTheme));
+  }, [dispatch]);
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const newTheme = theme === "light" ? "dark" : "light";
+    html.dataset.theme = newTheme;
+    dispatch(setTheme(newTheme));
+  }
+
+  return (
+    <button className="text-[var(--color-neutral-100)]" onClick={toggleTheme}>
+      {theme === "dark" ? <Sun /> : <Moon />}
+    </button>
+  );
+}
+
+export default ToggleTheme;

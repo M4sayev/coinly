@@ -9,7 +9,7 @@ function Header() {
   const CoinMobile = coinImages[currency] || coinImages["bitcoin"];
 
   return (
-    <header className="relative font-roboto min-h-screen text-white h-full bg-black flex items-center justify-center overflow-hidden">
+    <header className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full bg-[image:var(--gradient-bg)] flex items-center justify-center overflow-hidden">
       <Particles
         img={currency}
         className="w-full h-auto absolute p-15 hidden lg:block"
@@ -28,7 +28,7 @@ function Header() {
           </h1>
           <p
             className={cn(
-              "text-neutral-200 relative",
+              "text-[var(--color-neutral-200)] relative",
               "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-[image:var(--gradient-accent)] before:opacity-30 before:rounded"
             )}
           >

@@ -8,6 +8,7 @@ import { setCurrency } from "../../state/ui/uiSlice";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
+import ToggleTheme from "./ToggleTheme";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -38,7 +39,7 @@ function MobileSidebar({
         handleOpenMobileNav={handleHamburgerClick}
       />
       <div
-        className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 ${
+        className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
           isSidebarOpen ? "top-0" : "-top-200"
         }`}
       >
@@ -52,10 +53,13 @@ function MobileSidebar({
               options={currencies}
               onChange={(value) => dispatch(setCurrency(value))}
             />
-            <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
-              Sign up
-            </ActionButton>
+            <div>
+              <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
+                Sign up
+              </ActionButton>
+            </div>
           </div>
+          <ToggleTheme />
         </div>
       </div>
     </aside>

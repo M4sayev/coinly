@@ -15,6 +15,7 @@ import SelectInput from "../UI/SelectInput";
 import { currencies } from "../../constants/currencies";
 import { LogIn } from "lucide-react";
 import AuthDialog from "../Auth/AuthDialog";
+import ToggleTheme from "./ToggleTheme";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
@@ -67,12 +68,13 @@ function Navbar() {
           <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
             Sign up
             <span
-              className="hidden text-white absolute lg:block md:relative transition-all"
+              className="hidden text-[var(--color-neutral-100)] absolute lg:block md:relative transition-all"
               aria-hidden="true"
             >
               <LogIn className="w-4 h-4 text-white" aria-hidden="true" />
             </span>
           </ActionButton>
+          <ToggleTheme />
         </div>
       </div>
       <div className="md:hidden">

@@ -37,11 +37,11 @@ function SocialAuthButtons() {
     <div>
       {/* Divider */}
       <div className="flex items-center justify-center">
-        <span className="flex-1 h-px bg-secondary-300"></span>
-        <span className="mx-3 text-xs text-neutral-300 whitespace-nowrap">
+        <span className="flex-1 h-px bg-[var(--color-secondary-300)]"></span>
+        <span className="mx-3 text-xs text-[var(--color-neutral-300)] whitespace-nowrap">
           Or continue with
         </span>
-        <span className="flex-1 h-px bg-secondary-300"></span>
+        <span className="flex-1 h-px bg-[var(--color-secondary-300)]"></span>
       </div>
       {/* OAuth Buttons */}
       <div className="flex gap-3 items-center justify-center mt-5">
