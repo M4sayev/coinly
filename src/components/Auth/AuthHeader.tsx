@@ -1,20 +1,26 @@
 import { CornerDownRight, X } from "lucide-react";
 import React from "react";
-import { cn } from "../../../utils/utils";
+import { cn } from "../../utils/utils";
 
-interface SignUpHeaderProps {
-  onClose: () => void;
+interface AuthHeaderProps {
+  onCloseDialog: () => void;
+  actionText: string;
+  promptText?: string;
 }
 
-function SignUpHeader({ onClose }: SignUpHeaderProps) {
+function AuthHeader({
+  onCloseDialog,
+  actionText,
+  promptText = "Track your cryptocurrency now",
+}: AuthHeaderProps) {
   return (
     <header className="mb-7">
       <h1 id="Signup" className="title font-space text-2xl mb-2 lg:text-4xl">
-        Sign up
+        {actionText}
       </h1>
       <div className="flex capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full items-end">
         <CornerDownRight aria-hidden="true" />
-        <p>Track your cryptocurrency now</p>
+        <p>{promptText}</p>
       </div>
       <button
         className={cn(
@@ -22,8 +28,8 @@ function SignUpHeader({ onClose }: SignUpHeaderProps) {
           " transition-all duration-300 ease-in-out",
           "hover:text-accent hover:scale-120"
         )}
-        aria-label="Close Sign up dialog"
-        onClick={onClose}
+        aria-label={`Close ${actionText} dialog`}
+        onClick={onCloseDialog}
       >
         <X aria-hidden="true" />
       </button>
@@ -31,4 +37,4 @@ function SignUpHeader({ onClose }: SignUpHeaderProps) {
   );
 }
 
-export default SignUpHeader;
+export default AuthHeader;

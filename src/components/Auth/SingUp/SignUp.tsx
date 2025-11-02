@@ -1,17 +1,14 @@
 import React, { forwardRef, type Ref } from "react";
 import { cn } from "../../../utils/utils";
-import SignUpHeader from "./SignUpHeader";
 import SignUpForm from "./SignUpForm";
-import SignUpFooter from "./SignUpFooter";
+import AuthFooter from "../AuthFooter";
+import AuthHeader from "../AuthHeader";
 
 interface SingUpProps {
-  onCloseDialog: () => void;
+  onClose: () => void;
 }
 
-function SignUp(
-  { onCloseDialog }: SingUpProps,
-  ref: Ref<HTMLDivElement | null>
-) {
+function SignUp({ onClose }: SingUpProps, ref: Ref<HTMLDivElement | null>) {
   return (
     <div
       ref={ref}
@@ -20,9 +17,9 @@ function SignUp(
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >
-      <SignUpHeader onClose={onCloseDialog} />
+      <AuthHeader onCloseDialog={onClose} actionText="Sign Up" />
       <SignUpForm />
-      <SignUpFooter />
+      <AuthFooter promptText="Already have an account?" actionText="Sign In" />
     </div>
   );
 }
