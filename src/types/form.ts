@@ -9,6 +9,7 @@ export type FormValues = {
   emailLogin: string;
   passwordLogin: string;
   emailSignup: string;
+  emailForgotPassword: string;
   passwordSignup: string;
   agreeToTerms: string;
 };

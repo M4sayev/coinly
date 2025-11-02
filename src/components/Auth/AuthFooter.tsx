@@ -8,7 +8,6 @@ interface AuthFooterProps {
 }
 
 function AuthFooter({ promptText, actionText, setAuth }: AuthFooterProps) {
-  console.log(setAuth);
   return (
     <footer className="relative flex flex-col gap-5 mt-5 z-10">
       <SocialAuthButtons />

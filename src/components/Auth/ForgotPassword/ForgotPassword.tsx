@@ -2,12 +2,28 @@ import React from "react";
 import { cn } from "../../../utils/utils";
 import { X } from "lucide-react";
 import ActionButton from "../../UI/ActionButton";
+import FormElement from "../../UI/form/FormElement";
+import {
+  useForm,
+  type SubmitErrorHandler,
+  type SubmitHandler,
+} from "react-hook-form";
+import type { FormValues } from "../../../types/form";
 
 interface ForgotPasswordProps {
   onClose: () => void;
 }
 
 function ForgotPassword({ onClose }: ForgotPasswordProps) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({ mode: "onBlur" });
+
+  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+  const onError: SubmitErrorHandler<FormValues> = (errors) =>
+    console.log(errors);
   return (
     <div
       className={cn(
@@ -16,10 +32,10 @@ function ForgotPassword({ onClose }: ForgotPasswordProps) {
       )}
     >
       <header className="mb-7">
-        <h1 className="title font-space text-2xl mb-2 lg:text-4xl">
-          Forgot your password
+        <h1 className="title font-space text-2xl mb-2  lg:text-4xl">
+          Reset password
         </h1>
-        <p className="capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full">
+        <p className=" font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full">
           Please provide the email address that you used when you signed up for
           your account
         </p>
@@ -36,10 +52,23 @@ function ForgotPassword({ onClose }: ForgotPasswordProps) {
           <X aria-hidden="true" />
         </button>
       </header>
-      <p className="capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full">
-        We will send you an email that will allow you to reset your password
-      </p>
-      <ActionButton>Reset Password</ActionButton>
+      <form className="flex flex-col gap-2">
+        <FormElement
+          id="emailForgotPassword"
+          register={register}
+          placeholder="Enter you email"
+          type="email"
+          label="Email"
+          error={errors.emailForgotPassword}
+          rules={{
+            required: "Email is required",
+          }}
+        />
+        <p className="font-roboto text-xs text-[var(--color-green-accent)] lg:text-sm w-full mb-2">
+          We will send you an email that will allow you to reset your password
+        </p>
+        <ActionButton>Reset Password</ActionButton>
+      </form>
     </div>
   );
 }

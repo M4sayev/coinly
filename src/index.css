@@ -42,7 +42,6 @@ button {
 dialog::backdrop {
   @apply bg-black opacity-50;
 }
-
 :root {
   --clr-shadow: #171a1f;
   --clr-shadow-sup: #171a1f14;
@@ -64,6 +63,8 @@ html[data-theme="light"] {
   --color-red-accent: #ab1313;
   --color-secondary-600: #d1d5db;
   --color-secondary-300: #d1d5db;
+
+  --color-green-accent: rgb(41, 120, 70);
 
   --color-bg: #d1d5db;
 
