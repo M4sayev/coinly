@@ -29,22 +29,22 @@ function SignUpForm() {
     >
       <FormElement
         register={register}
-        id="email"
+        id="emailSignup"
         label="Email"
         type="email"
         placeholder="yourname@example.com"
         rules={{
           required: "Email is required",
         }}
-        error={errors.email}
+        error={errors.emailSignup}
       />
 
       <PasswordField
         register={register}
-        id="password"
+        id="passwordSignup"
         label="Password"
         placeholder="Enter your password"
-        error={errors.password}
+        error={errors.passwordSignup}
         rules={{
           required: "Password is required",
           minLength: {

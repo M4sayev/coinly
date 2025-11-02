@@ -3,10 +3,13 @@ import type {
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
+import type { AuthView } from "../components/Auth/AuthDialog";
 
 export type FormValues = {
-  email: string;
-  password: string;
+  emailLogin: string;
+  passwordLogin: string;
+  emailSignup: string;
+  passwordSignup: string;
   agreeToTerms: string;
 };
 
@@ -22,6 +25,7 @@ export interface FormElementProps {
 
 export interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
   showForgot?: boolean;
+  onForgotPassword?: React.Dispatch<React.SetStateAction<AuthView>>;
 }
 
 export type TermKeysToRemove = "type" | "label" | "placeholder";

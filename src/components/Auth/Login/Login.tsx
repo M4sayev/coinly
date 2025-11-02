@@ -3,12 +3,14 @@ import AuthHeader from "../AuthHeader";
 import AuthFooter from "../AuthFooter";
 import { cn } from "../../../utils/utils";
 import LoginForm from "./LoginForm";
+import type { AuthView } from "../AuthDialog";
 
 interface LoginProps {
   onClose: () => void;
+  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
 }
 
-function Login({ onClose }: LoginProps) {
+function Login({ onClose, setAuthView }: LoginProps) {
   return (
     <div
       className={cn(
@@ -17,8 +19,12 @@ function Login({ onClose }: LoginProps) {
       )}
     >
       <AuthHeader onCloseDialog={onClose} actionText="Log In" />
-      <LoginForm />
-      <AuthFooter actionText="Sign Up" promptText="Don't Have an Account?" />
+      <LoginForm setAuthView={setAuthView} />
+      <AuthFooter
+        setAuth={() => setAuthView("signup")}
+        actionText="Sign Up"
+        promptText="Don't Have an Account?"
+      />
     </div>
   );
 }

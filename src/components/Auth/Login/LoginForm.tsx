@@ -8,8 +8,13 @@ import {
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
+import type { AuthView } from "../AuthDialog";
 
-function LoginForm() {
+interface LoginFormProps {
+  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
+}
+
+function LoginForm({ setAuthView }: LoginFormProps) {
   const {
     register,
     handleSubmit,
@@ -27,22 +32,22 @@ function LoginForm() {
     >
       <FormElement
         register={register}
-        id="email"
+        id="emailLogin"
         label="Email"
         type="email"
         placeholder="yourname@example.com"
         rules={{
           required: "Email is required",
         }}
-        error={errors.email}
+        error={errors.emailLogin}
       />
 
       <PasswordField
         register={register}
-        id="password"
+        id="passwordLogin"
         label="Password"
         placeholder="Enter your password"
-        error={errors.password}
+        error={errors.passwordLogin}
         rules={{
           required: "Password is required",
           minLength: {
@@ -51,6 +56,7 @@ function LoginForm() {
           },
         }}
         showForgot={true}
+        onForgotPassword={setAuthView}
       />
 
       <ActionButton type="submit">
