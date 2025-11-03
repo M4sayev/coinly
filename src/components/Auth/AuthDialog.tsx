@@ -54,6 +54,7 @@ function AuthDialog() {
   useEffect(() => console.log(authView));
 
   // useClickOutside(signUpcontainerRef, handlCloseSingUpPopupClick);
+
   return (
     <Modal
       ref={dialogRef}
@@ -78,7 +79,10 @@ function AuthDialog() {
           />
         </div>
         <div className="flex-1">
-          <ForgotPassword onClose={handlCloseSingUpPopupClick} />
+          <ForgotPassword
+            onClose={handlCloseSingUpPopupClick}
+            setAuthView={setAuthView}
+          />
         </div>
       </div>
     </Modal>

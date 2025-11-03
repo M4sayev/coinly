@@ -9,13 +9,15 @@ import {
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
-import CloseButton from "../../UI/CloseButton";
+import ForgotPasswordHeader from "./ForgotPasswordHeader";
+import type { AuthView } from "../AuthDialog";
 
 interface ForgotPasswordProps {
   onClose: () => void;
+  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
 }
 
-function ForgotPassword({ onClose }: ForgotPasswordProps) {
+function ForgotPassword({ onClose, setAuthView }: ForgotPasswordProps) {
   const {
     register,
     handleSubmit,
@@ -32,20 +34,7 @@ function ForgotPassword({ onClose }: ForgotPasswordProps) {
         "relative overflow-hidden font-roboto text-[var(--color-neutral-100)] p-10"
       )}
     >
-      <header className="mb-7 ">
-        <h1 className="title font-space text-2xl mb-2  lg:text-4xl">
-          Reset password
-        </h1>
-        <p className=" font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full">
-          Please provide the email address that you used when you signed up for
-          your account
-        </p>
-
-        <CloseButton
-          onClose={onClose}
-          actionText="Close Forgot Password dialog"
-        />
-      </header>
+      <ForgotPasswordHeader onClose={onClose} />
       <form className="flex flex-col gap-2">
         <FormElement
           id="emailForgotPassword"
@@ -63,6 +52,9 @@ function ForgotPassword({ onClose }: ForgotPasswordProps) {
         </p>
         <ActionButton onClick={handleSubmit(onSubmit, onError)}>
           Reset Password
+        </ActionButton>
+        <ActionButton variant="secondary" onClick={() => setAuthView("login")}>
+          Back to Log In
         </ActionButton>
       </form>
     </div>
