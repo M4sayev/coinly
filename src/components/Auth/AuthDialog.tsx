@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Modal from "../UI/Modal";
 import { closeSignUp } from "../../state/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -12,7 +12,13 @@ import type { AuthView } from "../../types/auth";
 
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const signUpcontainerRef = useRef<HTMLDivElement>(null);
+
+  const refs = {
+    login: useRef<HTMLDivElement>(null),
+    signup: useRef<HTMLDivElement>(null),
+    forgotPassword: useRef<HTMLDivElement>(null),
+  };
+
   const [authView, setAuthView] = useState<AuthView>("signup");
   const dispatch = useAppDispatch();
 
@@ -52,7 +58,7 @@ function AuthDialog() {
 
   useEffect(() => console.log(authView));
 
-  // useClickOutside(signUpcontainerRef, handlCloseSingUpPopupClick);
+  useClickOutside(refs[authView], handlCloseSingUpPopupClick);
 
   return (
     <Modal
@@ -64,20 +70,19 @@ function AuthDialog() {
       <div
         className={`w-[300%] flex items-center  transition-all duration-300 ${translateModal()}`}
       >
-        <div className="flex-1">
+        <div className="flex-1" ref={refs["signup"]}>
           <SignUp
-            ref={signUpcontainerRef}
             onClose={handlCloseSingUpPopupClick}
             setAuthView={setAuthView}
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1" ref={refs["login"]}>
           <Login
             onClose={handlCloseSingUpPopupClick}
             setAuthView={setAuthView}
           />
         </div>
-        <div className="flex-1">
+        <div className="flex-1" ref={refs["forgotPassword"]}>
           <ForgotPassword
             onClose={handlCloseSingUpPopupClick}
             setAuthView={setAuthView}

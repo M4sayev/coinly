@@ -5,13 +5,9 @@ import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
 import type { AuthViewProps } from "../../../types/auth";
 
-function SignUp(
-  { onClose, setAuthView }: AuthViewProps,
-  ref: Ref<HTMLDivElement | null>
-) {
+function SignUp({ onClose, setAuthView }: AuthViewProps) {
   return (
     <div
-      ref={ref}
       className={cn(
         "bg-[var(--color-modal)] rounded-2xl border border-[rgba(30,33,40,0.8)]",
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)] backdrop-blur-lg"
@@ -28,4 +24,4 @@ function SignUp(
   );
 }
 
-export default forwardRef(SignUp);
+export default SignUp;
