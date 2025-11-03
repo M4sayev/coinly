@@ -10,14 +10,9 @@ import {
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
 import ForgotPasswordHeader from "./ForgotPasswordHeader";
-import type { AuthView } from "../AuthDialog";
+import type { AuthViewProps } from "../../../types/auth";
 
-interface ForgotPasswordProps {
-  onClose: () => void;
-  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
-}
-
-function ForgotPassword({ onClose, setAuthView }: ForgotPasswordProps) {
+function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
   const {
     register,
     handleSubmit,

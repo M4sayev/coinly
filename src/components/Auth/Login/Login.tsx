@@ -3,14 +3,9 @@ import AuthHeader from "../AuthHeader";
 import AuthFooter from "../AuthFooter";
 import { cn } from "../../../utils/utils";
 import LoginForm from "./LoginForm";
-import type { AuthView } from "../AuthDialog";
+import type { AuthViewProps } from "../../../types/auth";
 
-interface LoginProps {
-  onClose: () => void;
-  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
-}
-
-function Login({ onClose, setAuthView }: LoginProps) {
+function Login({ onClose, setAuthView }: AuthViewProps) {
   return (
     <div
       className={cn(

@@ -3,15 +3,10 @@ import { cn } from "../../../utils/utils";
 import SignUpForm from "./SignUpForm";
 import AuthFooter from "../AuthFooter";
 import AuthHeader from "../AuthHeader";
-import type { AuthView } from "../AuthDialog";
-
-interface SingUpProps {
-  onClose: () => void;
-  setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
-}
+import type { AuthViewProps } from "../../../types/auth";
 
 function SignUp(
-  { onClose, setAuthView }: SingUpProps,
+  { onClose, setAuthView }: AuthViewProps,
   ref: Ref<HTMLDivElement | null>
 ) {
   return (

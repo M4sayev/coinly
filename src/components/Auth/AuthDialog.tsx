@@ -8,8 +8,7 @@ import useClickOutside from "../../hooks/useClickOutside";
 import SignUp from "./SingUp/SignUp";
 import Login from "./Login/Login";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
-
-export type AuthView = "signup" | "login" | "forgotPassword";
+import type { AuthView } from "../../types/auth";
 
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);

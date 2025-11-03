@@ -8,7 +8,7 @@ import {
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
-import type { AuthView } from "../AuthDialog";
+import type { AuthView } from "../../../types/auth";
 
 interface LoginFormProps {
   setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
