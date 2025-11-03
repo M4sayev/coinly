@@ -40,7 +40,13 @@ button {
 }
 
 dialog::backdrop {
-  @apply bg-black opacity-50;
+  @apply bg-black opacity-40;
+}
+body:has(dialog[open]) {
+  filter: blur(15px);
+  /* to remove the white borders caused by blur */
+  transform: scale(1.2);
+  overflow: hidden;
 }
 :root {
   --clr-shadow: #171a1f;

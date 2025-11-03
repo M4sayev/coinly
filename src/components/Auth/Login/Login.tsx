@@ -14,7 +14,7 @@ function Login({ onClose, setAuthView }: LoginProps) {
   return (
     <div
       className={cn(
-        "bg-[var(--color-modal)] rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] border border-[rgba(30,33,40,0.8)]",
+        "bg-[var(--color-modal)] rounded-2xl border border-[rgba(30,33,40,0.8)]",
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >

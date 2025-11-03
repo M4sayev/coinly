@@ -59,10 +59,10 @@ function AuthDialog() {
       ref={dialogRef}
       onCancel={handlCloseSingUpPopupClick}
       titleId="Signup"
-      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent rounded-2xl w-full max-w-96 lg:max-w-lg focus:outline-none overflow-hidden backdrop-blur-lg"
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent rounded-2xl w-full max-w-96 lg:max-w-lg focus:outline-none overflow-hidden "
     >
       <div
-        className={`w-[300%] flex items-center transition-all duration-300 ${translateModal()}`}
+        className={`w-[300%] flex items-center  transition-all duration-300 ${translateModal()}`}
       >
         <div className="flex-1">
           <SignUp

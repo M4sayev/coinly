@@ -1,6 +1,7 @@
 import { CornerDownRight, X } from "lucide-react";
 import React from "react";
 import { cn } from "../../utils/utils";
+import CloseButton from "../UI/CloseButton";
 
 interface AuthHeaderProps {
   onCloseDialog: () => void;
@@ -25,17 +26,10 @@ function AuthHeader({
         <CornerDownRight aria-hidden="true" />
         <p>{promptText}</p>
       </div>
-      <button
-        className={cn(
-          "absolute top-7 right-7 cursor-pointer text-2xl text-[var(--color-neutral-100)]",
-          " transition-all duration-300 ease-in-out",
-          "hover:text-accent hover:scale-120"
-        )}
-        aria-label={`Close ${actionText} dialog`}
-        onClick={onCloseDialog}
-      >
-        <X aria-hidden="true" />
-      </button>
+      <CloseButton
+        onClose={onCloseDialog}
+        actionText={`Close ${actionText} dialog`}
+      />
     </header>
   );
 }
