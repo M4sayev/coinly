@@ -7,7 +7,7 @@ import {
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
 import ActionButton from "../../UI/ActionButton";
-import AgreeToTerms from "../../UI/form/AgreeToTerms";
+import TermsAndPolicy from "../../UI/form/TermsAndPolicy";
 
 function SignUpForm() {
   const {
@@ -53,11 +53,12 @@ function SignUpForm() {
         }}
         showForgot={false}
       />
-      <AgreeToTerms
+      <TermsAndPolicy
         register={register}
         id="agreeToTerms"
         rules={{
-          required: "You have to agree to our terms to proceed.",
+          required:
+            "You have to agree to our terms and privacy policy to proceed.",
         }}
         error={errors.agreeToTerms}
       />
