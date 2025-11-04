@@ -1,4 +1,3 @@
-import React, { forwardRef, type Ref } from "react";
 import AuthHeader from "../AuthHeader";
 import AuthFooter from "../AuthFooter";
 import { cn } from "../../../utils/utils";

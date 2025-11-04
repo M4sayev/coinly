@@ -44,8 +44,6 @@ function AuthDialog() {
     }
   }, [isOpen]);
 
-  useTrapFocus(dialogRef, isOpen);
-
   function translateModal() {
     if (authView === "forgotPassword") {
       return "-translate-x-2/3";
@@ -56,9 +54,9 @@ function AuthDialog() {
     return "";
   }
 
-  useEffect(() => console.log(authView));
-
   useClickOutside(refs[authView], handlCloseSingUpPopupClick);
+
+  useTrapFocus(refs[authView], isOpen);
 
   return (
     <Modal

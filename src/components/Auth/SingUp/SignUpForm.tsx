@@ -1,4 +1,3 @@
-import React from "react";
 import PasswordField from "../../UI/form/PasswordField";
 import FormElement from "../../UI/form/FormElement";
 import {

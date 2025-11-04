@@ -1,6 +1,4 @@
-import React, { forwardRef, type Ref } from "react";
 import { cn } from "../../../utils/utils";
-import { X } from "lucide-react";
 import ActionButton from "../../UI/ActionButton";
 import FormElement from "../../UI/form/FormElement";
 import {
