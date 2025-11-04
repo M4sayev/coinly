@@ -6,7 +6,7 @@ type RefType = HTMLDialogElement | HTMLDivElement | null;
 
 export const useTrapFocus = (
   ref: React.RefObject<RefType>,
-  isOpen: boolean
+  active: boolean
 ) => {
   const trapRef = useRef<FocusTrap | null>(null);
 
@@ -21,12 +21,14 @@ export const useTrapFocus = (
         clickOutsideDeactivates: true,
         fallbackFocus: element,
       });
+    } else {
+      trapRef.current.updateContainerElements(element);
     }
 
-    if (isOpen) {
+    if (active) {
       trapRef.current.activate();
     } else {
       trapRef.current.deactivate();
     }
-  }, [isOpen, ref]);
+  }, [active, ref]);
 };
