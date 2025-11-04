@@ -1,8 +1,12 @@
-import React from "react";
-import type { AgreeToTermsProps } from "../../../types/form";
+import type { FormElementProps, TermKeysToRemove } from "../../../types/form";
 import { errorClasses } from "../../../constants/form";
 
-function AgreeToTerms({ id, register, error, rules }: AgreeToTermsProps) {
+function AgreeToTerms({
+  id,
+  register,
+  error,
+  rules,
+}: Omit<FormElementProps, TermKeysToRemove>) {
   return (
     <div>
       <label className="flex gap-2 cursor-pointer">

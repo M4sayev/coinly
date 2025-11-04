@@ -1,6 +1,4 @@
-import { CornerDownRight, X } from "lucide-react";
-import React from "react";
-import { cn } from "../../utils/utils";
+import { CornerDownRight } from "lucide-react";
 import CloseButton from "../UI/CloseButton";
 
 interface AuthHeaderProps {

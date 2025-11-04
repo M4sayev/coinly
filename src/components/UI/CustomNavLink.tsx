@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-interface NavLinkProps extends React.PropsWithChildren<{}> {
+interface NavLinkProps extends React.PropsWithChildren {
   to: string;
 }
 

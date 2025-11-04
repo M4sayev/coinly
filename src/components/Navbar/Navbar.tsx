@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Logo from "../../assets/logo.svg?react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
@@ -31,9 +31,9 @@ function Navbar() {
     else handleCloseMobileNav();
   };
 
-  const handleCloseMobileNav = () => {
+  const handleCloseMobileNav = useCallback(() => {
     dispatch(closeSidebar());
-  };
+  }, [dispatch]);
 
   // Close the sidebar if the window is resized to a bigger while its open
   useEffect(() => {
@@ -46,7 +46,7 @@ function Navbar() {
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isSidebarOpen]);
+  }, [isSidebarOpen, handleCloseMobileNav]);
 
   return (
     <nav className="fixed left-0 right-0 z-10 ">

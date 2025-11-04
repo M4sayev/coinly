@@ -3,7 +3,7 @@ import React from "react";
 type ButtonVariant = "primary" | "secondary";
 type ButtonType = "button" | "submit";
 
-interface ActionButtonProps extends React.PropsWithChildren<{}> {
+interface ActionButtonProps extends React.PropsWithChildren {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: ButtonVariant;
   type?: ButtonType;

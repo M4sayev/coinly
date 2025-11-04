@@ -139,7 +139,7 @@ const Particles: React.FC<CanvasProps> = (props) => {
       window.removeEventListener("resize", handleResize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [props.img]);
+  });
 
   return <canvas ref={canvasRef} {...props} />;
 };

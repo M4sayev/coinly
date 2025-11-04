@@ -3,7 +3,7 @@ import type {
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
-import type { AuthView } from "../components/Auth/AuthDialog";
+import type { AuthView } from "../types/auth";
 
 export type FormValues = {
   emailLogin: string;
@@ -30,6 +30,3 @@ export interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
 }
 
 export type TermKeysToRemove = "type" | "label" | "placeholder";
-
-export interface AgreeToTermsProps
-  extends Omit<FormElementProps, TermKeysToRemove> {}

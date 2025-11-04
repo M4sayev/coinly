@@ -1,6 +1,6 @@
 import React, { forwardRef, type Ref } from "react";
 
-interface ModalProps extends React.PropsWithChildren<{}> {
+interface ModalProps extends React.PropsWithChildren {
   onCancel: () => void;
   titleId: string;
   className?: string;
