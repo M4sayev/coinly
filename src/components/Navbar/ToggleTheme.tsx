@@ -7,12 +7,6 @@ function ToggleTheme() {
   const dispatch = useAppDispatch();
   const theme = useAppSelector((state) => state.ui.theme);
 
-  useEffect(() => {
-    const html = document.documentElement;
-    const currentTheme = (html.dataset.theme as "dark" | "light") || "light";
-    dispatch(setTheme(currentTheme));
-  }, [dispatch]);
-
   function toggleTheme() {
     const html = document.documentElement;
     const newTheme = theme === "light" ? "dark" : "light";

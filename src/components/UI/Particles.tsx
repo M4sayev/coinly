@@ -44,6 +44,7 @@ const Particles: React.FC<CanvasProps> = (props) => {
     const scale = window.devicePixelRatio || 1;
     const rect = canvas.getBoundingClientRect();
 
+    // handle 0 0 when resize from mobile to desktop
     if (rect.width === 0 || rect.height === 0) {
       requestAnimationFrame(initCanvas);
       return;
