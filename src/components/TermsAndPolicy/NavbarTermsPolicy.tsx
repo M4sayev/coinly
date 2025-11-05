@@ -6,9 +6,10 @@ import { formatPage } from "../../utils/utils";
 
 interface NavbarTermsPolicyProps {
   page: string;
+  filename: string;
 }
 
-function NavbarTermsPolicy({ page }: NavbarTermsPolicyProps) {
+function NavbarTermsPolicy({ page, filename }: NavbarTermsPolicyProps) {
   return (
     <nav>
       <div className="absolute left-0 right-0 max-w-7xl mx-auto flex justify-between items-center px-6 py-6 font-roboto ">
@@ -25,9 +26,9 @@ function NavbarTermsPolicy({ page }: NavbarTermsPolicyProps) {
           </span>
         </div>
         <a
-          href="/Terms.pdf"
-          download={"Terms.pdf"}
-          aria-label="Download out Terms"
+          href={`/${filename}.pdf`}
+          download={`${filename}.pdf`}
+          aria-label={`Download our ${filename}`}
         >
           <ActionButton variant="secondary">Download PDF</ActionButton>
         </a>

@@ -7,7 +7,7 @@ import { cn } from "../utils/utils";
 function Terms() {
   return (
     <main className="m-auto max-w-7xl text-roboto">
-      <NavbarTermsPolicy page="terms-and-conditions" />
+      <NavbarTermsPolicy page="terms-and-conditions" filename="Terms" />
       <TermsPolicyHeader
         text="Terms & Conditions"
         dateOfEffectiveness="November 11 2025"
