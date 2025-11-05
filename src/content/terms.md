@@ -40,4 +40,4 @@ These Terms are governed by the laws of **[Your Country/State]**, without regard
 
 ## 10. Contact Us
 
-For questions or support inquiries, contact us at: elvin.musayev.89@mail.ru
+For questions or support inquiries, contact us: elvin.musayev.89@mail.ru

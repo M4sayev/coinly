@@ -1,5 +1,4 @@
 import { Moon, Sun } from "lucide-react";
-import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setTheme } from "../../state/ui/uiSlice";
 

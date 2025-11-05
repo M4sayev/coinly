@@ -24,7 +24,13 @@ function NavbarTermsPolicy({ page }: NavbarTermsPolicyProps) {
             {formatPage(page)}
           </span>
         </div>
-        <ActionButton variant="secondary">Download PDF</ActionButton>
+        <a
+          href="/Terms.pdf"
+          download={"Terms.pdf"}
+          aria-label="Download out Terms"
+        >
+          <ActionButton variant="secondary">Download PDF</ActionButton>
+        </a>
       </div>
     </nav>
   );

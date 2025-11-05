@@ -15,12 +15,12 @@ function Terms() {
 
       <div
         className={cn(
-          "flex flex-col px-12 gap-4 text-shadow-black mt-4 md:mt-10 max-w-[100ch] m-auto",
+          "flex flex-col px-12 gap-4 text-shadow-black mt-7 md:mt-10 max-w-[100ch] m-auto",
           "[&>h1]:font-bold [&>h2]:font-bold [&>h1]:text-xl [&>h2]:text-lg"
         )}
       >
-        <div>
-          <h1 className="text-2xl font-bold mb-10 mt-4 md:text-3xl ">
+        <div className="pb-10 mb-8 border-b ">
+          <h1 className="text-2xl font-bold mb-5 mt-8 md:text-3xl ">
             Summary of our terms
           </h1>
           <p>
@@ -36,6 +36,7 @@ function Terms() {
           </p>
         </div>
         <Markdown>{terms}</Markdown>
+        <div className="p-3"></div>
       </div>
     </main>
   );
