@@ -12,5 +12,13 @@ export default defineConfig({
     }),
     tailwindcss(),
     svgr(),
+    {
+      name: "mardown-loader",
+      transform(code, id) {
+        if (id.slice(-3) === ".md") {
+          return `export default ${JSON.stringify(code)};`;
+        }
+      },
+    },
   ],
 });
