@@ -6,7 +6,8 @@ import { coinImages } from "../../../constants/coinImages";
 
 function Header() {
   const currency = useAppSelector((state) => state.ui.currency);
-  const CoinMobile = coinImages[currency] || coinImages["bitcoin"];
+  const CoinMobile =
+    coinImages[currency.toLowerCase()] || coinImages["bitcoin"];
 
   return (
     <header className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full bg-[image:var(--gradient-bg)] flex items-center justify-center overflow-hidden">

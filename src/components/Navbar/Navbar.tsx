@@ -11,15 +11,15 @@ import {
   setCurrency,
 } from "../../state/ui/uiSlice";
 import MobileSidebar from "./MobileSidebar";
-import SelectInput from "../UI/SelectInput";
 import { currencies } from "../../constants/currencies";
 import { LogIn } from "lucide-react";
 import AuthDialog from "../Auth/AuthDialog";
 import ToggleTheme from "./ToggleTheme";
+import SelectDropdown from "../UI/SelectDropdown";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
-  const currecy = useAppSelector((state) => state.ui.currency);
+  const currency = useAppSelector((state) => state.ui.currency);
   const dispatch = useAppDispatch();
 
   const handleSignUpClick = () => {
@@ -58,13 +58,14 @@ function Navbar() {
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
         </div>
-        <div className="hidden md:flex gap-5">
-          <SelectInput
+        <div className="hidden md:flex gap-5 h-full">
+          <SelectDropdown
             id="currency"
-            value={currecy}
+            value={currency}
             options={currencies}
             onChange={(value) => dispatch(setCurrency(value))}
           />
+
           <div className="group">
             <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
               Sign up

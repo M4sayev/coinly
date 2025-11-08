@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import CustomNavLink from "../UI/CustomNavLink";
 import ActionButton from "../UI/ActionButton";
-import SelectCurrency from "../UI/SelectInput";
 import { currencies } from "../../constants/currencies";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setCurrency } from "../../state/ui/uiSlice";
@@ -9,6 +8,7 @@ import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
 import ToggleTheme from "./ToggleTheme";
+import SelectDropdown from "../UI/SelectDropdown";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -47,7 +47,7 @@ function MobileSidebar({
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
           <div className="mt-3 flex flex-col gap-2">
-            <SelectCurrency
+            <SelectDropdown
               id="currency"
               value={currency}
               options={currencies}

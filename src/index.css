@@ -13,6 +13,7 @@
   --color-neutral-100: #f3f4f6ff;
   --color-neutral-200: #bdc1caff;
   --color-neutral-300: #9095a0;
+  --color-neutral-900: #000000be;
   --color-accent-dblue: #00124d;
   --color-red-accent: #ef4444ff;
   --color-green-accent: #22c55eff;
@@ -69,6 +70,8 @@ html[data-theme="light"] {
   --color-red-accent: #ab1313;
   --color-secondary-600: #d1d5db;
   --color-secondary-300: #d1d5db;
+
+  --color-neutral-900: #e4e9f3ca;
 
   --color-green-accent: rgb(41, 120, 70);
 
