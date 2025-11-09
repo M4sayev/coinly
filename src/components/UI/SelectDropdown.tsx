@@ -26,7 +26,13 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
     <div>
       <Listbox value={value} onChange={onChange}>
         <div className="relative h-full">
-          <ListboxButton className="relative cursor-pointer appearance-none border rounded-md px-4 py-1 pr-8 text-[var(--color-accent)] focus:ring-2 transition-colors h-full">
+          <ListboxButton
+            className={cn(
+              "h-full px-4 py-1 pr-8 appearance-none border rounded-md",
+              " bg-[var(--color-neutral-900)] text-[var(--color-accent)]",
+              "focus:ring-2 transition-colors relative cursor-pointer"
+            )}
+          >
             <span>{value}</span>
             <ChevronDown
               className="absolute top-1/2 -translate-y-1/2 right-2 h-5 w-5 text-[var(--color-accent)]"
@@ -41,7 +47,13 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
           >
             <ListboxOptions
               modal={false}
-              className="text-center absolute bg-[var(--color-neutral-900)] backdrop-blur-sm  border-[var(--color-accent)] border text-[var(--color-accent)] mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 focus:outline-none sm:text-sm"
+              className={cn(
+                "absolute bg-[var(--color-neutral-900)] backdrop-blur-sm",
+                "border-[var(--color-accent)] border rounded-md text-[var(--color-accent)]",
+                "mt-1 max-h-60 w-full py-1 shadow-lg",
+                "ring-1 focus:outline-none overflow-auto",
+                "sm:text-sm text-base text-center"
+              )}
             >
               {options.map((option) => (
                 <ListboxOption
