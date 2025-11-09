@@ -1,5 +1,3 @@
-import React from "react";
-
 interface HamburgerProps {
   onOpenMobileNav: () => void;
   isSidebarOpen: boolean;
@@ -10,9 +8,10 @@ function Hamburger({ onOpenMobileNav, isSidebarOpen }: HamburgerProps) {
     <button
       onClick={onOpenMobileNav}
       aria-haspopup="true"
+      aria-controls="mobile-sidebar"
       aria-expanded={isSidebarOpen}
       aria-label="Open menu"
-      className="pl-1 w-9 h-9 z-20 fixed top-3 right-5"
+      className="pl-1 w-9 h-9 z-20 fixed top-[10px] right-5"
     >
       <svg stroke="#668aff" fill="none" viewBox="2 -5 115 105">
         <path

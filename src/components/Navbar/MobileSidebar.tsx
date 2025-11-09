@@ -33,17 +33,23 @@ function MobileSidebar({
   useClickOutside(sidebarRef, onCloseMobileNav, isSignUpOpen);
 
   return (
-    <aside ref={sidebarRef}>
+    <div
+      ref={sidebarRef}
+      aria-label="Mobile navigation menu"
+      role="dialog"
+      aria-modal="true"
+      id="mobile-sidebar"
+    >
       <Hamburger
         isSidebarOpen={isSidebarOpen}
         onOpenMobileNav={onHamburgerClick}
       />
-      <div
+      <aside
         className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
           isSidebarOpen ? "top-0" : "-top-200"
         }`}
       >
-        <div className="flex flex-col gap-4">
+        <nav className="flex flex-col gap-4">
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
           <div className="mt-3 flex flex-col gap-2">
@@ -60,9 +66,9 @@ function MobileSidebar({
             </div>
           </div>
           <ToggleTheme />
-        </div>
-      </div>
-    </aside>
+        </nav>
+      </aside>
+    </div>
   );
 }
 

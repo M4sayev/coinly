@@ -17,7 +17,8 @@ function TermsPolicyHeader({ text, dateOfEffectiveness }: HeaderProps) {
         <div></div>
       </div>
       <div className="bg-black text-white text-center font-mono p-7 md:p-10">
-        Effective: {dateOfEffectiveness}
+        Effective:{" "}
+        <time dateTime={dateOfEffectiveness}>{dateOfEffectiveness}</time>
       </div>
     </header>
   );

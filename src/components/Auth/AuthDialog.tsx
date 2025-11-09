@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "../UI/Modal";
 import { closeSignUp } from "../../state/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";

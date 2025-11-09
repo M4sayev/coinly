@@ -1,10 +1,11 @@
-import React from "react";
 import Header from "../components/Home/Header/Header";
+import CoinListPanel from "../components/Home/CoinListPanel/CoinListPanel";
 
 function Home() {
   return (
-    <div>
+    <div className="bg-[image:var(--gradient-bg)]">
       <Header />
+      <CoinListPanel />
     </div>
   );
 }

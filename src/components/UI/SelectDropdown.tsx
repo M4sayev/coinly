@@ -39,7 +39,10 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <ListboxOptions className="text-center absolute bg-[var(--color-neutral-900)] backdrop-blur-sm  border-[var(--color-accent)] border text-[var(--color-accent)] mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 focus:outline-none sm:text-sm">
+            <ListboxOptions
+              modal={false}
+              className="text-center absolute bg-[var(--color-neutral-900)] backdrop-blur-sm  border-[var(--color-accent)] border text-[var(--color-accent)] mt-1 max-h-60 w-full overflow-auto rounded-md py-1 text-base shadow-lg ring-1 focus:outline-none sm:text-sm"
+            >
               {options.map((option) => (
                 <ListboxOption
                   key={id}

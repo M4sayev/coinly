@@ -1,4 +1,3 @@
-import React from "react";
 import SocialAuthButtons from "./OAuthButtons";
 
 interface AuthFooterProps {
