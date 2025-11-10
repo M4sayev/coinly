@@ -11,7 +11,7 @@ interface CoinSearchBarProps {
 function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
   const isClearVisible = value ? true : false;
   return (
-    <label className="relative block ">
+    <label className="relative block">
       <Search
         className="absolute w-4 h-4 text-[var(--color-neutral-100)] top-1/2 left-2 -translate-y-1/2 opacity-60 sm:left-3 "
         aria-hidden="true"
