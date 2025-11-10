@@ -29,7 +29,7 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
           <ListboxButton
             className={cn(
               "h-full px-4 py-1 pr-8 appearance-none border rounded-md",
-              " bg-[var(--color-neutral-900)] text-[var(--color-accent)]",
+              " bg-[var(--color-secondary-600)]  text-[var(--color-accent)]",
               "focus:ring-2 transition-colors relative cursor-pointer"
             )}
           >
@@ -48,7 +48,7 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
             <ListboxOptions
               modal={false}
               className={cn(
-                "absolute bg-[var(--color-neutral-900)] backdrop-blur-sm",
+                "absolute bg-[var(--color-secondary-600)] backdrop-blur-sm",
                 "border-[var(--color-accent)] border rounded-md text-[var(--color-accent)]",
                 "mt-1 max-h-60 w-full py-1 shadow-lg",
                 "ring-1 focus:outline-none overflow-auto",

@@ -13,14 +13,14 @@ function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
   return (
     <label className="relative block ">
       <Search
-        className="absolute w-4 h-4 text-[var(--color-neutral-100)] top-1/2 left-2 -translate-y-1/2 opacity-60 lg:left-3"
+        className="absolute w-4 h-4 text-[var(--color-neutral-100)] top-1/2 left-2 -translate-y-1/2 opacity-60 sm:left-3 "
         aria-hidden="true"
       />
       <input
         className={cn(
-          "text-[var(--color-neutral-100)] text-xs px-4 pl-8 py-2 w-full shadow-lg",
-          "border border-[var(--color-neutral-100)] rounded-md ",
-          "sm:py-3 sm:text-sm lg:pl-9"
+          "text-[var(--color-neutral-100)] text-xs px-4 pl-8 py-2 w-full shadow-lg bg-[var(--color-secondary-600)]",
+          "border border-[var(--color-accent-dblue)] rounded-md ",
+          "sm:py-3 sm:text-sm sm:pl-9"
         )}
         type="text"
         name="cryptoSearch"
@@ -37,13 +37,14 @@ function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
             ? "opacity-full pointer-events-auto"
             : "opacity-0 pointer-events-none",
           "absolute top-1/2 right-3 -translate-y-1/2",
-          "transition-all duration-200 ease-in"
+          "transition-all duration-200 ease-in",
+          "sm:right-4"
         )}
         aria-label="Clear the searched cryptocurrency name"
         onClick={onReset}
       >
         <CircleX
-          className="w-4 h-4 2 md:w-4.5 md:h-4.5 text-[var(--color-neutral-100)] opacity-60"
+          className="w-4 h-4 2 sm:w-4.5 sm:h-4.5 text-[var(--color-neutral-100)] opacity-60"
           aria-hidden="true"
         />
       </button>
