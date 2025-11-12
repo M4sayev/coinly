@@ -3,7 +3,7 @@ import type {
   RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
-import type { AuthView } from "../types/auth";
+import type { AuthView } from "./auth";
 
 export type FormValues = {
   emailLogin: string;

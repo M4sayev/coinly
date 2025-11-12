@@ -1,7 +1,13 @@
 import type { MouseEvent } from "react";
 import { cn } from "../../../utils/utils";
 
-function CoinCard() {
+interface CoinProps {
+  symbol: string;
+  current_price: number;
+  img: string;
+}
+
+function CoinCard({ symbol, current_price, img }: CoinProps) {
   const handleOnMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     if (!card) return;
@@ -23,9 +29,12 @@ function CoinCard() {
         "h-[250px] w-full cursor-pointer border border-[var(--color-accent-dblue)] shadow-lg overflow-hidden",
         "before:absolute before:top-0 before:h-full before:w-full before:z-10",
         "before:left-0 before:bg-[image:var(--card-gradient)] before:content-[''] before:opacity-0 before:transition-all before:duration-300",
-        "hover:before:opacity-100"
+        "hover:before:opacity-100 text-white"
       )}
-    ></div>
+    >
+      {`${symbol} : ${current_price}`}
+      <img className="w-8 h-8" src={img} alt={symbol} />
+    </div>
   );
 }
 
