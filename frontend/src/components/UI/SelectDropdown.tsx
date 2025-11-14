@@ -21,7 +21,7 @@ interface DropdownProps {
   value: string;
 }
 
-function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
+function SelectDropdown({ onChange, options, value }: DropdownProps) {
   return (
     <div>
       <Listbox value={value} onChange={onChange}>
@@ -57,7 +57,7 @@ function SelectDropdown({ id, onChange, options, value }: DropdownProps) {
             >
               {options.map((option) => (
                 <ListboxOption
-                  key={id}
+                  key={option.id}
                   value={option.displayName}
                   className={cn(
                     "cursor-pointer select-none px-3 py-2",

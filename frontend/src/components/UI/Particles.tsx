@@ -42,7 +42,7 @@ const Particles: React.FC<CanvasProps> = ({ inView, ...props }) => {
     const ctx = canvas?.getContext("2d");
 
     if (!ctx || !canvas) return;
-    const scale = window.devicePixelRatio || 1;
+    const scale = 1;
     const rect = canvas.getBoundingClientRect();
 
     // handle 0 0 when resize from mobile to desktop
