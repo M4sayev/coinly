@@ -1,13 +1,15 @@
 import type { MouseEvent } from "react";
 import { cn } from "../../../utils/utils";
+import type { Coin } from "../../../services/coinsApi";
 
-interface CoinProps {
-  symbol: string;
-  current_price: number;
-  img: string;
-}
-
-function CoinCard({ symbol, current_price, img }: CoinProps) {
+function CoinCard({
+  symbol,
+  current_price,
+  image,
+  name,
+  price_change_percentage_24h,
+  market_cap,
+}: Coin) {
   const handleOnMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
     if (!card) return;
@@ -21,20 +23,33 @@ function CoinCard({ symbol, current_price, img }: CoinProps) {
     card.style.setProperty("--mouse-y", `${y}px`);
   };
   return (
-    <div
+    <article
       onMouseMove={handleOnMouseMove}
       className={cn(
         "card",
         "relative bg-[var(--color-secondary-600)] rounded-md",
         "h-[250px] w-full cursor-pointer border border-[var(--color-accent-dblue)] shadow-lg overflow-hidden",
-        "before:absolute before:top-0 before:h-full before:w-full before:z-10",
+        "before:absolute before:top-0 before:h-full before:w-full before:z-0",
         "before:left-0 before:bg-[image:var(--card-gradient)] before:content-[''] before:opacity-0 before:transition-all before:duration-300",
         "hover:before:opacity-100 text-white"
       )}
     >
-      {`${symbol} : ${current_price}`}
-      <img className="w-8 h-8" src={img} alt={symbol} />
-    </div>
+      <header>
+        <img className="w-8 h-8" src={image} alt={name} />
+        <div>
+          <h3>{name}</h3>
+          <p>{symbol}</p>
+        </div>
+      </header>
+      <section>
+        <div>{current_price}</div>
+        <div>{price_change_percentage_24h}%</div>
+      </section>
+      <footer>
+        <p>market cap</p>
+        <div>{market_cap}</div>
+      </footer>
+    </article>
   );
 }
 

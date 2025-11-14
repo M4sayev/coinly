@@ -81,7 +81,7 @@ const Particles: React.FC<CanvasProps> = ({ inView, ...props }) => {
             particles.push({
               x: Math.random() * rect.width,
               y: Math.random() * rect.height,
-              tx: x * IMG_SCALE + leftOffset,
+              tx: x * IMG_SCALE,
               ty: y * IMG_SCALE + topOffset,
             });
           }

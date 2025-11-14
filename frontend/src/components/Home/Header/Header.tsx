@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "../../../utils/utils";
 import Particles from "../../UI/Particles";
 import { useAppSelector } from "../../../hooks/reduxHooks";
@@ -14,16 +13,15 @@ function Header() {
   return (
     <header
       ref={ref}
-      className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden"
+      className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-8xl"
     >
-      <Particles
-        inView={inView}
-        img={currency}
-        aria-hidden="true"
-        className="w-full h-full absolute top-0 hidden lg:block"
-      />
-
       <div className="max-w-7xl mx-auto w-full h-140 flex items-center justify-center lg:justify-between gap-10 px-4 py-12">
+        <Particles
+          inView={inView}
+          img={currency}
+          aria-hidden="true"
+          className="absolute w-full h-full top-0 hidden lg:block aspect-square"
+        />
         <div className="absolute lg:relative flex justify-center z-0 max-w-lg gap-4 lg:ml-10 w-full h-full">
           <CoinMobile
             aria-hidden="true"

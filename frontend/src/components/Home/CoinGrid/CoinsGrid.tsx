@@ -21,14 +21,7 @@ function CoinsGrid() {
       >
         {isLoading
           ? "loading"
-          : newData?.map((coin) => (
-              <CoinCard
-                key={coin.id}
-                current_price={coin.current_price}
-                symbol={coin.symbol}
-                img={coin.image}
-              />
-            ))}
+          : newData?.map((coin) => <CoinCard key={coin.id} {...coin} />)}
       </div>
     </div>
   );
