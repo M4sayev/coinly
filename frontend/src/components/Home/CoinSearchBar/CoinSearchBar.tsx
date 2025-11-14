@@ -18,8 +18,8 @@ function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
       />
       <input
         className={cn(
-          "text-[var(--color-neutral-100)] text-xs px-4 pl-8 py-2 w-full shadow-lg bg-[var(--color-secondary-600)]",
-          "border border-[var(--color-accent-dblue)] rounded-md ",
+          "text-[var(--color-neutral-100)] text-xs px-4 pl-8 py-2.5 w-full shadow-lg bg-[var(--color-secondary-600)]",
+          "border border-[var(--color-accent-dblue)] rounded-xl ",
           "sm:py-3 sm:text-sm sm:pl-9"
         )}
         type="text"

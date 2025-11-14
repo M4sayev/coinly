@@ -12,7 +12,6 @@ import {
 interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   img: keyof typeof IMAGE_MAP;
   color?: string;
-  inView: boolean;
 }
 
 interface Particle {
@@ -32,7 +31,7 @@ function moveParticle(p: Particle, speed: number) {
   p.y += (p.ty - p.y) * speed;
 }
 
-const Particles: React.FC<CanvasProps> = ({ inView, ...props }) => {
+const Particles: React.FC<CanvasProps> = ({ ...props }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rerenderedRef = useRef<boolean>(false);
   let animationFrameId: number;
@@ -89,7 +88,7 @@ const Particles: React.FC<CanvasProps> = ({ inView, ...props }) => {
       }
 
       function render() {
-        if (!ctx || !inView) return;
+        if (!ctx) return;
         ctx.clearRect(0, 0, rect.width, rect.height);
 
         ctx.globalCompositeOperation = "source-in";

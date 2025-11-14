@@ -2,23 +2,16 @@ import { cn } from "../../../utils/utils";
 import Particles from "../../UI/Particles";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { coinImages } from "../../../constants/coinImages";
-import { useInView } from "react-intersection-observer";
 
 function Header() {
   const currency = useAppSelector((state) => state.ui.currency);
   const CoinMobile =
     coinImages[currency.toLowerCase()] || coinImages["bitcoin"];
 
-  const [ref, inView] = useInView();
-
   return (
-    <header
-      ref={ref}
-      className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto"
-    >
+    <header className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto">
       <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 py-12">
         <Particles
-          inView={inView}
           img={currency}
           aria-hidden="true"
           className="absolute w-full h-full top-0 left-0 hidden lg:block aspect-square py-5"
