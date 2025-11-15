@@ -44,8 +44,10 @@ function CoinCard({
     >
       <header className="flex gap-3 items-center mb-3">
         <img className="w-10 h-10" src={image} alt={`${name} icon`} />
-        <div>
-          <h3 className=" text-lg sm:text-xl font-mono font-bold">{name}</h3>
+        <div className="w-full overflow-hidden">
+          <h3 className="text-lg sm:text-xl font-mono font-bold text-nowrap">
+            {name}
+          </h3>
           <span className="text-[var(--color-neutral-200)] text-xs ">
             {symbol.toUpperCase()}
           </span>

@@ -2,12 +2,13 @@ const axios = require("axios");
 
 const getCoins = async (req, res) => {
   const { currency } = req.query;
+  const page = Number(req.query.page) || 1;
 
   try {
     const { data } = await axios.get(
       `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${
         currency || "btc"
-      }&order=market_cap_desc&per_page=50&page=1&sparkline=false`,
+      }&order=market_cap_desc&per_page=50&page=${page}&sparkline=false`,
       {
         headers: { "x-cg-demo-api-key": process.env.CG_API_KEY },
       }
