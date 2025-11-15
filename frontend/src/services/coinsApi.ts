@@ -16,7 +16,11 @@ export const coinsApi = createApi({
     baseUrl: "http://192.168.100.184:5000/api/v1/",
   }),
   endpoints: (builder) => ({
-    getCoins: builder.infiniteQuery<Coin[], { currency: string }, number>({
+    getCoins: builder.infiniteQuery<
+      Coin[],
+      { currency: string; search?: string },
+      number
+    >({
       infiniteQueryOptions: {
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
@@ -26,7 +30,9 @@ export const coinsApi = createApi({
       },
 
       query: ({ queryArg, pageParam }) =>
-        `market?currency=${queryArg.currency.toLowerCase()}&page=${pageParam}`,
+        `market?currency=${queryArg.currency.toLowerCase()}&search=${
+          queryArg.search ?? ""
+        }&page=${pageParam}`,
     }),
   }),
 });

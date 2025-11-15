@@ -3,12 +3,19 @@ import { cn } from "../../../utils/utils";
 import { useGetCoinsInfiniteQuery } from "../../../services/coinsApi";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import ActionButton from "../../UI/ActionButton";
+import { BeatLoader, ClipLoader } from "react-spinners";
 
-function CoinsGrid() {
+interface CoinsGridProps {
+  searchQuery: string;
+}
+
+function CoinsGrid({ searchQuery }: CoinsGridProps) {
   const currency = useAppSelector((state) => state.ui.currency);
-  const { data, isLoading, fetchNextPage } = useGetCoinsInfiniteQuery({
-    currency,
-  });
+  const { data, isLoading, fetchNextPage, isFetching } =
+    useGetCoinsInfiniteQuery({
+      currency,
+      search: searchQuery,
+    });
 
   const allResults = data?.pages.flat() ?? [];
 
@@ -17,7 +24,15 @@ function CoinsGrid() {
   };
 
   if (isLoading && !data) {
-    return <div>Loading...</div>;
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className="text-[var(--color-accent-dblue)] font-mono grid place-items-center h-1/2"
+      >
+        <ClipLoader color="#1e3a8a" loading={isLoading} />
+      </div>
+    );
   }
 
   return (
@@ -35,12 +50,18 @@ function CoinsGrid() {
           </li>
         ))}
       </ul>
-      <div className="flex justify-center">
-        {
+      <div
+        className="flex justify-center"
+        aria-busy={isFetching}
+        aria-live="polite"
+      >
+        {isFetching ? (
+          <BeatLoader color="#1e3a8a" />
+        ) : (
           <ActionButton variant="secondary" onClick={() => handleNextPage()}>
-            load more
+            Load More
           </ActionButton>
-        }
+        )}
       </div>
     </div>
   );

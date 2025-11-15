@@ -3,9 +3,11 @@ import CoinSearchBar from "../components/Home/CoinSearchBar/CoinSearchBar";
 import { cn } from "../utils/utils";
 import { useState, type ChangeEvent } from "react";
 import CoinsGrid from "../components/Home/CoinsGrid/CoinsGrid";
+import { useDebounce } from "use-debounce";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearchQuery] = useDebounce(searchQuery, 200);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -33,7 +35,7 @@ function Home() {
           onReset={handleResetSearch}
         />
       </section>
-      <CoinsGrid />
+      <CoinsGrid searchQuery={debouncedSearchQuery} />
     </main>
   );
 }
