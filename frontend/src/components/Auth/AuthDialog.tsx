@@ -9,6 +9,7 @@ import SignUp from "./SingUp/SignUp";
 import Login from "./Login/Login";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import type { AuthView } from "../../types/auth";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -24,7 +25,7 @@ function AuthDialog() {
 
   const isOpen = useAppSelector((state) => state.ui.isSignUpModalOpen);
 
-  const handlCloseSingUpPopupClick = () => {
+  const handlCloseSingUpPopup = () => {
     dispatch(closeSignUp());
   };
 
@@ -44,6 +45,8 @@ function AuthDialog() {
     }
   }, [isOpen]);
 
+  useEscapeKey(() => handlCloseSingUpPopup());
+
   function translateModal() {
     if (authView === "forgotPassword") {
       return "-translate-x-2/3";
@@ -54,14 +57,14 @@ function AuthDialog() {
     return "";
   }
 
-  useClickOutside(refs[authView], handlCloseSingUpPopupClick);
+  useClickOutside(refs[authView], handlCloseSingUpPopup);
 
   useTrapFocus(refs[authView], isOpen);
 
   return (
     <Modal
       ref={dialogRef}
-      onCancel={handlCloseSingUpPopupClick}
+      onCancel={handlCloseSingUpPopup}
       titleId="Signup"
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent rounded-2xl w-full max-w-96 lg:max-w-lg focus:outline-none overflow-hidden "
     >
@@ -69,20 +72,14 @@ function AuthDialog() {
         className={`w-[300%] flex items-center  transition-all duration-300 ${translateModal()}`}
       >
         <div className="flex-1" ref={refs["signup"]}>
-          <SignUp
-            onClose={handlCloseSingUpPopupClick}
-            setAuthView={setAuthView}
-          />
+          <SignUp onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
         <div className="flex-1" ref={refs["login"]}>
-          <Login
-            onClose={handlCloseSingUpPopupClick}
-            setAuthView={setAuthView}
-          />
+          <Login onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
         <div className="flex-1" ref={refs["forgotPassword"]}>
           <ForgotPassword
-            onClose={handlCloseSingUpPopupClick}
+            onClose={handlCloseSingUpPopup}
             setAuthView={setAuthView}
           />
         </div>

@@ -9,6 +9,7 @@ import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
 import ToggleTheme from "./ToggleTheme";
 import SelectDropdown from "../UI/SelectDropdown";
+import { useEscapeKey } from "../../hooks/useEscapeKey";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -31,6 +32,10 @@ function MobileSidebar({
   useTrapFocus(sidebarRef, isSidebarOpen);
 
   useClickOutside(sidebarRef, onCloseMobileNav, isSignUpOpen);
+
+  useEscapeKey(() => {
+    if (!isSignUpOpen) onCloseMobileNav();
+  });
 
   return (
     <div
