@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import { cn, formatBigNumber } from "../../../utils/utils";
+import { cn, formatBigNumber, formatPercent } from "../../../utils/utils";
 import type { Coin } from "../../../services/coinsApi";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useAppSelector } from "../../../hooks/reduxHooks";
@@ -66,7 +66,7 @@ function CoinCard({
           }`}
         >
           <TrendingIcon aria-hidden="true" className="w-5 h-5" />
-          {parseFloat(price_change_percentage_24h).toFixed(2)}%
+          {formatPercent(parseFloat(price_change_percentage_24h))}
         </span>
       </section>
       <footer className="flex justify-between">
