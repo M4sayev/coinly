@@ -20,6 +20,7 @@ function ToggleTheme() {
       type="button"
       className="text-[var(--color-neutral-100)] transition-all duration-500"
       onClick={toggleTheme}
+      aria-pressed={theme === "dark"}
       aria-label={`Switch the page theme to ${nextTheme}`}
     >
       {theme === "dark" ? (

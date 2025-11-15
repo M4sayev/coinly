@@ -38,7 +38,7 @@ function CoinsGrid({ searchQuery }: CoinsGridProps) {
   }
 
   return (
-    <div>
+    <>
       {!allResults.length ? (
         <EmptyGrid searchQuery={searchQuery} />
       ) : (
@@ -74,7 +74,7 @@ function CoinsGrid({ searchQuery }: CoinsGridProps) {
           </div>
         </>
       )}
-    </div>
+    </>
   );
 }
 

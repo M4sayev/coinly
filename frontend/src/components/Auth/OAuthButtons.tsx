@@ -34,14 +34,17 @@ function SocialAuthButtons() {
     // TODO: integrate with backend or auth SDK
   };
   return (
-    <div>
+    <section>
+      <h2 id="social-signin" className="sr-only">
+        Social sign-in options
+      </h2>
       {/* Divider */}
       <div className="flex items-center justify-center">
-        <span className="flex-1 h-px bg-[var(--color-secondary-300)]"></span>
+        <hr className="flex-1 h-px bg-gray-300" />
         <span className="mx-3 text-xs text-[var(--color-neutral-300)] whitespace-nowrap">
           Or continue with
         </span>
-        <span className="flex-1 h-px bg-[var(--color-secondary-300)]"></span>
+        <hr className="flex-1 h-px bg-gray-300" />
       </div>
       {/* OAuth Buttons */}
       <div className="flex gap-3 items-center justify-center mt-5">
@@ -61,7 +64,7 @@ function SocialAuthButtons() {
           </button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

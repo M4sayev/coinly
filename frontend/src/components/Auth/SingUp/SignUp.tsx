@@ -6,7 +6,7 @@ import type { AuthViewProps } from "../../../types/auth";
 
 function SignUp({ onClose, setAuthView }: AuthViewProps) {
   return (
-    <div
+    <section
       className={cn(
         "bg-[var(--color-modal)] rounded-2xl border border-[rgba(30,33,40,0.8)]",
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)] backdrop-blur-lg"
@@ -19,7 +19,7 @@ function SignUp({ onClose, setAuthView }: AuthViewProps) {
         promptText="Already have an account?"
         actionText="Log In"
       />
-    </div>
+    </section>
   );
 }
 

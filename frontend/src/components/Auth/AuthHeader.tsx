@@ -14,12 +14,12 @@ function AuthHeader({
 }: AuthHeaderProps) {
   return (
     <header className="mb-7">
-      <h1
+      <h2
         id={actionText}
         className="title font-space text-2xl mb-2 lg:text-4xl"
       >
         {actionText}
-      </h1>
+      </h2>
       <div className="flex capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full items-end">
         <CornerDownRight aria-hidden="true" />
         <p>{promptText}</p>

@@ -21,7 +21,7 @@ function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
   const onError: SubmitErrorHandler<FormValues> = (errors) =>
     console.log(errors);
   return (
-    <div
+    <section
       className={cn(
         "rounded-2xl bg-[var(--color-modal)] border border-[rgba(30,33,40,0.8)]",
         "relative overflow-hidden font-roboto text-[var(--color-neutral-100)] p-10"
@@ -50,7 +50,7 @@ function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
           Back to Log In
         </ActionButton>
       </form>
-    </div>
+    </section>
   );
 }
 

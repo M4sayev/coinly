@@ -14,7 +14,7 @@ function Header() {
         <Particles
           img={currency}
           aria-hidden="true"
-          className="absolute w-full h-full top-0 left-0 hidden lg:block aspect-square py-[64px]"
+          className="absolute w-full h-full top-0 left-0 hidden lg:block aspect-square py-10"
         />
         <div className="absolute lg:relative flex justify-center z-0 max-w-lg gap-4 lg:ml-10 w-full h-full">
           <CoinMobile
