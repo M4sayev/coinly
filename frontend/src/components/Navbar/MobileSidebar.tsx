@@ -51,7 +51,7 @@ function MobileSidebar({
       />
       <aside
         className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
-          isSidebarOpen ? "top-0" : "-top-full"
+          isSidebarOpen ? "top-0" : "top-[-105%]"
         }`}
       >
         <nav className="flex flex-col gap-4">

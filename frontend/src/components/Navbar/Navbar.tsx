@@ -49,7 +49,7 @@ function Navbar() {
   }, [isSidebarOpen, handleCloseMobileNav]);
 
   return (
-    <nav className="fixed left-0 right-0 z-10 backdrop-blur-xs">
+    <nav className="fixed left-0 right-0 z-10">
       <div className=" relative max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
         <Link to="/" className="cursor-pointer" aria-label="Go to home page">
           <Logo className="h-8 w-8" />

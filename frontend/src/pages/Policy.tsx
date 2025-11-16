@@ -42,7 +42,7 @@ function Policy() {
           </section>
           <Markdown
             components={{
-              h1: ({ node, ...props }) => <h2 {...props} />,
+              h1: ({ ...props }) => <h2 {...props} />,
             }}
           >
             {privacy}

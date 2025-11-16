@@ -36,7 +36,13 @@ function Terms() {
               updates.
             </p>
           </section>
-          <Markdown>{terms}</Markdown>
+          <Markdown
+            components={{
+              h1: ({ ...props }) => <h2 {...props} />,
+            }}
+          >
+            {terms}
+          </Markdown>
           <div className="p-3"></div>
         </div>
       </div>

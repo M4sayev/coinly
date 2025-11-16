@@ -6,6 +6,9 @@ import "./index.css";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 
+import "@fontsource/roboto-flex";
+import "@fontsource/space-mono";
+
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <StrictMode>

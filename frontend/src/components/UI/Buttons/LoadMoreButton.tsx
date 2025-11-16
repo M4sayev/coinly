@@ -1,5 +1,5 @@
-import { BeatLoader } from "react-spinners";
 import ActionButton from "./ActionButton";
+import SkeletonGrid from "../Coins/SkeletonGrid";
 
 interface LoadMoreButtonProps {
   hasNextPage: boolean;
@@ -26,7 +26,7 @@ function LoadMoreButton({
       aria-hidden={!hasNextPage}
     >
       {isFetching ? (
-        <BeatLoader color="#1e3a8a" />
+        <SkeletonGrid count={10} />
       ) : (
         <ActionButton variant="secondary" onClick={onClick}>
           {label}

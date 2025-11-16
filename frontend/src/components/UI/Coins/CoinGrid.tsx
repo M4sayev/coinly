@@ -1,3 +1,4 @@
+import { HandCoins } from "lucide-react";
 import type { Coin } from "../../../services/coinsApi";
 import { cn } from "../../../utils/utils";
 import CoinCard from "./CoinCard";
@@ -7,7 +8,15 @@ interface CoinGridProps {
   coins: Coin[];
 }
 function CoinGrid({ coins }: CoinGridProps) {
-  if (!coins.length) return <EmptyCoinGrid />;
+  if (!coins.length)
+    return (
+      <EmptyCoinGrid label="No coins in the grid">
+        <div className="flex flex-col items-center py-10 gap-4">
+          <HandCoins className="w-10 h-10" aria-hidden="true" />
+          <span className="text-lg">No coins for now</span>
+        </div>
+      </EmptyCoinGrid>
+    );
   return (
     <ul
       className={cn(
