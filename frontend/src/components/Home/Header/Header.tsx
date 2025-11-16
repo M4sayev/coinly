@@ -24,7 +24,7 @@ function Header() {
             className="coin-mobile w-full h-full opacity-10 lg:hidden"
           />
         </div>
-        <div className="relative text-center lg:text-left px-4 lg:max-w-1/2">
+        <div className="relative text-center lg:text-left px-4 lg:max-w-1/2 ">
           <h1 className="font-mono text-4xl md:text-5xl font-bold mb-6 ">
             Track the future of finance
           </h1>

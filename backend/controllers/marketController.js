@@ -37,6 +37,7 @@ const getCoins = async (req, res) => {
           headers: { "x-cg-demo-api-key": process.env.CG_API_KEY },
         }
       );
+
       return res.status(200).json(data);
     }
   } catch (error) {

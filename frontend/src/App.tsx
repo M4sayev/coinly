@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar/Navbar";
 import Terms from "./pages/Terms";
 import Policy from "./pages/Policy";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation();
@@ -24,6 +25,7 @@ function App() {
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Policy />} />
       </Routes>
+      <Footer />
     </>
   );
 }
