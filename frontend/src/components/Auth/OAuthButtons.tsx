@@ -40,30 +40,31 @@ function SocialAuthButtons() {
       </h2>
       {/* Divider */}
       <div className="flex items-center justify-center">
-        <hr className="flex-1 h-px bg-gray-300" />
+        <hr className="flex-1 h-px bg-var(--color-neutral-300)" />
         <span className="mx-3 text-xs text-[var(--color-neutral-300)] whitespace-nowrap">
           Or continue with
         </span>
-        <hr className="flex-1 h-px bg-gray-300" />
+        <hr className="flex-1 h-px bg-var(--color-neutral-300)" />
       </div>
       {/* OAuth Buttons */}
-      <div className="flex gap-3 items-center justify-center mt-5">
+      <ul className="flex gap-3 items-center justify-center mt-5">
         {oauthProviders.map((provider) => (
-          <button
-            type="button"
-            key={`OAuth-${provider.name}`}
-            aria-label={provider.text}
-            className={cn(
-              "p-3 border border-white rounded-full transition-colors",
-              "focus:border-accent focus:outline-none",
-              "hover:border-accent"
-            )}
-            onClick={() => handleOAuth(provider)}
-          >
-            <provider.icon className="w-4 h-4" />
-          </button>
+          <li key={`OAuth-${provider.name}`}>
+            <button
+              type="button"
+              aria-label={provider.text}
+              className={cn(
+                "p-3 border border-white rounded-full transition-colors",
+                "focus:border-accent focus:outline-none",
+                "hover:border-accent"
+              )}
+              onClick={() => handleOAuth(provider)}
+            >
+              <provider.icon className="w-4 h-4" aria-hidden="true" />
+            </button>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }

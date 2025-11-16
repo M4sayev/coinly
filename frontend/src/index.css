@@ -51,6 +51,11 @@ body:has(dialog[open]) {
   transform: scale(1.2);
   overflow: hidden;
 }
+html,
+body {
+  background-color: var(--color-primary);
+}
+
 :root {
   --clr-shadow: #171a1f;
   --clr-shadow-sup: #171a1f14;

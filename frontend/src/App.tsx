@@ -10,14 +10,14 @@ import Footer from "./components/Footer/Footer";
 
 function App() {
   const location = useLocation();
+
+  const isTermsOrPrivacy =
+    location.pathname === "/terms-and-conditions" ||
+    location.pathname === "/privacy-policy";
+
   return (
     <>
-      {location.pathname === "/terms-and-conditions" ||
-      location.pathname === "/privacy-policy" ? (
-        <></>
-      ) : (
-        <Navbar />
-      )}
+      {isTermsOrPrivacy ? <></> : <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/watchlist" element={<Watchlist />} />
@@ -25,7 +25,7 @@ function App() {
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Policy />} />
       </Routes>
-      <Footer />
+      {isTermsOrPrivacy ? <></> : <Footer />}
     </>
   );
 }
