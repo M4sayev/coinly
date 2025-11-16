@@ -11,7 +11,7 @@ function ToggleTheme() {
   useEffect(() => {
     const html = document.documentElement;
     html.dataset.theme = theme;
-  }, []);
+  }, [theme]);
 
   function toggleTheme() {
     const html = document.documentElement;

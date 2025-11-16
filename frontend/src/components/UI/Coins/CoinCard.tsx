@@ -1,10 +1,9 @@
-import type { MouseEvent } from "react";
 import { cn, formatBigNumber, formatPercent } from "../../../utils/utils";
 import type { Coin } from "../../../services/coinsApi";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { currencyToSign } from "../../../constants/currencies";
-import TrailWrapper from "../../UI/TrailWrapper/TrailWrapper";
+import TrailWrapper from "../TrailWrapper/TrailWrapper";
 
 function CoinCard({
   symbol,

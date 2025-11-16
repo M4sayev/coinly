@@ -1,4 +1,4 @@
-import CloseButton from "../../UI/CloseButton";
+import CloseButton from "../../UI/Buttons/CloseButton";
 
 interface ForgotPasswordHeaderProps {
   onClose: () => void;

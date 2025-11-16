@@ -9,7 +9,7 @@ export interface Coin {
   price_change_percentage_24h: string;
   market_cap: number;
 }
-//http://localhost:5000/api/v1/
+
 export const coinsApi = createApi({
   reducerPath: "coinsApi",
   baseQuery: fetchBaseQuery({
