@@ -20,7 +20,7 @@ function Home() {
   return (
     <main className="bg-[image:var(--gradient-bg)] pb-7">
       <Header />
-      <section className="font-roboto py-10 md:py-20 text-center w-[90%] max-w-[360px] sm:max-w-[450px] md:w-[60%] lg:max-w-[600px] m-auto">
+      <section className="font-roboto py-10 md:pt-20 text-center w-[90%] max-w-[360px] sm:max-w-[450px] md:w-[60%] lg:max-w-[600px] m-auto">
         <h2
           className={cn(
             "text-[var(--color-neutral-100)] font-mono mb-2 text-shadow-lg",

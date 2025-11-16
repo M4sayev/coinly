@@ -2,7 +2,7 @@ import { useCallback, useEffect } from "react";
 import Logo from "../../assets/logo.svg?react";
 import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
-import ActionButton from "../UI/ActionButton";
+import ActionButton from "../UI/Buttons/ActionButton";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import {
   closeSidebar,

@@ -2,7 +2,7 @@ import CoinCard from "../CoinCard/CoinCard";
 import { cn } from "../../../utils/utils";
 import { useGetCoinsInfiniteQuery } from "../../../services/coinsApi";
 import { useAppSelector } from "../../../hooks/reduxHooks";
-import ActionButton from "../../UI/ActionButton";
+import ActionButton from "../../UI/Buttons/ActionButton";
 import { BeatLoader } from "react-spinners";
 import EmptyGrid from "./EmptyGrid";
 import Error from "../../UI/Api/Error";

@@ -100,6 +100,14 @@ html[data-theme="light"] {
   );
 }
 
+.cursor-trail {
+  --trail-gradient: radial-gradient(
+    var(--trail-size) circle at var(--mouse-x) var(--mouse-y),
+    var(--color-card-gradient),
+    transparent 40%
+  );
+}
+
 dialog[open] {
   animation: open 1s forwards;
 }

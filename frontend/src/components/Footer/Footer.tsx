@@ -2,6 +2,7 @@ import TermsAndPolicyLink from "../UI/form/TernsAndPolicyLink";
 import GithubIcon from "../../assets/social-icons/github-icon.svg?react";
 import InstagramIcon from "../../assets/social-icons/instagram-icon.svg?react";
 import LinkedInIcon from "../../assets/social-icons/linkedin-icon.svg?react";
+import TrailWrapper from "../UI/TrailWrapper/TrailWrapper";
 
 type Icon = {
   name: string;
@@ -34,36 +35,38 @@ const socialIcons: Icon[] = [
 function Footer() {
   return (
     <footer className="font-roboto left-0 right-0 bottom-0 relative bg-[image:var(--gradient-bg)] shadow-2xl">
-      <div className="bg-[var(--color-secondary-600)] ">
-        <div className="flex items-center flex-col md:flex-row md:justify-between md:px-10 text-[var(--color-neutral-200)] py-8 max-w-7xl mx-auto">
-          <div className="text-center md:text-start">
-            <span className="block">@ 2025 Coinly</span>
-            <span>Market data provided by CoinGecko.</span>
-          </div>
+      <TrailWrapper size="1000">
+        <div className="bg-[var(--color-secondary-600)] ">
+          <div className="flex items-center flex-col md:flex-row md:justify-between md:px-10 text-[var(--color-neutral-200)] py-8 max-w-7xl mx-auto">
+            <div className="text-center md:text-start">
+              <span className="block">@ 2025 Coinly</span>
+              <span>Market data provided by CoinGecko.</span>
+            </div>
 
-          <div className="flex flex-col items-center mt-6 gap-4 md:flex-row md:mt-0">
-            <TermsAndPolicyLink text="Privacy Policy" to="/privacy-policy" />
-            <TermsAndPolicyLink text="Terms" to="/terms-and-conditions" />
-            <ul className="flex justify-center gap-10 mt-3 md:mt-auto md:ml-4 md:gap-5">
-              {socialIcons.map((icon) => (
-                <li key={`footer-${icon.name}`}>
-                  <a
-                    aria-label={icon.name}
-                    href={icon.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <icon.provider
-                      aria-hidden="true"
-                      className="w-6 h-6 hover:text-[var(--color-accent)] transition-colors duration-300 ease-in"
-                    />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="flex flex-col items-center mt-6 gap-4 md:flex-row md:mt-0">
+              <TermsAndPolicyLink text="Privacy Policy" to="/privacy-policy" />
+              <TermsAndPolicyLink text="Terms" to="/terms-and-conditions" />
+              <ul className="flex justify-center gap-10 mt-3 md:mt-auto md:ml-4 md:gap-5">
+                {socialIcons.map((icon) => (
+                  <li key={`footer-${icon.name}`}>
+                    <a
+                      aria-label={icon.name}
+                      href={icon.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <icon.provider
+                        aria-hidden="true"
+                        className="w-6 h-6 hover:text-[var(--color-accent)] transition-colors duration-300 ease-in"
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
+      </TrailWrapper>
     </footer>
   );
 }

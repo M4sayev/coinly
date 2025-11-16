@@ -6,7 +6,7 @@ import {
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
-import ActionButton from "../../UI/ActionButton";
+import ActionButton from "../../UI/Buttons/ActionButton";
 import TermsAndPolicy from "../../UI/form/TermsAndPolicy";
 
 function SignUpForm() {

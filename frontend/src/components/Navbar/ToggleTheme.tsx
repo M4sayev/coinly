@@ -1,19 +1,23 @@
 import { Moon, Sun } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setTheme } from "../../state/ui/uiSlice";
+import { useEffect } from "react";
 
 function ToggleTheme() {
   const dispatch = useAppDispatch();
   const theme = useAppSelector((state) => state.ui.theme);
+  const nextTheme = theme === "light" ? "dark" : "light";
+
+  useEffect(() => {
+    const html = document.documentElement;
+    html.dataset.theme = theme;
+  }, []);
 
   function toggleTheme() {
     const html = document.documentElement;
-    const newTheme = theme === "light" ? "dark" : "light";
-    html.dataset.theme = newTheme;
-    dispatch(setTheme(newTheme));
+    html.dataset.theme = nextTheme;
+    dispatch(setTheme(nextTheme));
   }
-
-  const nextTheme = theme === "light" ? "dark" : "light";
 
   return (
     <button

@@ -1,6 +1,6 @@
 import Logo from "../../assets/logo.svg?react";
 import { Link } from "react-router-dom";
-import ActionButton from "../UI/ActionButton";
+import ActionButton from "../UI/Buttons/ActionButton";
 import { formatPage } from "../../utils/utils";
 
 interface NavbarTermsPolicyProps {

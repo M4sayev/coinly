@@ -13,7 +13,7 @@ const initialState: uiState = {
   isSignUpModalOpen: false,
   isSidebarOpen: false,
   currency: "BTC",
-  theme: "dark",
+  theme: (localStorage.getItem("theme") as ThemeType) || "dark",
 };
 
 const uiSlice = createSlice({
@@ -37,6 +37,7 @@ const uiSlice = createSlice({
     },
     setTheme: (state, action: PayloadAction<ThemeType>) => {
       state.theme = action.payload;
+      localStorage.setItem("theme", action.payload);
     },
   },
 });
