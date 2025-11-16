@@ -19,19 +19,17 @@ function ToggleTheme() {
     dispatch(setTheme(nextTheme));
   }
 
+  const ThemeIcon = theme === "dark" ? Sun : Moon;
+
   return (
     <button
       type="button"
-      className="text-[var(--color-neutral-100)] transition-all duration-500"
+      className="text-[var(--color-neutral-100)] transition-all duration-500 hover:text-[var(--color-accent)]"
       onClick={toggleTheme}
       aria-pressed={theme === "dark"}
       aria-label={`Switch the page theme to ${nextTheme}`}
     >
-      {theme === "dark" ? (
-        <Sun aria-hidden="true" />
-      ) : (
-        <Moon aria-hidden="true" />
-      )}
+      <ThemeIcon aria-hidden="true" />
     </button>
   );
 }

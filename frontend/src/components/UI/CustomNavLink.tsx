@@ -7,7 +7,7 @@ interface NavLinkProps extends React.PropsWithChildren {
 
 function CustomNavLink({ to, children }: NavLinkProps) {
   const baseClasses =
-    "relative hover:text-accent transition-colors duration-200 capitalize before:transition-all text-[var(--color-neutral-100)]";
+    "relative hover:text-accent transition-colors duration-200 capitalize before:transition-all text-[var(--color-neutral-100)] text-shadow-lg";
 
   return (
     <NavLink

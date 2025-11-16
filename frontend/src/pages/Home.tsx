@@ -18,7 +18,7 @@ function Home() {
   };
 
   return (
-    <main className="bg-[image:var(--gradient-bg)] pb-7">
+    <main className="ease-in-out bg-[image:var(--gradient-bg)] pb-7">
       <Header />
       <section className="font-roboto py-10 md:pt-20 text-center w-[90%] max-w-[360px] sm:max-w-[450px] md:w-[60%] lg:max-w-[600px] m-auto">
         <h2

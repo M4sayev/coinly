@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 py-12">
+      <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 pb-10 pt-[64px]">
         <Particles
           img={currency}
           aria-hidden="true"
@@ -24,7 +24,7 @@ function Header() {
             className="coin-mobile w-full h-full opacity-10 lg:hidden"
           />
         </div>
-        <div className="relative text-center lg:text-left px-4 lg:max-w-1/2 ">
+        <div className="relative text-center lg:text-left px-4 lg:max-w-1/2 text-shadow-lg">
           <h1 className="font-mono text-4xl md:text-5xl font-bold mb-6 ">
             Track the future of finance
           </h1>

@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Terms from "./pages/Terms";
 import Policy from "./pages/Policy";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./utils/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       {isTermsOrPrivacy ? <></> : <Navbar />}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/watchlist" element={<Watchlist />} />
