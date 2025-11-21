@@ -7,6 +7,7 @@ import { defineConfig, globalIgnores } from "eslint/config";
 
 export default defineConfig([
   globalIgnores(["dist"]),
+  { ignores: [".vitest_cache", "node_modules", "dist"] },
   {
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -15,6 +16,7 @@ export default defineConfig([
       reactHooks.configs["recommended-latest"],
       reactRefresh.configs.vite,
     ],
+
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,

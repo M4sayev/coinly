@@ -44,6 +44,7 @@ function MobileSidebar({
       role="dialog"
       aria-modal="true"
       id="mobile-sidebar"
+      data-testid="mobile-sidebar"
     >
       <Hamburger
         isSidebarOpen={isSidebarOpen}

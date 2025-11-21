@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig } from "vitest/config";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import svgr from "vite-plugin-svgr";
@@ -21,4 +21,10 @@ export default defineConfig({
       },
     },
   ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./src/test/setupTests.ts",
+  },
+  cacheDir: ".vitest_cache",
 });

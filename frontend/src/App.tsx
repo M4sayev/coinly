@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/watchlist" element={<Watchlist />} />
-        <Route path="/coin" element={<Coin />} />
+        <Route path="/coin/:id" element={<Coin />} />
         <Route path="/terms-and-conditions" element={<Terms />} />
         <Route path="/privacy-policy" element={<Policy />} />
       </Routes>

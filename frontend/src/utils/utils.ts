@@ -15,7 +15,7 @@ export function formatPercent(num: number | null | undefined) {
 }
 
 export function formatBigNumber(value: number | null | undefined): string {
-  if (value === null || value === undefined) return "";
+  if (value === null || value === undefined || Number.isNaN(value)) return "";
   if (value >= 1e12) return (value / 1e12).toFixed(1) + "T";
   if (value >= 1e9) return (value / 1e9).toFixed(1) + "B";
   if (value >= 1e6) return (value / 1e6).toFixed(1) + "M";

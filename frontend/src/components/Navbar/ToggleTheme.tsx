@@ -29,7 +29,7 @@ function ToggleTheme() {
       aria-pressed={theme === "dark"}
       aria-label={`Switch the page theme to ${nextTheme}`}
     >
-      <ThemeIcon aria-hidden="true" />
+      <ThemeIcon aria-hidden="true" data-testid="icon" />
     </button>
   );
 }

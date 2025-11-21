@@ -1,5 +1,5 @@
 function Watchlist() {
-  return <div></div>;
+  return <main></main>;
 }
 
 export default Watchlist;
