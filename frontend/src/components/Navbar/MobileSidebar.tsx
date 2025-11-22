@@ -8,7 +8,7 @@ import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
 import ToggleTheme from "./ToggleTheme";
-import SelectDropdown from "../UI/SelectDropdown";
+import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
 
 interface SidebarProps {

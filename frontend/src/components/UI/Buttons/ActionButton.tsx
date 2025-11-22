@@ -7,12 +7,14 @@ interface ActionButtonProps extends React.PropsWithChildren {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   variant?: ButtonVariant;
   type?: ButtonType;
+  disabled?: boolean;
 }
 function ActionButton({
   children,
   onClick,
   variant = "primary",
   type = "button",
+  disabled = false,
   ...rest
 }: ActionButtonProps) {
   const baseClasses =
@@ -25,7 +27,15 @@ function ActionButton({
 
   const finalClasses = `${baseClasses} ${variantClasses[variant]}`;
   return (
-    <button type={type} className={finalClasses} {...rest} onClick={onClick}>
+    <button
+      data-testid="action-button"
+      data-variant={variant}
+      type={type}
+      className={finalClasses}
+      {...rest}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

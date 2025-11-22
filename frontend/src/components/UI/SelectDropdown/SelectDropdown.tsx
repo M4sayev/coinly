@@ -7,7 +7,7 @@ import {
 } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
 import { Fragment } from "react";
-import { cn } from "../../utils/utils";
+import { cn } from "../../../utils/utils";
 
 interface Option {
   id: string;

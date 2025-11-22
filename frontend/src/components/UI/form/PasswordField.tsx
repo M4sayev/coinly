@@ -1,11 +1,8 @@
 import { useState } from "react";
 import type { PasswordFieldProps } from "../../../types/form";
-import {
-  errorClasses,
-  inputClasses,
-  labelClasses,
-} from "../../../constants/form";
+import { inputClasses, labelClasses } from "../../../constants/form";
 import { Eye, EyeOff } from "lucide-react";
+import FormErrorMessage from "./FormErrorMessage";
 
 function PasswordField({
   register,
@@ -20,6 +17,7 @@ function PasswordField({
   const [showPassword, setShowPassword] = useState(false);
 
   const EyeIcon = showPassword ? Eye : EyeOff;
+  const errorId = `${id}-error`;
   return (
     <div>
       <label htmlFor={id} className={`${labelClasses} flex justify-between`}>
@@ -47,6 +45,7 @@ function PasswordField({
           placeholder={placeholder}
           className={inputClasses}
           autoComplete={"current-password"}
+          aria-describedby={error ? errorId : undefined}
         />
         <button
           className="group absolute top-0 right-3 h-full grid place-items-center focus:outline-none"
@@ -60,7 +59,7 @@ function PasswordField({
           />
         </button>
       </div>
-      {error && <p className={errorClasses}>{error.message}</p>}
+      <FormErrorMessage id={errorId} error={error} />
     </div>
   );
 }

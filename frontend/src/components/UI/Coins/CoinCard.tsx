@@ -27,12 +27,17 @@ function CoinCard({
           "bg-[var(--color-secondary-600)] rounded-xl text-[var(--color-neutral-100)]",
           "cursor-pointer border border-[var(--color-accent-dblue)] shadow-lg"
         )}
+        aria-labelledby="coin-card-name"
+        data-testid="coin-card"
       >
         <TrailWrapper size="800" className="p-4">
           <header className="flex gap-3 items-center mb-3">
             <img className="w-10 h-10" src={image} alt={`${name} icon`} />
             <div className="w-full overflow-hidden">
-              <h3 className="text-lg sm:text-xl font-mono font-bold text-nowrap">
+              <h3
+                id="coin-card-name"
+                className="text-lg sm:text-xl font-mono font-bold text-nowrap"
+              >
                 {name}
               </h3>
               <span className="text-[var(--color-neutral-200)] text-xs ">
@@ -43,11 +48,15 @@ function CoinCard({
           <section className="flex justify-between mb-6 lg:flex-col lg:items-center">
             <h4 className="font-extrabold text-lg md:text-2xl font-mono">
               {current_price}
-              <span className="text-[var(--color-neutral-200)] ml-1 ">
+              <span
+                data-testid="coin-card-currency"
+                className="text-[var(--color-neutral-200)] ml-1 "
+              >
                 {currencyToSign(currency)}
               </span>
             </h4>
             <span
+              data-testid="price-change-percentage"
               className={`md:text-lg flex items-center gap-1 lg:self-start ${
                 isTrending ? "text-green-accent" : "text-red-accent"
               }`}

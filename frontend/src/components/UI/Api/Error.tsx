@@ -6,6 +6,7 @@ interface ErrorProps extends PropsWithChildren {
 }
 function Error({ error, children }: ErrorProps) {
   console.error(error);
+
   return (
     <div
       role="status"

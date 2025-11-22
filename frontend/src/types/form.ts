@@ -12,6 +12,7 @@ export type FormValues = {
   emailForgotPassword: string;
   passwordSignup: string;
   agreeToTerms: string;
+  test: string;
 };
 
 export interface FormElementProps {

@@ -1,9 +1,6 @@
 import type { FormElementProps } from "../../../types/form";
-import {
-  errorClasses,
-  inputClasses,
-  labelClasses,
-} from "../../../constants/form";
+import { inputClasses, labelClasses } from "../../../constants/form";
+import FormErrorMessage from "./FormErrorMessage";
 
 function FormElement({
   register,
@@ -14,6 +11,7 @@ function FormElement({
   error,
   rules,
 }: FormElementProps) {
+  const errorId = `${id}-error`;
   return (
     <div>
       <label htmlFor={id} className={labelClasses}>
@@ -28,8 +26,9 @@ function FormElement({
         placeholder={placeholder}
         className={inputClasses}
         autoComplete={type}
+        aria-describedby={error ? errorId : undefined}
       />
-      {error && <p className={errorClasses}>{error.message}</p>}
+      <FormErrorMessage id={errorId} error={error} />
     </div>
   );
 }

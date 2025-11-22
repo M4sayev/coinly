@@ -1,5 +1,5 @@
-import { errorClasses } from "../../../constants/form";
 import type { FormElementProps, TermKeysToRemove } from "../../../types/form";
+import FormErrorMessage from "./FormErrorMessage";
 import TermsAndPolicyLink from "./TernsAndPolicyLink";
 
 function TermsAndPolicy({
@@ -8,6 +8,7 @@ function TermsAndPolicy({
   error,
   rules,
 }: Omit<FormElementProps, TermKeysToRemove>) {
+  const errorId = `${id}-error`;
   return (
     <div>
       <label className="flex gap-2 cursor-pointer">
@@ -17,6 +18,8 @@ function TermsAndPolicy({
           type="checkbox"
           name={id}
           id={id}
+          aria-invalid={error ? "true" : "false"}
+          aria-describedby={error ? errorId : undefined}
         />
         <div className="text-xs text-[var(--color-neutral-300)] lg:text-sm">
           <span>I agree to our</span>
@@ -25,7 +28,7 @@ function TermsAndPolicy({
           <TermsAndPolicyLink text="Privacy Policy" to="/privacy-policy" />
         </div>
       </label>
-      {error && <p className={errorClasses}>{error.message}</p>}
+      <FormErrorMessage id={errorId} error={error} />
     </div>
   );
 }

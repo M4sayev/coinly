@@ -154,3 +154,12 @@ dialog[open] {
     transform: translate(0, 0) rotate(0deg);
   }
 }
+/* handle no animation on reduced motion  */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,11 +1,13 @@
+import { BeatLoader } from "react-spinners";
 import ActionButton from "./ActionButton";
-import SkeletonGrid from "../Coins/SkeletonGrid";
 
 interface LoadMoreButtonProps {
   hasNextPage: boolean;
   isFetching: boolean;
   onClick: () => void;
   label?: string;
+  actionText?: string;
+  Loader?: React.ReactNode;
 }
 
 function LoadMoreButton({
@@ -13,6 +15,8 @@ function LoadMoreButton({
   hasNextPage,
   onClick,
   label = "Load More",
+  actionText = "Load More",
+  Loader = <BeatLoader data-testid="load-more-loader" aria-hidden="true" />,
 }: LoadMoreButtonProps) {
   return (
     <div
@@ -24,12 +28,18 @@ function LoadMoreButton({
       aria-busy={isFetching}
       aria-live="polite"
       aria-hidden={!hasNextPage}
+      data-testid="load-more-container"
     >
       {isFetching ? (
-        <SkeletonGrid count={10} />
+        Loader
       ) : (
-        <ActionButton variant="secondary" onClick={onClick}>
-          {label}
+        <ActionButton
+          variant="secondary"
+          onClick={onClick}
+          disabled={!hasNextPage}
+          aria-label={label}
+        >
+          {actionText}
         </ActionButton>
       )}
     </div>

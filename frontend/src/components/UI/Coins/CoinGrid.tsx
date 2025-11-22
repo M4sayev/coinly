@@ -19,6 +19,7 @@ function CoinGrid({ coins }: CoinGridProps) {
     );
   return (
     <ul
+      aria-label="List of crypto coin cards"
       className={cn(
         "font-roboto mx-auto mb-5 grid gap-4 justify-center w-[90%] max-w-[400px] grid-cols-1",
         "md:grid-cols-[repeat(auto-fill,_minmax(300px,_300px))] md:px-10 md:max-w-none",

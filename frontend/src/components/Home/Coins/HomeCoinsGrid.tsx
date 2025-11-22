@@ -63,6 +63,8 @@ function HomeCoinsGrid({ searchQuery }: HomeCoinsGridProps) {
         isFetching={isFetching}
         hasNextPage={hasNextPage}
         onClick={handleNextPage}
+        label="Load more crypto coins cards"
+        Loader={<SkeletonGrid count={10} />}
       />
     </>
   );

@@ -1,0 +1,30 @@
+import { render, screen } from "@testing-library/react";
+import CoinGrid from "../CoinGrid";
+import { CreateTestStore } from "../../../../test/testStore";
+import { Provider } from "react-redux";
+import { MemoryRouter } from "react-router-dom";
+import { mockCoin } from "../../../../test/MockData";
+
+describe("CoinGrid", () => {
+  it("renders an empty grid on coins length equal to zero", () => {
+    render(<CoinGrid coins={[]} />);
+
+    const emptyGrid = screen.getByTestId("empty-coin-grid");
+    expect(emptyGrid).toBeInTheDocument();
+  });
+  it("renders the coin grid on the length different from zero", () => {
+    const store = CreateTestStore();
+    render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <CoinGrid coins={[mockCoin]} />
+        </Provider>
+      </MemoryRouter>
+    );
+
+    const grid = screen.getByRole("list", {
+      name: /List of crypto coin cards/i,
+    });
+    expect(grid).toBeInTheDocument();
+  });
+});

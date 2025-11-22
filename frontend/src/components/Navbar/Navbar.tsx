@@ -15,7 +15,7 @@ import { currencies } from "../../constants/currencies";
 import { LogIn } from "lucide-react";
 import AuthDialog from "../Auth/AuthDialog";
 import ToggleTheme from "./ToggleTheme";
-import SelectDropdown from "../UI/SelectDropdown";
+import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
