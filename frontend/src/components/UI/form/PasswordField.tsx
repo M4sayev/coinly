@@ -20,7 +20,11 @@ function PasswordField({
   const errorId = `${id}-error`;
   return (
     <div>
-      <label htmlFor={id} className={`${labelClasses} flex justify-between`}>
+      <label
+        data-testid="password-label"
+        htmlFor={id}
+        className={`${labelClasses} flex justify-between`}
+      >
         <span>{label}</span>
         {showForgot && onForgotPassword ? (
           <button
@@ -48,9 +52,10 @@ function PasswordField({
           aria-describedby={error ? errorId : undefined}
         />
         <button
+          data-testid="password-visibility-button"
           className="group absolute top-0 right-3 h-full grid place-items-center focus:outline-none"
           type="button"
-          aria-label={showPassword ? "Show Password" : "Hide Password"}
+          aria-label={!showPassword ? "Show Password" : "Hide Password"}
           onClick={() => setShowPassword((prev) => !prev)}
         >
           <EyeIcon

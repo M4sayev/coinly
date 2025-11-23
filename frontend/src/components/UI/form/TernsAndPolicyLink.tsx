@@ -1,23 +1,19 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../../hooks/reduxHooks";
-import { closeSignUp } from "../../../state/ui/uiSlice";
 
 interface LinkProps {
   text: string;
   to: string;
+  onClick?: () => void;
 }
 
-function TermsAndPolicyLink({ text, to }: LinkProps) {
-  const dispatch = useAppDispatch();
-
-  const handleCloseModal = () => dispatch(closeSignUp());
+function TermsAndPolicyLink({ text, to, onClick }: LinkProps) {
   return (
     <Link
-      onClick={handleCloseModal}
+      onClick={onClick}
       to={to}
       type="button"
       className="ml-1 text-[var(--color-accent)]"
-      aria-label={`View our {text}`}
+      aria-label={`View our ${text}`}
     >
       {text}
     </Link>

@@ -9,7 +9,7 @@ interface FormErrorMessageProps {
 function FormErrorMessage({ id, error }: FormErrorMessageProps) {
   if (!error) return;
   return (
-    <p data-test="form-error-message" id={id} className={errorClasses}>
+    <p data-testid="form-error-message" id={id} className={errorClasses}>
       {error.message}
     </p>
   );

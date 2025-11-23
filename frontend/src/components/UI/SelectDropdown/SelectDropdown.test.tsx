@@ -27,5 +27,3 @@ describe("SelectDropdown", () => {
     vi.restoreAllMocks();
   });
 });
-
-SelectDropdown;

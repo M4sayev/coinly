@@ -3,6 +3,7 @@ import GithubIcon from "../../assets/social-icons/github-icon.svg?react";
 import InstagramIcon from "../../assets/social-icons/instagram-icon.svg?react";
 import LinkedInIcon from "../../assets/social-icons/linkedin-icon.svg?react";
 import TrailWrapper from "../UI/TrailWrapper/TrailWrapper";
+import SocialLink from "./SocialLink";
 
 type Icon = {
   name: string;
@@ -46,23 +47,18 @@ function Footer() {
             <div className="flex flex-col items-center mt-6 gap-4 md:flex-row md:mt-0">
               <TermsAndPolicyLink text="Privacy Policy" to="/privacy-policy" />
               <TermsAndPolicyLink text="Terms" to="/terms-and-conditions" />
-              <ul className="flex justify-center gap-10 mt-3 md:mt-auto md:ml-4 md:gap-5">
-                {socialIcons.map((icon) => (
-                  <li key={`footer-${icon.name}`}>
-                    <a
-                      aria-label={icon.name}
-                      href={icon.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <icon.provider
-                        aria-hidden="true"
-                        className="w-6 h-6 hover:text-[var(--color-accent)] transition-colors duration-300 ease-in"
-                      />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              <nav aria-label="Follow us on social media">
+                <ul className="flex justify-center gap-10 mt-3 md:mt-auto md:ml-4 md:gap-5">
+                  {socialIcons.map((icon) => (
+                    <SocialLink
+                      key={`footer-${icon.name}`}
+                      name={icon.name}
+                      provider={icon.provider}
+                      url={icon.url}
+                    />
+                  ))}
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
