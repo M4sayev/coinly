@@ -1,16 +1,16 @@
 interface HamburgerProps {
-  onOpenMobileNav: () => void;
+  onToggleMobileNav: () => void;
   isSidebarOpen: boolean;
 }
 
-function Hamburger({ onOpenMobileNav, isSidebarOpen }: HamburgerProps) {
+function Hamburger({ onToggleMobileNav, isSidebarOpen }: HamburgerProps) {
   return (
     <button
-      onClick={onOpenMobileNav}
+      onClick={onToggleMobileNav}
       aria-haspopup="true"
       aria-controls="mobile-sidebar"
       aria-expanded={isSidebarOpen}
-      aria-label="Open menu"
+      aria-label="Open mobile sidebar navigation"
       className="pl-1 w-9 h-9 z-20 fixed top-[10px] right-5"
     >
       <svg stroke="#668aff" fill="none" viewBox="2 -5 115 105">

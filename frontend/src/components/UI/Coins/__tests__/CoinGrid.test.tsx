@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import CoinGrid from "../CoinGrid";
-import { CreateTestStore } from "../../../../test/testStore";
+import { createTestStore } from "../../../../test/testStore";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
-import { mockCoin } from "../../../../test/MockData";
+import { mockCoin } from "../../../../test/mockData";
 
 describe("CoinGrid", () => {
   it("renders an empty grid on coins length equal to zero", () => {
@@ -13,7 +13,7 @@ describe("CoinGrid", () => {
     expect(emptyGrid).toBeInTheDocument();
   });
   it("renders the coin grid on the length different from zero", () => {
-    const store = CreateTestStore();
+    const store = createTestStore();
     render(
       <MemoryRouter>
         <Provider store={store}>

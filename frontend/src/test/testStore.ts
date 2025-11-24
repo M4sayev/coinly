@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import uiReducer from "../state/ui/uiSlice";
 
-export function CreateTestStore(preloadedState = {}) {
+export function createTestStore(preloadedState = {}) {
   return configureStore({
     reducer: {
       ui: uiReducer,

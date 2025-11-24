@@ -3,13 +3,13 @@ import { describe, it, expect } from "vitest";
 import ToggleTheme from "../ToggleTheme";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { CreateTestStore } from "../../../test/testStore";
+import { createTestStore } from "../../../test/testStore";
 import userEvent, { type UserEvent } from "@testing-library/user-event";
 
-let store: ReturnType<typeof CreateTestStore>;
+let store: ReturnType<typeof createTestStore>;
 let user: UserEvent;
 beforeEach(() => {
-  store = CreateTestStore({ ui: { theme: "light" } });
+  store = createTestStore({ ui: { theme: "light" } });
   user = userEvent.setup();
   render(
     <Provider store={store}>

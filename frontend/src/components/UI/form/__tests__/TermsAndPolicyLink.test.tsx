@@ -28,8 +28,11 @@ describe("TermsAndPolicyLink", () => {
   });
   it("sets the to properly", () => {
     const button = screen.getByRole("link");
-    screen.debug();
     expect(button).toHaveAttribute("href", "/test-page");
+  });
+  it("injects text properly", () => {
+    const button = screen.getByRole("link");
+    expect(button).toHaveTextContent("test");
   });
   afterEach(() => {
     vi.restoreAllMocks();

@@ -126,6 +126,9 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
   };
 
   useEffect(() => {
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (query.matches) return;
+
     initCanvas();
 
     const handleResize = () => {

@@ -4,14 +4,14 @@ import Hamburger from "../Hamburger";
 
 describe("Hamburger Button", () => {
   it("sets the aria-expanded correctly", () => {
-    const onOpenMobileNav = vi.fn();
+    const onToggleMobileNav = vi.fn();
 
     const { rerender } = render(
-      <Hamburger isSidebarOpen={false} onOpenMobileNav={onOpenMobileNav} />
+      <Hamburger isSidebarOpen={false} onToggleMobileNav={onToggleMobileNav} />
     );
 
     const button = screen.getByRole("button", {
-      name: "Open menu",
+      name: /open mobile sidebar navigation/i,
     });
 
     expect(button).toBeInTheDocument();
@@ -19,10 +19,10 @@ describe("Hamburger Button", () => {
 
     fireEvent.click(button);
 
-    expect(onOpenMobileNav).toHaveBeenCalledTimes(1);
+    expect(onToggleMobileNav).toHaveBeenCalledTimes(1);
 
     rerender(
-      <Hamburger isSidebarOpen={true} onOpenMobileNav={onOpenMobileNav} />
+      <Hamburger isSidebarOpen={true} onToggleMobileNav={onToggleMobileNav} />
     );
 
     expect(button).toHaveAttribute("aria-expanded", "true");

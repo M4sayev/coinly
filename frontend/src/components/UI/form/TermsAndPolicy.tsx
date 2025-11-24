@@ -10,8 +10,9 @@ function TermsAndPolicy({
 }: Omit<FormElementProps, TermKeysToRemove>) {
   const errorId = `${id}-error`;
   return (
+    // think of a better structure for accessiblity
     <div>
-      <label className="flex gap-2 cursor-pointer">
+      <label data-testid="terms-n-policy" className="flex gap-2 cursor-pointer">
         <input
           {...register(id, rules)}
           className="cursor-pointer"

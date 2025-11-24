@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import MobileSidebar from "../../components/Navbar/MobileSidebar";
-import { CreateTestStore } from "../../test/testStore";
+import { createTestStore } from "../../test/testStore";
 import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
@@ -13,7 +13,7 @@ describe("useFocusTrap", () => {
     const onHamburgerClick = vi.fn();
     const onCloseMobileNav = vi.fn();
 
-    const store = CreateTestStore({
+    const store = createTestStore({
       ui: {
         isSidebarOpen: true,
       },
@@ -33,7 +33,9 @@ describe("useFocusTrap", () => {
     );
 
     const sidebar = screen.getByTestId("mobile-sidebar");
-    const hamburger = screen.getByRole("button", { name: "Open menu" });
+    const hamburger = screen.getByRole("button", {
+      name: "Open mobile sidebar navigation",
+    });
     hamburger.focus();
     expect(sidebar).toBeInTheDocument();
 

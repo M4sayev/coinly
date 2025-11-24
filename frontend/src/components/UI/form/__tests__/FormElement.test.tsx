@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import FormElement from "../FormElement";
 import { useForm, type FieldError } from "react-hook-form";
 import type { FormValues } from "../../../../types/form";
-import { mockError } from "../../../../test/MockData";
+import { mockError } from "../../../../test/mockData";
 
 function Wrapper({ error }: { error?: FieldError }) {
   const { register } = useForm<FormValues>({ mode: "onBlur" });

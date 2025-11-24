@@ -1,15 +1,16 @@
 import { MemoryRouter } from "react-router-dom";
-import { mockCoin } from "../../../../test/MockData";
-import { CreateTestStore } from "../../../../test/testStore";
+
+import { createTestStore } from "../../../../test/testStore";
 import { Provider } from "react-redux";
 import CoinCard from "../CoinCard";
 import { render, screen } from "@testing-library/react";
+import { mockCoin } from "../../../../test/mockData";
 
 const renderCoinCard = (
   coin = mockCoin,
   preloadedState = { ui: { currency: "usd" } }
 ) => {
-  const store = CreateTestStore(preloadedState);
+  const store = createTestStore(preloadedState);
   return render(
     <MemoryRouter>
       <Provider store={store}>

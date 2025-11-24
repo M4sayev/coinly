@@ -21,7 +21,7 @@ function Header() {
             aria-hidden="true"
             stroke="#668affff"
             fill="none"
-            className="coin-mobile w-full h-full opacity-10 lg:hidden"
+            className="coin-mobile w-full h-full opacity-10 lg:hidden motion-reduce:lg:block"
           />
         </div>
         <div className="relative text-center lg:text-left px-4 lg:max-w-1/2 text-shadow-lg">

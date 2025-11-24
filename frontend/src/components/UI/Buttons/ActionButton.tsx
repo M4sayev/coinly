@@ -1,6 +1,6 @@
 import React from "react";
 
-type ButtonVariant = "primary" | "secondary";
+export type ButtonVariant = "primary" | "secondary";
 type ButtonType = "button" | "submit";
 
 interface ActionButtonProps extends React.PropsWithChildren {

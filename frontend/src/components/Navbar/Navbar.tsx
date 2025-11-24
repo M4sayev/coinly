@@ -1,6 +1,4 @@
 import { useCallback, useEffect } from "react";
-import Logo from "../../assets/logo.svg?react";
-import { Link } from "react-router-dom";
 import CustomNavLink from "../UI/CustomNavLink";
 import ActionButton from "../UI/Buttons/ActionButton";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
@@ -16,6 +14,7 @@ import { LogIn } from "lucide-react";
 import AuthDialog from "../Auth/AuthDialog";
 import ToggleTheme from "./ToggleTheme";
 import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
+import Logo from "../UI/Logo/Logo";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
@@ -51,9 +50,7 @@ function Navbar() {
   return (
     <nav className="fixed left-0 right-0 z-10">
       <div className=" relative max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
-        <Link to="/" className="cursor-pointer" aria-label="Go to home page">
-          <Logo className="h-8 w-8" />
-        </Link>
+        <Logo linkTo="/" ariaLabel="Go to home page" />
         <div className="absolute md:gap-5 hidden md:flex md:w-1/2 md:m-auto left-0 right-0 justify-center">
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>

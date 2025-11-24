@@ -1,7 +1,7 @@
 import { useForm, type FieldError } from "react-hook-form";
 import PasswordField from "../PasswordField";
 import type { FormValues } from "../../../../types/form";
-import { mockError } from "../../../../test/MockData";
+import { mockError } from "../../../../test/mockData";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 

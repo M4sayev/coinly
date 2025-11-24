@@ -41,16 +41,18 @@ function MobileSidebar({
     <div
       ref={sidebarRef}
       aria-label="Mobile navigation menu"
-      role="dialog"
-      aria-modal="true"
+      role={isSidebarOpen ? "dialog" : undefined}
+      aria-modal={isSidebarOpen ? true : undefined}
       id="mobile-sidebar"
       data-testid="mobile-sidebar"
     >
       <Hamburger
         isSidebarOpen={isSidebarOpen}
-        onOpenMobileNav={onHamburgerClick}
+        onToggleMobileNav={onHamburgerClick}
       />
       <aside
+        aria-hidden={!isSidebarOpen}
+        inert={!isSidebarOpen}
         className={`z-10 fixed right-0 px-8 pr-[min(33vh,_30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
           isSidebarOpen ? "top-0" : "top-[-105%]"
         }`}
@@ -66,7 +68,10 @@ function MobileSidebar({
               onChange={(value) => dispatch(setCurrency(value))}
             />
             <div>
-              <ActionButton onClick={onSignUpClick} aria-label="Sign up">
+              <ActionButton
+                onClick={onSignUpClick}
+                aria-label="Open Sign up Modal"
+              >
                 Sign up
               </ActionButton>
             </div>
