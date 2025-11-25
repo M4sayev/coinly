@@ -3,10 +3,10 @@ import { X } from "lucide-react";
 
 interface CloseButtonProps {
   onClose: () => void;
-  actionText: string;
+  ariaLabel: string;
 }
 
-function CloseButton({ onClose, actionText }: CloseButtonProps) {
+function CloseButton({ onClose, ariaLabel }: CloseButtonProps) {
   return (
     <button
       className={cn(
@@ -14,7 +14,7 @@ function CloseButton({ onClose, actionText }: CloseButtonProps) {
         " transition-all duration-300 ease-in-out",
         "hover:text-accent hover:scale-120"
       )}
-      aria-label={actionText}
+      aria-label={ariaLabel}
       onClick={onClose}
     >
       <X aria-hidden="true" />

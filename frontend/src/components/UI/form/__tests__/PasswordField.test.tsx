@@ -99,7 +99,7 @@ describe("PasswordField", () => {
       name: /Go to Forgot Password Form/i,
     });
     await user.click(button);
-    expect(onForgotPassword).toHaveBeenCalledWith("forgotPassword");
+    expect(onForgotPassword).toHaveBeenCalledWith("forgot-password");
   });
   it("correctly renders the error message and aria-invalid on input", () => {
     render(<Wrapper error={mockError} />);

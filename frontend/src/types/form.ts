@@ -6,12 +6,12 @@ import type {
 import type { AuthView } from "./auth";
 
 export type FormValues = {
-  emailLogin: string;
-  passwordLogin: string;
-  emailSignup: string;
-  emailForgotPassword: string;
-  passwordSignup: string;
-  agreeToTerms: string;
+  "login-email-field": string;
+  "login-password-field": string;
+  "signup-email-field": string;
+  "fp-email-field": string;
+  "signup-password-field": string;
+  "agree-to-terms-field": string;
   test: string;
 };
 

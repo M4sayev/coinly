@@ -17,7 +17,7 @@ function AuthDialog() {
   const refs = {
     login: useRef<HTMLDivElement>(null),
     signup: useRef<HTMLDivElement>(null),
-    forgotPassword: useRef<HTMLDivElement>(null),
+    "forgot-password": useRef<HTMLDivElement>(null),
   };
 
   const [authView, setAuthView] = useState<AuthView>("signup");
@@ -48,7 +48,7 @@ function AuthDialog() {
   useEscapeKey(() => handlCloseSingUpPopup());
 
   function translateModal() {
-    if (authView === "forgotPassword") {
+    if (authView === "forgot-password") {
       return "-translate-x-2/3";
     }
     if (authView === "login") {
@@ -59,25 +59,37 @@ function AuthDialog() {
 
   useClickOutside(refs[authView], handlCloseSingUpPopup);
 
-  useTrapFocus(refs[authView], isOpen);
+  useTrapFocus(dialogRef, isOpen);
 
   return (
     <Modal
       ref={dialogRef}
       onCancel={handlCloseSingUpPopup}
-      titleId="Signup"
+      titleId={authView}
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-transparent rounded-2xl w-full max-w-96 lg:max-w-lg focus:outline-none overflow-hidden "
     >
       <div
         className={`w-[300%] flex items-center  transition-all duration-300 ${translateModal()}`}
       >
-        <div className="flex-1" ref={refs["signup"]}>
+        <div
+          inert={authView !== "signup"}
+          className="flex-1"
+          ref={refs["signup"]}
+        >
           <SignUp onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
-        <div className="flex-1" ref={refs["login"]}>
+        <div
+          inert={authView !== "login"}
+          className="flex-1"
+          ref={refs["login"]}
+        >
           <Login onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
-        <div className="flex-1" ref={refs["forgotPassword"]}>
+        <div
+          inert={authView !== "forgot-password"}
+          className="flex-1"
+          ref={refs["forgot-password"]}
+        >
           <ForgotPassword
             onClose={handlCloseSingUpPopup}
             setAuthView={setAuthView}

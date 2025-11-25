@@ -31,7 +31,7 @@ function PasswordField({
             type="button"
             className="text-xs text-[var(--color-accent)]"
             aria-label="Go to Forgot Password Form"
-            onClick={() => onForgotPassword("forgotPassword")}
+            onClick={() => onForgotPassword("forgot-password")}
           >
             Forgot Password?
           </button>

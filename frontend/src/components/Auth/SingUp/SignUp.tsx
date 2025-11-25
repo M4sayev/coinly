@@ -9,10 +9,14 @@ function SignUp({ onClose, setAuthView }: AuthViewProps) {
     <section
       className={cn(
         "bg-[var(--color-modal)] rounded-2xl border border-[rgba(30,33,40,0.8)]",
-        "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)] backdrop-blur-lg"
+        "relative p-10 font-roboto text-[var(--color-neutral-100)] backdrop-blur-lg"
       )}
     >
-      <AuthHeader onCloseDialog={onClose} actionText="Sign Up" />
+      <AuthHeader
+        titleId="signup"
+        onCloseDialog={onClose}
+        actionText="Sign Up"
+      />
       <SignUpForm />
       <AuthFooter
         setAuth={() => setAuthView("login")}

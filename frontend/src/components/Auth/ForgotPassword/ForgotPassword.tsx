@@ -30,12 +30,12 @@ function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
       <ForgotPasswordHeader onClose={onClose} />
       <form className="flex flex-col gap-2">
         <FormElement
-          id="emailForgotPassword"
+          id="fp-email-field"
           register={register}
           placeholder="Enter you email"
           type="email"
           label="Email"
-          error={errors.emailForgotPassword}
+          error={errors["fp-email-field"]}
           rules={{
             required: "Email is required",
           }}

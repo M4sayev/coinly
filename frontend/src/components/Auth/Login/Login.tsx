@@ -12,7 +12,7 @@ function Login({ onClose, setAuthView }: AuthViewProps) {
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >
-      <AuthHeader onCloseDialog={onClose} actionText="Log In" />
+      <AuthHeader titleId="login" onCloseDialog={onClose} actionText="Log In" />
       <LoginForm setAuthView={setAuthView} />
       <AuthFooter
         setAuth={() => setAuthView("signup")}

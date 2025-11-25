@@ -32,22 +32,22 @@ function LoginForm({ setAuthView }: LoginFormProps) {
     >
       <FormElement
         register={register}
-        id="emailLogin"
+        id="login-email-field"
         label="Email"
         type="email"
         placeholder="yourname@example.com"
         rules={{
           required: "Email is required",
         }}
-        error={errors.emailLogin}
+        error={errors["login-email-field"]}
       />
 
       <PasswordField
         register={register}
-        id="passwordLogin"
+        id="login-password-field"
         label="Password"
         placeholder="Enter your password"
-        error={errors.passwordLogin}
+        error={errors["login-password-field"]}
         rules={{
           required: "Password is required",
           minLength: {

@@ -28,22 +28,22 @@ function SignUpForm() {
     >
       <FormElement
         register={register}
-        id="emailSignup"
+        id="signup-email-field"
         label="Email"
         type="email"
         placeholder="yourname@example.com"
         rules={{
           required: "Email is required",
         }}
-        error={errors.emailSignup}
+        error={errors["signup-email-field"]}
       />
 
       <PasswordField
         register={register}
-        id="passwordSignup"
+        id="signup-password-field"
         label="Password"
         placeholder="Enter your password"
-        error={errors.passwordSignup}
+        error={errors["signup-password-field"]}
         rules={{
           required: "Password is required",
           minLength: {
@@ -55,12 +55,12 @@ function SignUpForm() {
       />
       <TermsAndPolicy
         register={register}
-        id="agreeToTerms"
+        id="agree-to-terms-field"
         rules={{
           required:
             "You have to agree to our terms and privacy policy to proceed.",
         }}
-        error={errors.agreeToTerms}
+        error={errors["agree-to-terms-field"]}
       />
       <ActionButton type="submit">
         <span className="py-0.5">Create account</span>

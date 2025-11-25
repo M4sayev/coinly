@@ -1,4 +1,4 @@
-import SocialAuthButtons from "./OAuthButtons";
+import OAuthButtons from "./OAuthButtons/OAuthButtons";
 
 interface AuthFooterProps {
   promptText: string;
@@ -9,7 +9,7 @@ interface AuthFooterProps {
 function AuthFooter({ promptText, actionText, setAuth }: AuthFooterProps) {
   return (
     <footer className="relative flex flex-col gap-5 mt-5 z-10">
-      <SocialAuthButtons />
+      <OAuthButtons />
       <div className="text-center text-xs text-[var(--color-neutral-300)] capitalize lg:text-sm">
         <span>{promptText}</span>
         <button

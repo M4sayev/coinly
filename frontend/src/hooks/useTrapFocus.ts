@@ -11,7 +11,7 @@ export const useTrapFocus = (
   const trapRef = useRef<FocusTrap | null>(null);
 
   useEffect(() => {
-    const element = ref.current;
+    const element = ref?.current;
 
     if (!element) return;
 

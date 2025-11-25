@@ -7,7 +7,10 @@ interface ForgotPasswordHeaderProps {
 function ForgotPasswordHeader({ onClose }: ForgotPasswordHeaderProps) {
   return (
     <header className="mb-7 ">
-      <h2 className="title font-space text-2xl mb-2  lg:text-4xl">
+      <h2
+        id="forgot-password"
+        className="title font-space text-2xl mb-2  lg:text-4xl"
+      >
         Reset password
       </h2>
       <p className="font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full">
@@ -15,10 +18,7 @@ function ForgotPasswordHeader({ onClose }: ForgotPasswordHeaderProps) {
         your account
       </p>
 
-      <CloseButton
-        onClose={onClose}
-        actionText="Close Forgot Password dialog"
-      />
+      <CloseButton onClose={onClose} ariaLabel="Close Forgot Password dialog" />
     </header>
   );
 }

@@ -12,7 +12,7 @@ export const useClickOutside = (
   };
 
   useEffect(() => {
-    if (!ref.current || isIgnoringClick) return;
+    if (!ref?.current || isIgnoringClick) return;
 
     document.addEventListener("mousedown", handleClickOutside);
 

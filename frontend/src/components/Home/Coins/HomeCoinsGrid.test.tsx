@@ -7,11 +7,10 @@ import HomeCoinsGrid from "./HomeCoinsGrid";
 import { useGetCoinsInfiniteQuery } from "../../../services/coinsApi";
 import { createTestStore } from "../../../test/testStore";
 import { Provider } from "react-redux";
-import { mockCoin, mockCoinsApiData } from "../../../test/mockData";
+import { mockCoinsApiData } from "../../../test/mockData";
 import { MemoryRouter } from "react-router-dom";
-import userEvent from "@testing-library/user-event";
 
-let mockGetCoins = useGetCoinsInfiniteQuery as ReturnType<typeof vi.fn>;
+const mockGetCoins = useGetCoinsInfiniteQuery as ReturnType<typeof vi.fn>;
 
 describe("HomeCoinGrid", () => {
   const store = createTestStore({ ui: { currency: "usd" } });
@@ -141,5 +140,8 @@ describe("HomeCoinGrid", () => {
     renderHomeGrid();
 
     expect(screen.queryByRole("button", { name: /load more/i })).toBeNull();
+  });
+  afterEach(() => {
+    vi.resetAllMocks();
   });
 });

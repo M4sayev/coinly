@@ -8,11 +8,12 @@ describe("CloseButton", () => {
   let button: HTMLElement;
   beforeEach(() => {
     onClose = vi.fn();
-    render(<CloseButton onClose={onClose} actionText="close the modal" />);
+    render(<CloseButton onClose={onClose} ariaLabel="close the modal" />);
     button = screen.getByRole("button", { name: /close the modal/i });
   });
   it("renders the correct aria-label", () => {
     expect(button).toBeInTheDocument();
+    expect(button).toHaveAttribute("aria-label", "close the modal");
   });
 
   it("calls onClose when clicked", () => {
