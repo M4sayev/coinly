@@ -56,7 +56,7 @@ function LoginForm({ setAuthView }: LoginFormProps) {
           },
         }}
         showForgot={true}
-        onForgotPassword={setAuthView}
+        onForgotPassword={() => setAuthView("reset-password")}
       />
 
       <ActionButton type="submit">

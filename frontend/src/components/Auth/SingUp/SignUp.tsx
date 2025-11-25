@@ -1,7 +1,7 @@
 import { cn } from "../../../utils/utils";
 import SignUpForm from "./SignUpForm";
-import AuthFooter from "../AuthFooter";
-import AuthHeader from "../AuthHeader";
+import AuthFooter from "../AuthFooter/AuthFooter";
+import AuthHeader from "../AuthHeader/AuthHeader";
 import type { AuthViewProps } from "../../../types/auth";
 
 function SignUp({ onClose, setAuthView }: AuthViewProps) {
@@ -15,13 +15,13 @@ function SignUp({ onClose, setAuthView }: AuthViewProps) {
       <AuthHeader
         titleId="signup"
         onCloseDialog={onClose}
-        actionText="Sign Up"
+        authSlide="sign up"
       />
       <SignUpForm />
       <AuthFooter
         setAuth={() => setAuthView("login")}
         promptText="Already have an account?"
-        actionText="Log In"
+        authSlide="log in"
       />
     </section>
   );

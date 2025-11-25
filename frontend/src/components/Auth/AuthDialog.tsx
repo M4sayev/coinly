@@ -2,14 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import Modal from "../UI/Modal";
 import { closeSignUp } from "../../state/ui/uiSlice";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import useClickOutside from "../../hooks/useClickOutside";
 import SignUp from "./SingUp/SignUp";
 import Login from "./Login/Login";
-import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import type { AuthView } from "../../types/auth";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
+import ResetPassword from "./ResetPassword/ResetPassword";
 
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -17,7 +16,7 @@ function AuthDialog() {
   const refs = {
     login: useRef<HTMLDivElement>(null),
     signup: useRef<HTMLDivElement>(null),
-    "forgot-password": useRef<HTMLDivElement>(null),
+    "reset-password": useRef<HTMLDivElement>(null),
   };
 
   const [authView, setAuthView] = useState<AuthView>("signup");
@@ -48,7 +47,7 @@ function AuthDialog() {
   useEscapeKey(() => handlCloseSingUpPopup());
 
   function translateModal() {
-    if (authView === "forgot-password") {
+    if (authView === "reset-password") {
       return "-translate-x-2/3";
     }
     if (authView === "login") {
@@ -75,6 +74,7 @@ function AuthDialog() {
           inert={authView !== "signup"}
           className="flex-1"
           ref={refs["signup"]}
+          aria-current={authView === "signup" ? "true" : undefined}
         >
           <SignUp onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
@@ -82,15 +82,17 @@ function AuthDialog() {
           inert={authView !== "login"}
           className="flex-1"
           ref={refs["login"]}
+          aria-current={authView === "login" ? "true" : undefined}
         >
           <Login onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
         <div
-          inert={authView !== "forgot-password"}
+          inert={authView !== "reset-password"}
           className="flex-1"
-          ref={refs["forgot-password"]}
+          ref={refs["reset-password"]}
+          aria-current={authView === "reset-password" ? "true" : undefined}
         >
-          <ForgotPassword
+          <ResetPassword
             onClose={handlCloseSingUpPopup}
             setAuthView={setAuthView}
           />

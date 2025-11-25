@@ -1,4 +1,12 @@
-export type AuthView = "signup" | "login" | "forgot-password";
+export type AuthView = "signup" | "login" | "reset-password";
+
+export const AuthToSlide = {
+  signup: "sign up",
+  login: "log in",
+  "reset-password": "reset password",
+} as const;
+
+export type AuthSlide = (typeof AuthToSlide)[AuthView];
 
 export interface AuthViewProps {
   onClose: () => void;

@@ -7,10 +7,11 @@ import {
   type SubmitHandler,
 } from "react-hook-form";
 import type { FormValues } from "../../../types/form";
-import ForgotPasswordHeader from "./ForgotPasswordHeader";
-import type { AuthViewProps } from "../../../types/auth";
 
-function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
+import type { AuthViewProps } from "../../../types/auth";
+import AuthHeader from "../AuthHeader/AuthHeader";
+
+function ResetPassword({ onClose, setAuthView }: AuthViewProps) {
   const {
     register,
     handleSubmit,
@@ -27,15 +28,23 @@ function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
         "relative overflow-hidden font-roboto text-[var(--color-neutral-100)] p-10"
       )}
     >
-      <ForgotPasswordHeader onClose={onClose} />
+      <AuthHeader
+        authSlide="reset password"
+        titleId="reset-password"
+        onCloseDialog={onClose}
+        promptText="Please provide the email address that you used when you signed up for
+        your account"
+        showArrow={false}
+      />
+
       <form className="flex flex-col gap-2">
         <FormElement
-          id="fp-email-field"
+          id="rp-email-field"
           register={register}
           placeholder="Enter you email"
           type="email"
           label="Email"
-          error={errors["fp-email-field"]}
+          error={errors["rp-email-field"]}
           rules={{
             required: "Email is required",
           }}
@@ -54,4 +63,4 @@ function ForgotPassword({ onClose, setAuthView }: AuthViewProps) {
   );
 }
 
-export default ForgotPassword;
+export default ResetPassword;

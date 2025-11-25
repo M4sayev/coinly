@@ -1,31 +1,40 @@
 import { CornerDownRight } from "lucide-react";
-import CloseButton from "../UI/Buttons/CloseButton";
+import CloseButton from "../../UI/Buttons/CloseButton";
+import type { AuthSlide, AuthView } from "../../../types/auth";
 
 interface AuthHeaderProps {
   onCloseDialog: () => void;
-  actionText: string;
+  authSlide: AuthSlide;
   promptText?: string;
-  titleId: string;
+  titleId: AuthView;
+  showArrow?: boolean;
 }
 
 function AuthHeader({
   titleId,
   onCloseDialog,
-  actionText,
+  authSlide,
   promptText = "Track your cryptocurrency now",
+  showArrow = true,
 }: AuthHeaderProps) {
   return (
     <header className="mb-7">
-      <h2 id={titleId} className="title font-space text-2xl mb-2 lg:text-4xl">
-        {actionText}
+      <h2
+        id={titleId}
+        className="capitalize font-space text-2xl mb-2 lg:text-4xl"
+      >
+        {authSlide}
       </h2>
       <div className="flex capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full items-end">
-        <CornerDownRight aria-hidden="true" />
+        <CornerDownRight
+          aria-hidden="true"
+          className={showArrow ? "" : "hidden"}
+        />
         <p>{promptText}</p>
       </div>
       <CloseButton
         onClose={onCloseDialog}
-        ariaLabel={`Close ${actionText} dialog`}
+        ariaLabel={`Close ${authSlide} dialog`}
       />
     </header>
   );

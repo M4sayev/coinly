@@ -1,5 +1,5 @@
-import AuthHeader from "../AuthHeader";
-import AuthFooter from "../AuthFooter";
+import AuthHeader from "../AuthHeader/AuthHeader";
+import AuthFooter from "../AuthFooter/AuthFooter";
 import { cn } from "../../../utils/utils";
 import LoginForm from "./LoginForm";
 import type { AuthViewProps } from "../../../types/auth";
@@ -12,11 +12,11 @@ function Login({ onClose, setAuthView }: AuthViewProps) {
         "relative overflow-hidden p-10 font-roboto text-[var(--color-neutral-100)]"
       )}
     >
-      <AuthHeader titleId="login" onCloseDialog={onClose} actionText="Log In" />
+      <AuthHeader titleId="login" onCloseDialog={onClose} authSlide="log in" />
       <LoginForm setAuthView={setAuthView} />
       <AuthFooter
         setAuth={() => setAuthView("signup")}
-        actionText="Sign Up"
+        authSlide="sign up"
         promptText="Don't Have an Account?"
       />
     </section>

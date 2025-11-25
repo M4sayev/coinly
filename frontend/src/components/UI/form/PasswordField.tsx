@@ -30,8 +30,8 @@ function PasswordField({
           <button
             type="button"
             className="text-xs text-[var(--color-accent)]"
-            aria-label="Go to Forgot Password Form"
-            onClick={() => onForgotPassword("forgot-password")}
+            aria-label="Go to Reset Password Form"
+            onClick={onForgotPassword}
           >
             Forgot Password?
           </button>

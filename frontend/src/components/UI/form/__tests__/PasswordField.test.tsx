@@ -68,7 +68,7 @@ describe("PasswordField", () => {
     );
 
     const button = screen.getByRole("button", {
-      name: /Go to Forgot Password Form/i,
+      name: /Go to Reset Password Form/i,
     });
     expect(button).toBeInTheDocument();
   });
@@ -79,14 +79,14 @@ describe("PasswordField", () => {
     );
 
     const buttonOne = screen.queryByRole("button", {
-      name: /Go to Forgot Password Form/i,
+      name: /Go to Reset Password Form/i,
     });
     expect(buttonOne).toBeNull();
 
     rerender(<Wrapper error={mockError} onForgotPassword={onForgotPassword} />);
 
     const buttonTwo = screen.queryByRole("button", {
-      name: /Go to Forgot Password Form/i,
+      name: /Go to Reset Password Form/i,
     });
     expect(buttonTwo).toBeNull();
   });
@@ -96,10 +96,10 @@ describe("PasswordField", () => {
     render(<Wrapper showForgot onForgotPassword={onForgotPassword} />);
 
     const button = screen.getByRole("button", {
-      name: /Go to Forgot Password Form/i,
+      name: /Go to Reset Password Form/i,
     });
     await user.click(button);
-    expect(onForgotPassword).toHaveBeenCalledWith("forgot-password");
+    expect(onForgotPassword).toBeCalledTimes(1);
   });
   it("correctly renders the error message and aria-invalid on input", () => {
     render(<Wrapper error={mockError} />);

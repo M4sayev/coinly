@@ -1,12 +1,13 @@
-import OAuthButtons from "./OAuthButtons/OAuthButtons";
+import type { AuthSlide } from "../../../types/auth";
+import OAuthButtons from "../OAuthButtons/OAuthButtons";
 
 interface AuthFooterProps {
   promptText: string;
-  actionText: string;
+  authSlide: AuthSlide;
   setAuth: () => void;
 }
 
-function AuthFooter({ promptText, actionText, setAuth }: AuthFooterProps) {
+function AuthFooter({ promptText, authSlide, setAuth }: AuthFooterProps) {
   return (
     <footer className="relative flex flex-col gap-5 mt-5 z-10">
       <OAuthButtons />
@@ -14,11 +15,11 @@ function AuthFooter({ promptText, actionText, setAuth }: AuthFooterProps) {
         <span>{promptText}</span>
         <button
           type="button"
-          className="text-sm cursor-pointer ml-1 text-[var(--color-accent)]"
-          aria-label={`Go to ${actionText} form`}
+          className="capitalize text-sm cursor-pointer ml-1 text-[var(--color-accent)]"
+          aria-label={`Go to ${authSlide} form`}
           onClick={setAuth}
         >
-          {actionText}
+          {authSlide}
         </button>
       </div>
     </footer>
