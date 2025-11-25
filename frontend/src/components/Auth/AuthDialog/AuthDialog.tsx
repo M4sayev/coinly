@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import Modal from "../UI/Modal";
-import { closeSignUp } from "../../state/ui/uiSlice";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { useTrapFocus } from "../../hooks/useTrapFocus";
-import useClickOutside from "../../hooks/useClickOutside";
-import SignUp from "./SingUp/SignUp";
-import Login from "./Login/Login";
-import type { AuthView } from "../../types/auth";
-import { useEscapeKey } from "../../hooks/useEscapeKey";
-import ResetPassword from "./ResetPassword/ResetPassword";
+import Modal from "../../UI/Modal";
+import { closeSignUp } from "../../../state/ui/uiSlice";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
+import { useTrapFocus } from "../../../hooks/useTrapFocus";
+import useClickOutside from "../../../hooks/useClickOutside";
+import SignUp from "../SingUp/SignUp";
+import Login from "../Login/Login";
+import type { AuthView } from "../../../types/auth";
+import { useEscapeKey } from "../../../hooks/useEscapeKey";
+import ResetPassword from "../ResetPassword/ResetPassword";
 
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -75,6 +75,7 @@ function AuthDialog() {
           className="flex-1"
           ref={refs["signup"]}
           aria-current={authView === "signup" ? "true" : undefined}
+          data-testid="signup-wrapper"
         >
           <SignUp onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
@@ -83,6 +84,7 @@ function AuthDialog() {
           className="flex-1"
           ref={refs["login"]}
           aria-current={authView === "login" ? "true" : undefined}
+          data-testid="login-wrapper"
         >
           <Login onClose={handlCloseSingUpPopup} setAuthView={setAuthView} />
         </div>
@@ -91,6 +93,7 @@ function AuthDialog() {
           className="flex-1"
           ref={refs["reset-password"]}
           aria-current={authView === "reset-password" ? "true" : undefined}
+          data-testid="rp-wrapper"
         >
           <ResetPassword
             onClose={handlCloseSingUpPopup}

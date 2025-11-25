@@ -14,7 +14,7 @@ describe("LoginForm", () => {
     expect(screen.getByTestId("password-label")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /log in/i })).toBeInTheDocument();
   });
-  test("submits form with valid data", async () => {
+  it("submits form with valid data", async () => {
     const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
     render(<LoginForm setAuthView={setAuthViewMock} />);
 
@@ -32,7 +32,7 @@ describe("LoginForm", () => {
       "login-password-field": "password123",
     });
   });
-  test("calls setAuthView when forgot password is clicked", () => {
+  it("calls setAuthView when forgot password is clicked", () => {
     render(<LoginForm setAuthView={setAuthViewMock} />);
     const forgotButton = screen.getByText(/forgot password/i);
     fireEvent.click(forgotButton);

@@ -16,6 +16,7 @@ function Modal(
       onCancel={onCancel}
       aria-labelledby={titleId}
       className={className}
+      data-testid="modal"
     >
       {children}
     </dialog>

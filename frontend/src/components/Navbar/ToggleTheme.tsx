@@ -32,7 +32,7 @@ function ToggleTheme() {
       <ThemeIcon
         aria-hidden="true"
         data-testid="icon"
-        className="group-focus:ring-1 group-focus:text-[var(--color-accent)] transition-colors duration-500"
+        className="group-focus-visible:ring-1 transition-colors duration-500"
       />
     </button>
   );
