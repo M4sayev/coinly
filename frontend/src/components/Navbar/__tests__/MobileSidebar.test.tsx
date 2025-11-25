@@ -15,7 +15,9 @@ describe("MobileSiderbar", () => {
 
   const renderMobileSidebar = (
     isSidebarOpen = false,
-    preloadedState = { ui: { isSignUpModalOpen: false, isSidebarOpen } }
+    preloadedState = {
+      ui: { isSignUpModalOpen: false, isSidebarOpen, currency: "EUR" },
+    }
   ) => {
     store = createTestStore(preloadedState);
     const onSignUpClick = () => store.dispatch(openSignUp());
@@ -108,5 +110,19 @@ describe("MobileSiderbar", () => {
     fireEvent.keyDown(document, { key: "Escape" });
 
     expect(store.getState().ui.isSidebarOpen).toBe(false);
+  });
+  it("dropdown updates the redux store correctly", async () => {
+    const user = userEvent.setup();
+    renderMobileSidebar(true);
+    const dropdownButton = screen.getByText("EUR");
+
+    dropdownButton.focus();
+
+    await user.click(dropdownButton);
+    await user.keyboard("{arrowdown}");
+    await user.keyboard("{Enter}");
+    screen.debug();
+
+    expect(store.getState().ui.currency).toBe("AZN");
   });
 });

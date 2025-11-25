@@ -24,12 +24,16 @@ function ToggleTheme() {
   return (
     <button
       type="button"
-      className="text-[var(--color-neutral-100)] transition-all duration-500 hover:text-[var(--color-accent)]"
+      className="group text-[var(--color-neutral-100)] transition-all duration-500 hover:text-[var(--color-accent)] focus:outline-0"
       onClick={toggleTheme}
       aria-pressed={theme === "dark"}
       aria-label={`Switch the page theme to ${nextTheme}`}
     >
-      <ThemeIcon aria-hidden="true" data-testid="icon" />
+      <ThemeIcon
+        aria-hidden="true"
+        data-testid="icon"
+        className="group-focus:ring-1 group-focus:text-[var(--color-accent)] transition-colors duration-500"
+      />
     </button>
   );
 }

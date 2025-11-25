@@ -8,6 +8,7 @@ function SkeletonGrid({ count = 45 }: SkeletonGridProps) {
   const items = Array.from({ length: count }, (_, i) => i);
   return (
     <ul
+      data-testid="skeleton-loader"
       role="presentation"
       aria-hidden="true"
       className={cn(

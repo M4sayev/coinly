@@ -64,7 +64,10 @@ function Navbar() {
           />
 
           <div className="group">
-            <ActionButton onClick={handleSignUpClick} aria-label="Sign up">
+            <ActionButton
+              onClick={handleSignUpClick}
+              aria-label="Open authentication dialog for sign up or Log in"
+            >
               Sign up
               <span
                 className="hidden text-[var(--color-neutral-100)] absolute lg:block md:relative transition-all group-hover:translate-x-0.5"

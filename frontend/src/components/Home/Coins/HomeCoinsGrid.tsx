@@ -50,7 +50,7 @@ function HomeCoinsGrid({ searchQuery }: HomeCoinsGridProps) {
         <div className="flex flex-col items-center pb-6 gap-4">
           <CrossedDollar aria-hidden="true" className="w-22 h-22" />
           <span className=" text-lg text-center">
-            Not matches for "{searchQuery}"
+            No matches for "{searchQuery}"
           </span>
         </div>
       </EmptyCoinGrid>
@@ -63,7 +63,7 @@ function HomeCoinsGrid({ searchQuery }: HomeCoinsGridProps) {
         isFetching={isFetching}
         hasNextPage={hasNextPage}
         onClick={handleNextPage}
-        label="Load more crypto coins cards"
+        ariaLabel="Load more crypto coins cards"
         Loader={<SkeletonGrid count={10} />}
       />
     </>

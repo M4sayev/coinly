@@ -5,7 +5,7 @@ interface LoadMoreButtonProps {
   hasNextPage: boolean;
   isFetching: boolean;
   onClick: () => void;
-  label?: string;
+  ariaLabel?: string;
   actionText?: string;
   Loader?: React.ReactNode;
 }
@@ -14,7 +14,7 @@ function LoadMoreButton({
   isFetching,
   hasNextPage,
   onClick,
-  label = "Load More",
+  ariaLabel = "Load More",
   actionText = "Load More",
   Loader = <BeatLoader data-testid="load-more-loader" aria-hidden="true" />,
 }: LoadMoreButtonProps) {
@@ -37,7 +37,7 @@ function LoadMoreButton({
           variant="secondary"
           onClick={onClick}
           disabled={!hasNextPage}
-          aria-label={label}
+          aria-label={ariaLabel}
         >
           {actionText}
         </ActionButton>
