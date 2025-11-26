@@ -1,9 +1,9 @@
-import Header from "../components/Home/Header/Header";
 import CoinSearchBar from "../components/Home/CoinSearchBar/CoinSearchBar";
 import { cn } from "../utils/utils";
 import { useState, type ChangeEvent } from "react";
 import { useDebounce } from "use-debounce";
 import HomeCoinsGrid from "../components/Home/Coins/HomeCoinsGrid";
+import HomeHero from "../components/Home/HomeHero/HomeHero";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <main className="ease-in-out bg-[image:var(--gradient-bg)] pb-7">
-      <Header />
+      <HomeHero />
       <section className="font-roboto py-10 md:pt-20 text-center w-[90%] max-w-[360px] sm:max-w-[450px] md:w-[60%] lg:max-w-[600px] m-auto">
         <h2
           className={cn(

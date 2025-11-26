@@ -1,15 +1,15 @@
 import NavbarTermsPolicy from "../components/TermsAndPolicy/NavbarTermsPolicy";
-import TermsPolicyHeader from "../components/TermsAndPolicy/TermsPolicyHeader";
 import Markdown from "react-markdown";
 import privacy from "../content/privacy.md";
 import { cn } from "../utils/utils";
+import TermsPolicyLandingPage from "../components/TermsAndPolicy/TermsPolicyLandingPage";
 
 function Policy() {
   return (
     <main className="text-roboto bg-white">
       <div className="m-auto max-w-7xl">
         <NavbarTermsPolicy page="privacy-policy" filename="Policy" />
-        <TermsPolicyHeader
+        <TermsPolicyLandingPage
           text="Privacy policy"
           dateOfEffectiveness="November 11 2025"
         />

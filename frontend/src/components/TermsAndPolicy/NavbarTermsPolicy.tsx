@@ -9,7 +9,7 @@ interface NavbarTermsPolicyProps {
 
 function NavbarTermsPolicy({ page, filename }: NavbarTermsPolicyProps) {
   return (
-    <nav>
+    <header>
       <div className="absolute left-0 right-0 max-w-7xl mx-auto flex justify-between items-center px-6 py-6 font-roboto ">
         <div className="flex gap-4 items-center text-primary font-mono">
           <Logo
@@ -27,7 +27,7 @@ function NavbarTermsPolicy({ page, filename }: NavbarTermsPolicyProps) {
           actionText="Download PDF"
         />
       </div>
-    </nav>
+    </header>
   );
 }
 

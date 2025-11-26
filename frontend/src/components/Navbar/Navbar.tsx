@@ -48,13 +48,13 @@ function Navbar() {
   }, [isSidebarOpen, handleCloseMobileNav]);
 
   return (
-    <nav className="fixed left-0 right-0 z-10">
+    <header className="fixed left-0 right-0 z-10">
       <div className=" relative max-w-7xl mx-auto flex justify-between items-center px-6 py-3 font-roboto">
         <Logo linkTo="/" ariaLabel="Go to home page" />
-        <div className="absolute md:gap-5 hidden md:flex md:w-1/2 md:m-auto left-0 right-0 justify-center">
+        <nav className="absolute md:gap-5 hidden md:flex md:w-1/2 md:m-auto left-0 right-0 justify-center">
           <CustomNavLink to="/">Home</CustomNavLink>
           <CustomNavLink to="/watchlist">Watchlist</CustomNavLink>
-        </div>
+        </nav>
         <div className="hidden md:flex gap-5 h-full">
           <SelectDropdown
             id="currency"
@@ -89,7 +89,7 @@ function Navbar() {
         />
       </div>
       <AuthDialog />
-    </nav>
+    </header>
   );
 }
 

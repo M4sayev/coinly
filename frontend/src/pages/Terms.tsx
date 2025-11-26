@@ -1,15 +1,15 @@
 import NavbarTermsPolicy from "../components/TermsAndPolicy/NavbarTermsPolicy";
-import TermsPolicyHeader from "../components/TermsAndPolicy/TermsPolicyHeader";
 import Markdown from "react-markdown";
 import terms from "../content/terms.md";
 import { cn } from "../utils/utils";
+import TermsPolicyLandingPage from "../components/TermsAndPolicy/TermsPolicyLandingPage";
 
 function Terms() {
   return (
     <main className="text-roboto bg-white">
       <div className="m-auto max-w-7xl">
         <NavbarTermsPolicy page="terms-and-conditions" filename="Terms" />
-        <TermsPolicyHeader
+        <TermsPolicyLandingPage
           text="Terms & Conditions"
           dateOfEffectiveness="November 11 2025"
         />
