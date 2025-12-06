@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import {
   IMAGE_DENSITY,
   IMAGE_MAP,
@@ -35,8 +35,6 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const rerenderedRef = useRef<boolean>(false);
   let animationFrameId: number;
-
-  console.log(IMAGE_MAP[props.img]);
   const initCanvas = () => {
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext("2d");
@@ -56,7 +54,7 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = IMAGE_MAP[props.img] || IMAGE_MAP["bitcoin"];
+    img.src = IMAGE_MAP[props.img] || IMAGE_MAP["BTC"];
 
     const particles: Particle[] = [];
 
@@ -82,7 +80,7 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
               x: Math.random() * rect.width,
               y: Math.random() * rect.height,
               tx: x * IMG_SCALE,
-              ty: y * IMG_SCALE + topOffset,
+              ty: y * IMG_SCALE + topOffset * 1.5,
             });
           }
         }
@@ -149,4 +147,4 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
   return <canvas ref={canvasRef} {...props} />;
 };
 
-export default Particles;
+export default memo(Particles);

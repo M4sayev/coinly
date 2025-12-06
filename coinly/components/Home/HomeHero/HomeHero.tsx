@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "../../../utils/utils";
 import Particles from "../../UI/Particles";
 import { useAppSelector } from "../../../hooks/reduxHooks";
@@ -7,8 +8,6 @@ function HomeHero() {
   const currency = useAppSelector((state) => state.ui.currency);
   const CoinMobile =
     coinImages[currency.toLowerCase()] || coinImages["bitcoin"];
-
-  console.log(CoinMobile);
   return (
     <section className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto">
       <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 pb-10 pt-[64px]">

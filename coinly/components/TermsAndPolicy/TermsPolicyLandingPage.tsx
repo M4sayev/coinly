@@ -1,0 +1,25 @@
+interface LadingPageProps {
+  text: string;
+  dateOfEffectiveness: string;
+}
+
+function TermsPolicyLandingPage({
+  text,
+  dateOfEffectiveness,
+}: LadingPageProps) {
+  return (
+    <section className="mx-auto px-6">
+      <div className="grid grid-cols-2 h-screen items-center">
+        <h1 className="text-[clamp(1rem,17vw,6rem)] lg:text-[8rem] font-bold pt-[5rem] md:pt-[6rem] pb-[4rem] md:pb-[1rem]">
+          {text}
+        </h1>
+      </div>
+      <div className="bg-black text-white text-center font-mono p-7 md:p-10">
+        Effective:{" "}
+        <time dateTime={dateOfEffectiveness}>{dateOfEffectiveness}</time>
+      </div>
+    </section>
+  );
+}
+
+export default TermsPolicyLandingPage;
