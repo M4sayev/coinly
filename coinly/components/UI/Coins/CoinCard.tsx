@@ -5,7 +5,6 @@ import { useAppSelector } from "../../../hooks/reduxHooks";
 import { currencyToSign } from "../../../constants/currencies";
 import TrailWrapper from "../TrailWrapper/TrailWrapper";
 import Link from "next/link";
-import Image from "next/image";
 
 function CoinCard({
   id,
@@ -33,7 +32,7 @@ function CoinCard({
       >
         <TrailWrapper size="800" className="p-4">
           <header className="flex gap-3 items-center mb-3">
-            <Image className="w-10 h-10" src={image} alt={`${name} icon`} />
+            <img className="w-10 h-10" src={image} alt={`${name} icon`} />
             <div className="w-full overflow-hidden">
               <h3
                 id="coin-card-name"
