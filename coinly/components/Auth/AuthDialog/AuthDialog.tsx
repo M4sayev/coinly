@@ -13,10 +13,14 @@ import ResetPassword from "../ResetPassword/ResetPassword";
 function AuthDialog() {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  const refs = {
-    login: useRef<HTMLDivElement>(null),
-    signup: useRef<HTMLDivElement>(null),
-    "reset-password": useRef<HTMLDivElement>(null),
+  const loginRef = useRef<HTMLDivElement>(null);
+  const signupRef = useRef<HTMLDivElement>(null);
+  const resetRef = useRef<HTMLDivElement>(null);
+
+  const viewRefs = {
+    login: loginRef,
+    signup: signupRef,
+    "reset-password": resetRef,
   };
 
   const [authView, setAuthView] = useState<AuthView>("signup");
@@ -26,6 +30,7 @@ function AuthDialog() {
 
   const handlCloseSingUpPopup = () => {
     dispatch(closeSignUp());
+    setAuthView("signup");
   };
 
   useEffect(() => {
@@ -39,7 +44,6 @@ function AuthDialog() {
     } else {
       if (dialogEl.open) {
         dialogEl.close();
-        setAuthView("signup");
       }
     }
   }, [isOpen]);
@@ -56,7 +60,7 @@ function AuthDialog() {
     return "";
   }
 
-  useClickOutside(refs[authView], handlCloseSingUpPopup);
+  useClickOutside(viewRefs[authView], handlCloseSingUpPopup);
 
   useTrapFocus(dialogRef, isOpen);
 
@@ -73,7 +77,7 @@ function AuthDialog() {
         <div
           inert={authView !== "signup"}
           className="flex-1"
-          ref={refs["signup"]}
+          ref={signupRef}
           aria-current={authView === "signup" ? "true" : undefined}
           data-testid="signup-wrapper"
         >
@@ -82,7 +86,7 @@ function AuthDialog() {
         <div
           inert={authView !== "login"}
           className="flex-1"
-          ref={refs["login"]}
+          ref={loginRef}
           aria-current={authView === "login" ? "true" : undefined}
           data-testid="login-wrapper"
         >
@@ -91,7 +95,7 @@ function AuthDialog() {
         <div
           inert={authView !== "reset-password"}
           className="flex-1"
-          ref={refs["reset-password"]}
+          ref={resetRef}
           aria-current={authView === "reset-password" ? "true" : undefined}
           data-testid="rp-wrapper"
         >

@@ -6,6 +6,7 @@ import OAuthButton from "../OAuthButton";
 import { oauthBtnBaseClass } from "../../../../constants/OAuthProviders";
 
 vi.mock("@/assets/social-icons/google-icon.svg", () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: (props: any) => <svg data-testid="google-icon" {...props} />,
 }));
 

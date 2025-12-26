@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Logo from "./Logo";
 
 vi.mock("@/assets/logo.svg", () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: (props: any) => <svg data-testid="logo-icon" {...props} />,
 }));
 

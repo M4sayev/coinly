@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import AuthFooter from "./AuthFooter";
 
 vi.mock("../OAuthButtons/OAuthButtons", () => ({
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   default: (props: any) => <div data-testid="oauth-btns" {...props}></div>,
 }));
 

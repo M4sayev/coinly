@@ -1,7 +1,5 @@
-import Navbar from "@/components/Navbar/Navbar";
 import "./globals.css";
 import Providers from "./providers";
-import Footer from "@/components/Footer/Footer";
 import { Roboto_Flex, Space_Mono } from "next/font/google";
 import { Metadata } from "next";
 import LayoutWrapper from "./LayoutWrapper";

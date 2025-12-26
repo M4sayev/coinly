@@ -1,6 +1,5 @@
 /// <reference types="vitest" />
 import "@testing-library/jest-dom";
-import React from "react";
 
 beforeAll(() => {
   globalThis.ResizeObserver = class {
