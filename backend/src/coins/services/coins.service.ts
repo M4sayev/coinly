@@ -7,10 +7,36 @@ import { Currency } from 'src/types/coins/coins.types';
 @Injectable()
 export class CoinsService {
   private readonly baseUrl = 'https://api.coingecko.com/api/v3/';
+
   constructor(
     private configService: ConfigService,
     private httpService: HttpService,
   ) {}
+
+  async getCoinsByIds(
+    currency: Currency = 'btc',
+    ids: string,
+    page: number = 1,
+  ) {
+    try {
+      const apiKey = this.configService.get<string>('CG_API_KEY');
+      const headers = { 'x-cg-demo-api-key': apiKey };
+
+      if (!ids) return [];
+
+      const { data } = await firstValueFrom(
+        this.httpService.get(
+          `${this.baseUrl}coins/markets?vs_currency=${currency}&ids=${ids}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`,
+          { headers },
+        ),
+      );
+
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw new InternalServerErrorException('Failed to fetch market data');
+    }
+  }
 
   async getCoins(currency: Currency = 'btc', search?: string, page = 1) {
     try {
