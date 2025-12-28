@@ -22,6 +22,8 @@ export class WishlistService {
 
     const ids = wishlistCoins.map((coin) => coin.id).join(',');
 
+    console.log(`get coins wihslist: ${ids}`);
+
     return this.coinsService.getCoinsByIds(currency, ids, page);
   }
 

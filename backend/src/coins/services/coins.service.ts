@@ -6,74 +6,84 @@ import { Currency } from 'src/types/coins/coins.types';
 
 @Injectable()
 export class CoinsService {
-  private readonly baseUrl = 'https://api.coingecko.com/api/v3/';
+  private readonly baseUrl = 'https://api.coingecko.com/api/v3';
 
   constructor(
     private configService: ConfigService,
     private httpService: HttpService,
   ) {}
 
+  private get getGeckoHeaders() {
+    return {
+      'x-cg-demo-api-key': this.configService.get<string>('CG_API_KEY'),
+    };
+  }
+
+  async makeRequest(url: string): Promise<any> {
+    try {
+      const headers = this.getGeckoHeaders;
+      const { data } = await firstValueFrom(
+        this.httpService.get(url, { headers }),
+      );
+      return data;
+    } catch (error) {
+      console.error(error);
+      throw new InternalServerErrorException('Failed to fetch coin data');
+    }
+  }
+
   async getCoinsByIds(
     currency: Currency = 'btc',
     ids: string,
     page: number = 1,
   ) {
-    try {
-      const apiKey = this.configService.get<string>('CG_API_KEY');
-      const headers = { 'x-cg-demo-api-key': apiKey };
+    if (!ids) return [];
 
-      if (!ids) return [];
+    console.log(ids);
 
-      const { data } = await firstValueFrom(
-        this.httpService.get(
-          `${this.baseUrl}coins/markets?vs_currency=${currency}&ids=${ids}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`,
-          { headers },
-        ),
-      );
+    const params = new URLSearchParams({
+      vs_currency: currency,
+      ids,
+      order: 'market_cap_desc',
+      per_page: '45',
+      page: page.toString(),
+      sparkline: 'false',
+    });
 
-      return data;
-    } catch (error) {
-      console.error(error);
-      throw new InternalServerErrorException('Failed to fetch market data');
-    }
+    return await this.makeRequest(
+      `${this.baseUrl}/coins/markets?${params.toString()}`,
+    );
   }
 
   async getCoins(currency: Currency = 'btc', search?: string, page = 1) {
-    try {
-      const apiKey = this.configService.get<string>('CG_API_KEY');
-      const headers = { 'x-cg-demo-api-key': apiKey };
-
-      if (search) {
-        const { data } = await firstValueFrom(
-          this.httpService.get(
-            `${this.baseUrl}search?query=${encodeURIComponent(search)}`,
-            { headers },
-          ),
-        );
-
-        const ids = data.coins.map((coin: any) => coin.id).join(',');
-
-        if (!ids) return [];
-
-        const { data: marketData } = await firstValueFrom(
-          this.httpService.get(
-            `${this.baseUrl}coins/markets?vs_currency=${currency}&ids=${ids}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`,
-            { headers },
-          ),
-        );
-
-        return marketData;
-      }
-
-      const defaultUrl = `${this.baseUrl}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`;
-      const { data } = await firstValueFrom(
-        this.httpService.get(defaultUrl, { headers }),
+    if (search) {
+      const data = await this.makeRequest(
+        `${this.baseUrl}/search?query=${encodeURIComponent(search)}`,
       );
 
-      return data;
-    } catch (error) {
-      console.error(error);
-      throw new InternalServerErrorException('Failed to fetch market data');
+      const ids = data.coins.map((coin: any) => coin.id).join(',');
+
+      if (!ids) return [];
+
+      const params = new URLSearchParams({
+        vs_currency: currency,
+        ids,
+        order: 'market_cap_desc',
+        per_page: '45',
+        page: page.toString(),
+        sparkline: 'false',
+      });
+
+      const marketData = await this.makeRequest(
+        `${this.baseUrl}/coins/markets?${params.toString()}`,
+      );
+
+      return marketData;
     }
+
+    const defaultUrl = `${this.baseUrl}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`;
+
+    const data = await this.makeRequest(defaultUrl);
+    return data;
   }
 }
