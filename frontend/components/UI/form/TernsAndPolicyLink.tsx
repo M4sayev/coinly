@@ -11,7 +11,7 @@ function TermsAndPolicyLink({ text, to, onClick }: LinkProps) {
       onClick={onClick}
       href={to}
       type="button"
-      className="ml-1 text-[var(--color-accent)]"
+      className="ml-1 text-accent"
       aria-label={`View our ${text}`}
     >
       {text}

@@ -44,7 +44,7 @@ function HomeCoinsGrid({ searchQuery }: HomeCoinsGridProps) {
 
   if (isLoading) return <SkeletonGrid />;
 
-  if (!allResults.length)
+  if (!allResults || !allResults.length)
     return (
       <EmptyCoinGrid label={`No matches found with identifier ${searchQuery}`}>
         <div className="flex flex-col items-center pb-6 gap-4">

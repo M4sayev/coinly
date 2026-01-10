@@ -36,10 +36,10 @@ const socialIcons: Icon[] = [
 
 function Footer() {
   return (
-    <footer className="font-roboto left-0 right-0 bottom-0 relative bg-[image:var(--gradient-bg)] shadow-2xl">
+    <footer className="font-roboto left-0 right-0 bottom-0 relative bg-(image:--gradient-bg) shadow-2xl">
       <TrailWrapper size="1000">
-        <div className="bg-[var(--color-secondary-600)] ">
-          <div className="flex items-center flex-col md:flex-row md:justify-between md:px-10 text-[var(--color-neutral-200)] py-8 max-w-7xl mx-auto">
+        <div className="bg-secondary-600">
+          <div className="flex items-center flex-col md:flex-row md:justify-between md:px-10 text-neutral-200 py-8 max-w-7xl mx-auto">
             <div className="text-center md:text-start">
               <span className="block">@ 2025 Coinly</span>
               <span>Market data provided by CoinGecko.</span>

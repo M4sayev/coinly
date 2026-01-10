@@ -19,7 +19,7 @@ function Hamburger({ onToggleMobileNav, isSidebarOpen }: HamburgerProps) {
           strokeLinejoin="round"
           strokeLinecap="round"
           d="m 51 51 l -41 -41 a 1 1 0 0 0 0 10 h 60 "
-          className={`[stroke-dasharray:64_100] [stroke-dashoffset:-74] transition-all duration-1000  ${
+          className={`[stroke-dasharray:64_100] [stroke-dashoffset:-74] transition-all duration-1000 ${
             isSidebarOpen ? "[stroke-dashoffset:10]" : ""
           }`}
         ></path>
@@ -28,7 +28,7 @@ function Hamburger({ onToggleMobileNav, isSidebarOpen }: HamburgerProps) {
           strokeLinejoin="round"
           strokeLinecap="round"
           d="m 10 90 l 80 -80 a 1 1 0 0 1 0 40 h -80 "
-          className={`[stroke-dasharray:80_200] [stroke-dashoffset:-176] transition-all duration-1000  ${
+          className={`[stroke-dasharray:80_200] [stroke-dashoffset:-176] transition-all duration-1000 ${
             isSidebarOpen
               ? "[stroke-dashoffset:10] [stroke-dasharray:120_300]"
               : ""
@@ -39,7 +39,7 @@ function Hamburger({ onToggleMobileNav, isSidebarOpen }: HamburgerProps) {
           strokeLinejoin="round"
           strokeLinecap="round"
           d="m 50 50 l 40 40 h -20 l -10 -10 h -50 "
-          className={`[stroke-dasharray:40_200] [stroke-dashoffset:-100] transition-all duration-1000  ${
+          className={`[stroke-dasharray:40_200] [stroke-dashoffset:-100] transition-all duration-1000 ${
             isSidebarOpen
               ? "[stroke-dashoffset:10] [stroke-dasharray:66_300]"
               : ""

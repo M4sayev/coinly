@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "lint": "eslint",
     "test": "vitest"
   },
@@ -20,7 +20,7 @@
     "next": "^16.0.7",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-hook-form": "^7.66.1",
+    "react-hook-form": "^7.70.0",
     "react-markdown": "^10.1.0",
     "react-redux": "^9.2.0",
     "react-spinners": "^0.17.0",
@@ -29,7 +29,7 @@
     "use-debounce": "^10.0.6",
     "vite-plugin-svgr": "^4.5.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^4.0.14"
+    "vitest": "^4.0.16"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

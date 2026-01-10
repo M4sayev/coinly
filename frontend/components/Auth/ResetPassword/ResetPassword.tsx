@@ -24,8 +24,8 @@ function ResetPassword({ onClose, setAuthView }: AuthViewProps) {
   return (
     <section
       className={cn(
-        "rounded-2xl bg-[var(--color-modal)] border border-[rgba(30,33,40,0.8)]",
-        "relative overflow-hidden font-roboto text-[var(--color-neutral-100)] p-10"
+        "rounded-2xl bg-modal border border-[rgba(30,33,40,0.8)]",
+        "relative overflow-hidden font-roboto text-neutral-100 p-10"
       )}
     >
       <AuthHeader
@@ -49,7 +49,7 @@ function ResetPassword({ onClose, setAuthView }: AuthViewProps) {
             required: "Email is required",
           }}
         />
-        <p className="font-roboto text-xs text-[var(--color-green-accent)] lg:text-sm w-full mb-2">
+        <p className="font-roboto text-xs text-green-accent lg:text-sm w-full mb-2">
           We will send you an email that will allow you to reset your password
         </p>
         <ActionButton onClick={handleSubmit(onSubmit, onError)}>

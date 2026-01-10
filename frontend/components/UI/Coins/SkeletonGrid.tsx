@@ -22,9 +22,9 @@ function SkeletonGrid({ count = 45 }: SkeletonGridProps) {
           <li key={`Skeleton-item-${item}`}>
             <div
               className={cn(
-                "p-5 bg-[var(--color-secondary-600)] rounded-xl text-[var(--color-neutral-100)]",
-                "border border-[var(--color-accent-dblue)] shadow-lg animate-pulse",
-                "[&_span]:bg-[#1e212833] [&_span]:rounded  [&_span]:inline-block "
+                "p-5 bg-secondary-600 rounded-xl text-neutral-100",
+                "border border-accent-dblue shadow-lg animate-pulse",
+                "[&_span]:bg-secondary-600 [&_span]:rounded  [&_span]:inline-block "
               )}
             >
               <div className="flex gap-3 items-center mb-3">

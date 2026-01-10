@@ -11,7 +11,7 @@ function Error({ error, children }: ErrorProps) {
     <div
       role="status"
       aria-live="polite"
-      className="text-[var(--color-accent-dblue)] font-mono grid place-items-center"
+      className="text-accent-dblue font-mono grid place-items-center"
     >
       {children}
     </div>

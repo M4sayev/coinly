@@ -25,7 +25,7 @@ function TrailWrapper({ size, className, children }: TrailWrapperProps) {
         className,
         "cursor-trail overflow-hidden relative hover:before:opacity-100",
         "before:left-0 before:absolute before:top-0 before:h-full before:w-full before:z-0",
-        "before:bg-[image:var(--trail-gradient)] before:content-['']",
+        "before:bg-(image:--trail-gradient) before:content-['']",
         "before:opacity-0 before:transition-all before:duration-300 before:pointer-events-none"
       )}
       style={{ "--trail-size": `${size}px` } as React.CSSProperties}

@@ -5,6 +5,7 @@ import ActionButton from "../UI/Buttons/ActionButton";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import {
   closeSidebar,
+  currencyType,
   openSidebar,
   openSignUp,
   setCurrency,
@@ -61,7 +62,7 @@ function Navbar() {
             id="currency"
             value={currency}
             options={currencies}
-            onChange={(value) => dispatch(setCurrency(value))}
+            onChange={(value) => dispatch(setCurrency(value as currencyType))}
           />
 
           <div className="group">
@@ -71,7 +72,7 @@ function Navbar() {
             >
               Sign up
               <span
-                className="hidden text-[var(--color-neutral-100)] absolute lg:block md:relative transition-all group-hover:translate-x-0.5"
+                className="hidden text-neutral-100 absolute lg:block md:relative transition-all group-hover:translate-x-0.5"
                 aria-hidden="true"
               >
                 <LogIn className="w-4 h-4 text-white" aria-hidden="true" />

@@ -3,7 +3,7 @@ import CustomNavLink from "../UI/CustomNavLink";
 import ActionButton from "../UI/Buttons/ActionButton";
 import { currencies } from "../../constants/currencies";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { setCurrency } from "../../state/ui/uiSlice";
+import { currencyType, setCurrency } from "../../state/ui/uiSlice";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
@@ -53,7 +53,7 @@ function MobileSidebar({
       <aside
         aria-hidden={!isSidebarOpen}
         inert={!isSidebarOpen}
-        className={`z-10 fixed right-0 px-8 pr-[min(33vh,30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-[var(--shadow-sm)] ${
+        className={`z-10 fixed right-0 px-8 pr-[min(33vh,30rem)] py-15 h-full bg-gray-200/10 backdrop-blur-sm transition-all duration-700 shadow-(--shadow-sm) ${
           isSidebarOpen ? "top-0" : "top-[-105%]"
         }`}
       >
@@ -65,7 +65,7 @@ function MobileSidebar({
               id="currency"
               value={currency}
               options={currencies}
-              onChange={(value) => dispatch(setCurrency(value))}
+              onChange={(value) => dispatch(setCurrency(value as currencyType))}
             />
             <div>
               <ActionButton

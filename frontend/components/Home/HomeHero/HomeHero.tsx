@@ -9,8 +9,8 @@ function HomeHero() {
   const CoinMobile =
     coinImages[currency.toLowerCase()] || coinImages["bitcoin"];
   return (
-    <section className="relative font-roboto min-h-screen text-[var(--color-neutral-100)] h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto">
-      <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 pb-10 pt-[64px]">
+    <section className="relative font-roboto min-h-screen text-neutral-100 h-full flex items-center justify-center overflow-hidden max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto w-full h-140 flex items-center gap-5 justify-center lg:justify-between px-4 pb-10 pt-16">
         {/* Particle coin desktop */}
         <Particles
           img={currency}
@@ -33,8 +33,8 @@ function HomeHero() {
           </h1>
           <p
             className={cn(
-              "text-[var(--color-neutral-200)] relative",
-              "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-[image:var(--gradient-accent)] before:opacity-30 before:rounded"
+              "text-neutral-200)] relative",
+              "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-(image:--gradient-accent) before:opacity-30 before:rounded"
             )}
           >
             Follow coins by adding to watchlist

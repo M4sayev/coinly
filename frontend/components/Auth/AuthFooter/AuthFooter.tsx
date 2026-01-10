@@ -11,11 +11,11 @@ function AuthFooter({ promptText, authSlide, setAuth }: AuthFooterProps) {
   return (
     <footer className="relative flex flex-col gap-5 mt-5 z-10">
       <OAuthButtons />
-      <div className="text-center text-xs text-[var(--color-neutral-300)] capitalize lg:text-sm">
+      <div className="text-center text-xs text-neutral-300 capitalize lg:text-sm">
         <span>{promptText}</span>
         <button
           type="button"
-          className="capitalize text-sm cursor-pointer ml-1 text-[var(--color-accent)]"
+          className="capitalize text-sm cursor-pointer ml-1 text-accent"
           aria-label={`Go to ${authSlide} form`}
           onClick={setAuth}
         >

@@ -24,7 +24,7 @@ function ToggleTheme() {
   return (
     <button
       type="button"
-      className="group text-[var(--color-neutral-100)] transition-all duration-500 hover:text-[var(--color-accent)] focus:outline-0"
+      className="group text-neutral-100 transition-all duration-500 hover:text-accent focus:outline-0"
       onClick={toggleTheme}
       aria-pressed={theme === "dark"}
       aria-label={`Switch the page theme to ${nextTheme}`}

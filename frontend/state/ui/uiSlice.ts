@@ -1,12 +1,12 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 type ThemeType = "dark" | "light";
-// export type currencyType = "USD" | "BTC" | "AZN" | "EUR";
+export type currencyType = "USD" | "BTC" | "AZN" | "EUR";
 
 interface uiState {
   isSignUpModalOpen: boolean;
   isSidebarOpen: boolean;
-  currency: string;
+  currency: currencyType;
   theme: ThemeType;
 }
 
@@ -33,7 +33,7 @@ const uiSlice = createSlice({
     closeSidebar: (state) => {
       state.isSidebarOpen = false;
     },
-    setCurrency: (state, action: PayloadAction<string>) => {
+    setCurrency: (state, action: PayloadAction<currencyType>) => {
       state.currency = action.payload;
     },
     setTheme: (state, action: PayloadAction<ThemeType>) => {

@@ -8,7 +8,7 @@ function EmptyCoinGrid({ label, children }: EmptyCoinGridProps) {
   return (
     <div
       data-testid="empty-coin-grid"
-      className="flex flex-col items-center gap-4 text-[var(--color-accent-dblue)] text-shadow-lg py-5"
+      className="flex flex-col items-center gap-4 text-accent-dblue text-shadow-lg py-5"
       aria-label={label}
       role="status"
       aria-live="polite"

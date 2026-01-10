@@ -29,13 +29,13 @@ function SelectDropdown({ onChange, options, value }: DropdownProps) {
           <ListboxButton
             className={cn(
               "h-full px-4 py-1 pr-8 appearance-none border rounded-md",
-              " bg-[var(--color-secondary-600)]  text-[var(--color-accent)]",
+              " bg-secondary-600  text-accent",
               "focus:ring-2 transition-colors relative cursor-pointer"
             )}
           >
             <span>{value}</span>
             <ChevronDown
-              className="absolute top-1/2 -translate-y-1/2 right-2 h-5 w-5 text-[var(--color-accent)]"
+              className="absolute top-1/2 -translate-y-1/2 right-2 h-5 w-5 text-accent"
               aria-hidden="true"
             />
           </ListboxButton>
@@ -48,8 +48,8 @@ function SelectDropdown({ onChange, options, value }: DropdownProps) {
             <ListboxOptions
               modal={false}
               className={cn(
-                "absolute bg-[var(--color-secondary-600)] backdrop-blur-sm",
-                "border-[var(--color-accent)] border rounded-md text-[var(--color-accent)]",
+                "absolute bg-secondary-600 backdrop-blur-sm",
+                "border-accent border rounded-md text-accent",
                 "mt-1 max-h-60 w-full py-1 shadow-lg",
                 "ring-1 focus:outline-none overflow-auto",
                 "sm:text-sm text-base text-center"
@@ -61,7 +61,7 @@ function SelectDropdown({ onChange, options, value }: DropdownProps) {
                   value={option.displayName}
                   className={cn(
                     "cursor-pointer select-none px-3 py-2",
-                    "data-[headlessui-state~='active']:bg-[var(--color-accent)] data-[headlessui-state~='active']:text-[var(--color-primary)]",
+                    "data-[headlessui-state~='active']:bg-accent data-[headlessui-state~='active']:text-(--color-primary)",
                     "data-[headlessui-state~='selected']:font-semibold"
                   )}
                 >

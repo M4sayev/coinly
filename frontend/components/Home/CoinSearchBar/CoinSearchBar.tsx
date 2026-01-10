@@ -13,13 +13,13 @@ function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
   return (
     <label className="relative block">
       <Search
-        className="absolute w-4 h-4 text-[var(--color-neutral-200)] top-1/2 left-2 -translate-y-1/2 opacity-60 sm:left-3 "
+        className="absolute w-4 h-4 text-neutral-200 top-1/2 left-2 -translate-y-1/2 opacity-60 sm:left-3 "
         aria-hidden="true"
       />
       <input
         className={cn(
-          " text-[var(--color-neutral-200)] px-4 pl-8 py-2.5 w-full shadow-lg bg-[var(--color-secondary-600)]",
-          "border border-[var(--color-accent-dblue)] rounded-xl ",
+          " text-neutral-200 px-4 pl-8 py-2.5 w-full shadow-lg bg--secondary-600",
+          "border border-accent-dblue rounded-xl ",
           "sm:py-3 sm:text-sm sm:pl-9"
         )}
         type="text"
@@ -44,7 +44,7 @@ function CoinSearchBar({ value, onChange, onReset }: CoinSearchBarProps) {
         onClick={onReset}
       >
         <CircleX
-          className="w-4 h-4 2 sm:w-4.5 sm:h-4.5 text-[var(--color-neutral-100)] opacity-60"
+          className="w-4 h-4 2 sm:w-4.5 sm:h-4.5 text-neutral-100 opacity-60"
           aria-hidden="true"
         />
       </button>

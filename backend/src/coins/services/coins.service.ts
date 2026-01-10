@@ -39,8 +39,6 @@ export class CoinsService {
   ) {
     if (!ids) return [];
 
-    console.log(ids);
-
     const params = new URLSearchParams({
       vs_currency: currency,
       ids,

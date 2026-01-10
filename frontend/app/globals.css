@@ -32,7 +32,9 @@
   --gradient-secondary: linear-gradient(
     138.82deg,
     #000000ff 0%,
+    hsla(274, 87%, 21%, 0.6) 30%,
     hsla(274, 87%, 21%, 0.5) 50%,
+    hsla(274, 87%, 21%, 0.6) 70%,
     #000000ff 100%
   );
 

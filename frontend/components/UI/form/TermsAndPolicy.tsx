@@ -22,7 +22,7 @@ function TermsAndPolicy({
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? errorId : undefined}
         />
-        <div className="text-xs text-[var(--color-neutral-300)] lg:text-sm">
+        <div className="text-xs text-neutral-300 lg:text-sm">
           <span>I agree to our</span>
           <TermsAndPolicyLink text="Terms" to="/terms-and-conditions" />
           <span> and</span>

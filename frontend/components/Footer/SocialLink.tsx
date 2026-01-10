@@ -19,7 +19,7 @@ export default function SocialLink({
       >
         <Icon
           aria-hidden="true"
-          className="w-6 h-6 hover:text-[var(--color-accent)] transition-colors duration-300 ease-in"
+          className="w-6 h-6 hover:text-accent transition-colors duration-300 ease-in"
         />
       </a>
     </li>

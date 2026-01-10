@@ -29,7 +29,7 @@ function PasswordField({
         {showForgot && onForgotPassword ? (
           <button
             type="button"
-            className="text-xs text-[var(--color-accent)]"
+            className="text-xs text-accent"
             aria-label="Go to Reset Password Form"
             onClick={onForgotPassword}
           >
@@ -60,7 +60,7 @@ function PasswordField({
         >
           <EyeIcon
             aria-hidden="true"
-            className="w-4 h-4 text-[var(--color-neutral-100)] group-focus-visible:outline-1"
+            className="w-4 h-4 text-neutral-100 group-focus-visible:outline-1"
           />
         </button>
       </div>

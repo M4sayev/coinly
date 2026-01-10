@@ -13,7 +13,7 @@ export interface Coin {
 export const coinsApi = createApi({
   reducerPath: "coinsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.1.6:3000/coins",
+    baseUrl: "http://192.168.100.184:3000/coins",
   }),
   endpoints: (builder) => ({
     getCoins: builder.infiniteQuery<

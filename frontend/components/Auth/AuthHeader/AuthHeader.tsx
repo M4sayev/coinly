@@ -25,7 +25,7 @@ function AuthHeader({
       >
         {authSlide}
       </h2>
-      <div className="flex capitalize font-roboto text-xs text-[var(--color-neutral-200)] lg:text-sm w-full items-end">
+      <div className="flex capitalize font-roboto text-xs text-neutral-200 lg:text-sm w-full items-end">
         <CornerDownRight
           aria-hidden="true"
           className={showArrow ? "" : "hidden"}

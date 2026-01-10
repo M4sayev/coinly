@@ -24,8 +24,8 @@ function CoinCard({
     <Link href={`/coin/${id}`}>
       <article
         className={cn(
-          "bg-[var(--color-secondary-600)] rounded-xl text-[var(--color-neutral-100)]",
-          "cursor-pointer border border-[var(--color-accent-dblue)] shadow-lg"
+          "bg-secondary-600 rounded-xl text-neutral-100",
+          "cursor-pointer border border-accent-dblue shadow-lg"
         )}
         aria-labelledby="coin-card-name"
         data-testid="coin-card"
@@ -40,7 +40,7 @@ function CoinCard({
               >
                 {name}
               </h3>
-              <span className="text-[var(--color-neutral-200)] text-xs ">
+              <span className="text-neutral-200 text-xs ">
                 {symbol.toUpperCase()}
               </span>
             </div>
@@ -50,7 +50,7 @@ function CoinCard({
               {current_price}
               <span
                 data-testid="coin-card-currency"
-                className="text-[var(--color-neutral-200)] ml-1 "
+                className="text-neutral-200 ml-1 "
               >
                 {currencyToSign(currency)}
               </span>
@@ -66,7 +66,7 @@ function CoinCard({
             </span>
           </section>
           <footer className="flex justify-between">
-            <span className="text-[var(--color-neutral-200)] text-xs capitalize">
+            <span className="text-neutral-200 text-xs capitalize">
               market cap
             </span>
             <span className="text-xs font-bold">
