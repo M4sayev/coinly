@@ -3,13 +3,14 @@ import CustomNavLink from "../UI/CustomNavLink";
 import ActionButton from "../UI/Buttons/ActionButton";
 import { currencies } from "../../constants/currencies";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import { currencyType, setCurrency } from "../../state/ui/uiSlice";
+import { setCurrency } from "../../state/ui/uiSlice";
 import { useTrapFocus } from "../../hooks/useTrapFocus";
 import Hamburger from "./Hamburger";
 import useClickOutside from "../../hooks/useClickOutside";
 import ToggleTheme from "./ToggleTheme";
 import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
 import { useEscapeKey } from "../../hooks/useEscapeKey";
+import { Currency } from "@/types/types";
 
 interface SidebarProps {
   isSidebarOpen: boolean;
@@ -65,7 +66,7 @@ function MobileSidebar({
               id="currency"
               value={currency}
               options={currencies}
-              onChange={(value) => dispatch(setCurrency(value as currencyType))}
+              onChange={(value) => dispatch(setCurrency(value as Currency))}
             />
             <div>
               <ActionButton

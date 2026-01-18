@@ -1,5 +1,5 @@
+import { Currency } from "@/types/types";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Currency } from "../../../types/shared.types.";
 
 type ThemeType = "dark" | "light";
 

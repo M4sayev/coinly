@@ -1,8 +1,8 @@
 export const IMAGE_MAP = {
-  BTC: "/currency/bitcoin.svg",
-  USD: "/currency/dollar.svg",
-  EUR: "/currency/euro.svg",
-  AZN: "/currency/azn.svg",
+  btc: "/currency/bitcoin.svg",
+  usd: "/currency/dollar.svg",
+  eur: "/currency/euro.svg",
+  azn: "/currency/azn.svg",
 };
 
 export const PARTICLE_SPEED = 0.005;

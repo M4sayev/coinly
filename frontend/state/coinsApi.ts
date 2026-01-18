@@ -1,5 +1,17 @@
+import type { Coin, Currency } from "@/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Coin } from "../../types/shared.types.";
+
+type MarketCoin = {
+  prices: [number, number][];
+  market_caps: [number, number][];
+  total_volumes: [number, number][];
+};
+
+type CoinMarketQuery = {
+  coinID: string;
+  currency?: Currency;
+  timeInterval?: number;
+};
 
 export const coinsApi = createApi({
   reducerPath: "coinsApi",
@@ -25,7 +37,12 @@ export const coinsApi = createApi({
           queryArg.search ?? ""
         }&page=${pageParam}`,
     }),
+    getOneCoinPrice: builder.query<MarketCoin, CoinMarketQuery, unknown>({
+      query: ({ coinID, currency = "btc", timeInterval = 1 }) => ({
+        url: `/${coinID}?currency=${currency}&timeInterval=${timeInterval}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetCoinsInfiniteQuery } = coinsApi;
+export const { useGetCoinsInfiniteQuery, useGetOneCoinPriceQuery } = coinsApi;

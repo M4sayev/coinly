@@ -3,17 +3,18 @@ import type { PasswordFieldProps } from "../../../types/form";
 import { inputClasses, labelClasses } from "../../../constants/form";
 import { Eye, EyeOff } from "lucide-react";
 import FormErrorMessage from "./FormErrorMessage";
+import { FieldValues } from "react-hook-form";
 
-function PasswordField({
+function PasswordField<T extends FieldValues>({
   register,
   id,
+  name,
   label,
   placeholder,
   error,
-  rules,
   showForgot = true,
   onForgotPassword,
-}: PasswordFieldProps) {
+}: PasswordFieldProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
 
   const EyeIcon = showPassword ? Eye : EyeOff;
@@ -41,10 +42,9 @@ function PasswordField({
       </label>
       <div className="relative">
         <input
-          {...register(id, rules)}
+          {...register(name)}
           id={id}
           type={showPassword ? "text" : "password"}
-          name={id}
           aria-invalid={error ? "true" : "false"}
           placeholder={placeholder}
           className={inputClasses}

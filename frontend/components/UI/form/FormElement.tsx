@@ -1,16 +1,17 @@
 import type { FormElementProps } from "../../../types/form";
 import { inputClasses, labelClasses } from "../../../constants/form";
 import FormErrorMessage from "./FormErrorMessage";
+import { FieldValues } from "react-hook-form";
 
-function FormElement({
+function FormElement<T extends FieldValues>({
   register,
+  name,
   id,
   type,
   label,
   placeholder,
   error,
-  rules,
-}: FormElementProps) {
+}: FormElementProps<T>) {
   const errorId = `${id}-error`;
   return (
     <div>
@@ -18,10 +19,9 @@ function FormElement({
         {label}
       </label>
       <input
-        {...register(id, rules)}
+        {...register(name)}
         id={id}
         type={type}
-        name={id}
         aria-invalid={error ? "true" : "false"}
         placeholder={placeholder}
         className={inputClasses}

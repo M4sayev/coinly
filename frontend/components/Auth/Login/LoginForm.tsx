@@ -7,8 +7,10 @@ import {
   type SubmitErrorHandler,
   type SubmitHandler,
 } from "react-hook-form";
-import type { FormValues } from "../../../types/form";
 import type { AuthView } from "../../../types/auth";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { UserType } from "@/types/form";
+import { userSchema } from "@/schemas/auth";
 
 interface LoginFormProps {
   setAuthView: React.Dispatch<React.SetStateAction<AuthView>>;
@@ -19,42 +21,36 @@ function LoginForm({ setAuthView }: LoginFormProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ mode: "onBlur" });
+  } = useForm<UserType>({
+    mode: "onBlur",
+    resolver: zodResolver(userSchema),
+  });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
-  const onError: SubmitErrorHandler<FormValues> = (errors) =>
-    console.log(errors);
+  const onSubmit: SubmitHandler<UserType> = (data) => console.log(data);
+  const onError: SubmitErrorHandler<UserType> = (errors) => console.log(errors);
   return (
     <form
       method="dialog"
       className="flex flex-col gap-4 lg:gap-6 z-10"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <FormElement
+      <FormElement<UserType>
         register={register}
         id="login-email-field"
         label="Email"
         type="email"
         placeholder="yourname@example.com"
-        rules={{
-          required: "Email is required",
-        }}
-        error={errors["login-email-field"]}
+        name="email"
+        error={errors["email"]}
       />
 
-      <PasswordField
+      <PasswordField<UserType>
         register={register}
+        name="password"
         id="login-password-field"
         label="Password"
         placeholder="Enter your password"
-        error={errors["login-password-field"]}
-        rules={{
-          required: "Password is required",
-          minLength: {
-            value: 8,
-            message: "Password must be at least 8 characters long",
-          },
-        }}
+        error={errors["password"]}
         showForgot={true}
         onForgotPassword={() => setAuthView("reset-password")}
       />

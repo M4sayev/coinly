@@ -1,8 +1,11 @@
+import { emailOnlySchema, userSchema, userSingupSchema } from "@/schemas/auth";
 import type {
   FieldError,
-  RegisterOptions,
+  FieldValues,
+  Path,
   UseFormRegister,
 } from "react-hook-form";
+import z from "zod";
 
 export type FormValues = {
   "login-email-field": string;
@@ -14,19 +17,26 @@ export type FormValues = {
   test: string;
 };
 
-export interface FormElementProps {
+export interface FormElementProps<T extends FieldValues> {
   id: keyof FormValues;
+  name: Path<T>;
   type: string;
   label: string;
   placeholder: string;
-  register: UseFormRegister<FormValues>;
+  register: UseFormRegister<T>;
   error?: FieldError;
-  rules?: RegisterOptions<FormValues>;
 }
 
-export interface PasswordFieldProps extends Omit<FormElementProps, "type"> {
+export interface PasswordFieldProps<T extends FieldValues> extends Omit<
+  FormElementProps<T>,
+  "type"
+> {
   showForgot?: boolean;
   onForgotPassword?: () => void;
 }
 
 export type TermKeysToRemove = "type" | "label" | "placeholder";
+
+export type UserType = z.infer<typeof userSchema>;
+export type UserSingupType = z.infer<typeof userSingupSchema>;
+export type EmailOnlySchemaType = z.infer<typeof emailOnlySchema>;

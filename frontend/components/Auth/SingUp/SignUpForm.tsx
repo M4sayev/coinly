@@ -5,19 +5,24 @@ import {
   type SubmitErrorHandler,
   type SubmitHandler,
 } from "react-hook-form";
-import type { FormValues } from "../../../types/form";
 import ActionButton from "../../UI/Buttons/ActionButton";
 import TermsAndPolicy from "../../UI/form/TermsAndPolicy";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { UserSingupType } from "@/types/form";
+import { userSingupSchema } from "@/schemas/auth";
 
 function SignUpForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>({ mode: "onBlur" });
+  } = useForm<UserSingupType>({
+    mode: "onBlur",
+    resolver: zodResolver(userSingupSchema),
+  });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
-  const onError: SubmitErrorHandler<FormValues> = (errors) =>
+  const onSubmit: SubmitHandler<UserSingupType> = (data) => console.log(data);
+  const onError: SubmitErrorHandler<UserSingupType> = (errors) =>
     console.log(errors);
 
   return (
@@ -26,41 +31,30 @@ function SignUpForm() {
       className="flex flex-col gap-4 lg:gap-6 z-10"
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <FormElement
+      <FormElement<UserSingupType>
         register={register}
         id="signup-email-field"
         label="Email"
         type="email"
+        name="email"
         placeholder="yourname@example.com"
-        rules={{
-          required: "Email is required",
-        }}
-        error={errors["signup-email-field"]}
+        error={errors["email"]}
       />
 
-      <PasswordField
+      <PasswordField<UserSingupType>
         register={register}
         id="signup-password-field"
+        name="password"
         label="Password"
         placeholder="Enter your password"
-        error={errors["signup-password-field"]}
-        rules={{
-          required: "Password is required",
-          minLength: {
-            value: 8,
-            message: "Password must be at least 8 characters long",
-          },
-        }}
+        error={errors["password"]}
         showForgot={false}
       />
-      <TermsAndPolicy
+      <TermsAndPolicy<UserSingupType>
         register={register}
         id="agree-to-terms-field"
-        rules={{
-          required:
-            "You have to agree to our terms and privacy policy to proceed.",
-        }}
-        error={errors["agree-to-terms-field"]}
+        name="terms"
+        error={errors["terms"]}
       />
       <ActionButton type="submit">
         <span className="py-0.5">Create account</span>

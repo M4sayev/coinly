@@ -26,11 +26,6 @@ export class CoinsController {
 
   @Get(':coinID')
   @ApiQuery({
-    name: 'coinID',
-    required: true,
-    description: 'Coin id',
-  })
-  @ApiQuery({
     name: 'currency',
     required: false,
     description: 'the currency in which the coin shoud be',
@@ -41,7 +36,7 @@ export class CoinsController {
     description: 'time interval(days) within which the data is retrieved',
   })
   async getOneCoin(
-    @Param(':coinID') coinID: string,
+    @Param('coinID') coinID: string,
     @Query('currency') currency?: Currency,
     @Param('timeInterval') timeInterval?: number,
   ) {

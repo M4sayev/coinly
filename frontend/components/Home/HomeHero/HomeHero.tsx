@@ -3,6 +3,7 @@ import { cn } from "../../../utils/utils";
 import Particles from "../../UI/Particles";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { coinImages } from "../../../constants/coinImages";
+import { Currency } from "@/types/types";
 
 function HomeHero() {
   const currency = useAppSelector((state) => state.ui.currency);
@@ -34,7 +35,7 @@ function HomeHero() {
           <p
             className={cn(
               "text-neutral-200)] relative",
-              "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-(image:--gradient-accent) before:opacity-30 before:rounded"
+              "before:left-1/2 before:-translate-1/2 before:absolute before:-bottom-5 lg:before:left-8 before:w-16 before:h-1 before:bg-(image:--gradient-accent) before:opacity-30 before:rounded",
             )}
           >
             Follow coins by adding to watchlist

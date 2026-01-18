@@ -24,8 +24,8 @@ function Home() {
       <section className="font-roboto py-10 md:pt-20 text-center w-[90%] max-w-[360px] sm:max-w-[450px] md:w-[60%] lg:max-w-[600px] m-auto">
         <h2
           className={cn(
-            "text-[var(--color-neutral-100)] font-mono mb-2 text-shadow-lg",
-            "sm:mb-6 text-[1.5rem] mb-4 lg:text-3xl lg:mb-8"
+            "text-neutral-100 font-mono mb-2 text-shadow-lg",
+            "sm:mb-6 text-[1.5rem] mb-4 lg:text-3xl lg:mb-8",
           )}
         >
           Today&apos;s Cryptocurrency Prices

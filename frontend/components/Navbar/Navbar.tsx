@@ -16,7 +16,7 @@ import AuthDialog from "../Auth/AuthDialog/AuthDialog";
 import ToggleTheme from "./ToggleTheme";
 import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
 import Logo from "../UI/Logo/Logo";
-import { Currency } from "../../../types/shared.types.";
+import { Currency } from "@/types/types";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);

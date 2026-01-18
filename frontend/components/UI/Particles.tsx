@@ -54,7 +54,7 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
     ctx.scale(scale, scale);
 
     const img = new Image();
-    img.src = IMAGE_MAP[props.img] || IMAGE_MAP["BTC"];
+    img.src = IMAGE_MAP[props.img] || IMAGE_MAP["btc"];
 
     const particles: Particle[] = [];
 
@@ -96,7 +96,7 @@ const Particles: React.FC<CanvasProps> = ({ ...props }) => {
           leftOffset,
           topOffset,
           img.width * IMG_SCALE,
-          img.height * IMG_SCALE
+          img.height * IMG_SCALE,
         );
 
         ctx.globalCompositeOperation = "source-over";

@@ -1,20 +1,21 @@
+import { FieldValues } from "react-hook-form";
 import type { FormElementProps, TermKeysToRemove } from "../../../types/form";
 import FormErrorMessage from "./FormErrorMessage";
 import TermsAndPolicyLink from "./TernsAndPolicyLink";
 
-function TermsAndPolicy({
+function TermsAndPolicy<T extends FieldValues>({
   id,
   register,
+  name,
   error,
-  rules,
-}: Omit<FormElementProps, TermKeysToRemove>) {
+}: Omit<FormElementProps<T>, TermKeysToRemove>) {
   const errorId = `${id}-error`;
   return (
     // think of a better structure for accessiblity
     <div>
       <label data-testid="terms-n-policy" className="flex gap-2 cursor-pointer">
         <input
-          {...register(id, rules)}
+          {...register(name)}
           className="cursor-pointer"
           type="checkbox"
           name={id}
