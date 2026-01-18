@@ -46,15 +46,15 @@ function CoinCard({
             </div>
           </header>
           <section className="flex justify-between mb-6 lg:flex-col lg:items-center">
-            <h4 className="font-extrabold text-lg md:text-2xl font-mono">
+            <p className="font-extrabold text-lg md:text-2xl font-mono">
               {current_price}
-              <span
+              <strong
                 data-testid="coin-card-currency"
                 className="text-neutral-200 ml-1 "
               >
                 {currencyToSign(currency)}
-              </span>
-            </h4>
+              </strong>
+            </p>
             <span
               data-testid="price-change-percentage"
               className={`md:text-lg flex items-center gap-1 lg:self-start ${

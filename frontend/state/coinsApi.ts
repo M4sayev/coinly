@@ -1,17 +1,11 @@
-import type { Coin, Currency } from "@/types/types";
+import {
+  CoinMarketQuery,
+  CoinSearchParams,
+  CoinsParams,
+  MarketCoin,
+} from "@/types/RTKtypes";
+import type { Coin } from "@/types/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-type MarketCoin = {
-  prices: [number, number][];
-  market_caps: [number, number][];
-  total_volumes: [number, number][];
-};
-
-type CoinMarketQuery = {
-  coinID: string;
-  currency?: Currency;
-  timeInterval?: number;
-};
 
 export const coinsApi = createApi({
   reducerPath: "coinsApi",
@@ -19,11 +13,7 @@ export const coinsApi = createApi({
     baseUrl: "http://192.168.100.184:3000/coins",
   }),
   endpoints: (builder) => ({
-    getCoins: builder.infiniteQuery<
-      Coin[],
-      { currency: string; search?: string },
-      number
-    >({
+    getCoins: builder.infiniteQuery<Coin[], CoinsParams, number>({
       infiniteQueryOptions: {
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages, lastPageParam) => {
@@ -31,7 +21,6 @@ export const coinsApi = createApi({
           return lastPageParam + 1;
         },
       },
-
       query: ({ queryArg, pageParam }) =>
         `market?currency=${queryArg.currency.toLowerCase()}&search=${
           queryArg.search ?? ""
@@ -42,7 +31,16 @@ export const coinsApi = createApi({
         url: `/${coinID}/analytics?currency=${currency}&timeInterval=${timeInterval}`,
       }),
     }),
+    getOneCoin: builder.query<Coin[], CoinSearchParams>({
+      query: ({ coinID, currency = "btc" }) => ({
+        url: `/${coinID}?currency=${currency}`,
+      }),
+    }),
   }),
 });
 
-export const { useGetCoinsInfiniteQuery, useGetOneCoinPriceQuery } = coinsApi;
+export const {
+  useGetCoinsInfiniteQuery,
+  useGetOneCoinPriceQuery,
+  useGetOneCoinQuery,
+} = coinsApi;

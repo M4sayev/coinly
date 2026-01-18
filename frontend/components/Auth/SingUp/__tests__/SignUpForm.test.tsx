@@ -10,7 +10,7 @@ describe("SignUpForm", () => {
 
     expect(screen.getByTestId("terms-n-policy")).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: /create account/i })
+      screen.getByRole("button", { name: /create account/i }),
     ).toBeInTheDocument();
   });
   it("submits form with valid data", async () => {
@@ -28,14 +28,16 @@ describe("SignUpForm", () => {
     await user.type(passwordInput, "password123");
 
     const termsAndPolicy = screen.getByTestId("terms-n-policy");
+
+    termsAndPolicy.focus();
     await user.click(termsAndPolicy);
 
     await user.click(submitButton);
 
     expect(consoleSpy).toHaveBeenCalledWith({
-      "signup-email-field": "test@example.com",
-      "signup-password-field": "password123",
-      "agree-to-terms-field": true,
+      email: "test@example.com",
+      password: "password123",
+      terms: true,
     });
   });
 });

@@ -9,7 +9,7 @@ export const userSchema = z.object({
 
 export const userSingupSchema = userSchema.extend({
   terms: z.boolean().refine((val) => val === true, {
-    message: "You have to agree to our terms and privacy policy to proceed.",
+    message: "You must accept the terms and conditions",
   }),
 });
 

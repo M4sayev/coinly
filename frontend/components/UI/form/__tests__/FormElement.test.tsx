@@ -12,10 +12,10 @@ function Wrapper({ error }: { error?: FieldError }) {
       id="test"
       type="text"
       label="test label"
+      name="test"
       placeholder="test placeholder"
       register={register}
       error={error}
-      rules={{ required: true }}
     />
   );
 }

@@ -18,7 +18,6 @@ function TermsAndPolicy<T extends FieldValues>({
           {...register(name)}
           className="cursor-pointer"
           type="checkbox"
-          name={id}
           id={id}
           aria-invalid={error ? "true" : "false"}
           aria-describedby={error ? errorId : undefined}
