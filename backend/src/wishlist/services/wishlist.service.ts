@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CoinsService } from 'src/coins/services/coins.service';
 import { AddWishlistCoinDto } from 'src/dtos/wishlist/add-wishlist-coin.dto';
 import { WishlistCoin } from 'src/entities/wishlist/wishlist-coin.entity';
-import { Currency } from 'src/types/coins/coins.types';
+import { Coin, Currency } from 'src/types/coins/coins.types';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -17,7 +17,7 @@ export class WishlistService {
   async getCoins(
     currency: Currency = 'btc',
     page: number = 1,
-  ): Promise<WishlistCoin[]> {
+  ): Promise<Coin[]> {
     const wishlistCoins = await this.wishlistRepository.find();
 
     const ids = wishlistCoins.map((coin) => coin.id).join(',');
@@ -25,7 +25,7 @@ export class WishlistService {
     return this.coinsService.getCoinsByIds(currency, ids, page);
   }
 
-  async getOne(currency: Currency, id: string): Promise<WishlistCoin> {
+  async getOne(currency: Currency, id: string): Promise<Coin[]> {
     const coin = await this.wishlistRepository.findOneBy({ id });
 
     if (!coin)

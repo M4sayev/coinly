@@ -2,7 +2,7 @@ import { HttpService } from '@nestjs/axios';
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { firstValueFrom } from 'rxjs';
-import { Currency } from 'src/types/coins/coins.types';
+import type { Coin, Currency } from 'src/types/coins/coins.types';
 
 @Injectable()
 export class CoinsService {
@@ -36,7 +36,7 @@ export class CoinsService {
     currency: Currency = 'btc',
     ids: string,
     page: number = 1,
-  ) {
+  ): Promise<Coin[]> {
     if (!ids) return [];
 
     const params = new URLSearchParams({
@@ -53,13 +53,17 @@ export class CoinsService {
     );
   }
 
-  async getCoins(currency: Currency = 'btc', search?: string, page = 1) {
+  async getCoins(
+    currency: Currency = 'btc',
+    search?: string,
+    page = 1,
+  ): Promise<Coin[]> {
     if (search) {
       const data = await this.makeRequest(
         `${this.baseUrl}/search?query=${encodeURIComponent(search)}`,
       );
 
-      const ids = data.coins.map((coin: any) => coin.id).join(',');
+      const ids = data.coins.map((coin: Coin) => coin.id).join(',');
 
       if (!ids) return [];
 
@@ -79,9 +83,29 @@ export class CoinsService {
       return marketData;
     }
 
-    const defaultUrl = `${this.baseUrl}/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=45&page=${page}&sparkline=false`;
+    const stdParams = new URLSearchParams({
+      vs_currency: currency,
+      order: 'market_cap_desc',
+      per_page: '45',
+      page: page.toString(),
+      sparkline: 'false',
+    });
+
+    const defaultUrl = `${this.baseUrl}/coins/markets?${stdParams.toString()}`;
 
     const data = await this.makeRequest(defaultUrl);
+    return data;
+  }
+
+  async getCoin(
+    id: string,
+    currency: Currency = 'btc',
+    timeInterval: number = 1,
+  ) {
+    const data = await this.makeRequest(
+      `${this.baseUrl}/coins/${id}/market_chart?vs_currency=${currency}&days=${timeInterval}`,
+    );
+
     return data;
   }
 }

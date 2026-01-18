@@ -10,8 +10,8 @@ import {
 import { WishlistCoin } from 'src/entities/wishlist/wishlist-coin.entity';
 import { WishlistService } from '../services/wishlist.service';
 import { AddWishlistCoinDto } from 'src/dtos/wishlist/add-wishlist-coin.dto';
-import type { Currency } from 'src/types/coins/coins.types';
 import { ApiQuery } from '@nestjs/swagger';
+import type { Coin, Currency } from 'src/types/coins/coins.types';
 
 @Controller('wishlist/coins')
 export class WishlistController {
@@ -19,12 +19,15 @@ export class WishlistController {
 
   @Get(':id')
   @ApiQuery({ name: 'currency', required: false, example: 'usd' })
-  async getOne(@Param('id') id: string, @Query('currency') currency: Currency) {
+  async getOne(
+    @Param('id') id: string,
+    @Query('currency') currency: Currency,
+  ): Promise<Coin[]> {
     return this.wishlistService.getOne(currency, id);
   }
 
   @Delete(':id')
-  async delete(@Param('id') id: string) {
+  async delete(@Param('id') id: string): Promise<WishlistCoin> {
     return this.wishlistService.deleteCoin(id);
   }
 
@@ -34,7 +37,7 @@ export class WishlistController {
   async getAll(
     @Query('currency') currency: Currency,
     @Query('page') page: number,
-  ): Promise<WishlistCoin[]> {
+  ): Promise<Coin[]> {
     return await this.wishlistService.getCoins(currency, page);
   }
 

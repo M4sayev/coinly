@@ -1,9 +1,13 @@
+import Image from "next/image";
+
 async function Coin({ params }: { params: Promise<{ id: string }> }) {
   const coinId = (await params).id;
+
   return (
     <main className="min-h-screen bg-(image:--gradient-secondary) pt-15 px-5">
       <div className="max-7xl mx-auto py-10 max-w-6xl">
         <div className="h-20 bg-secondary-900 rounded-lg mb-5 text-neutral-100">
+          {/* <Image src={}> </Image> */}
           {coinId}
         </div>
         <div className="h-20 w-[70%] bg-secondary-900 rounded-lg"></div>

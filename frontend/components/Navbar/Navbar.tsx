@@ -5,7 +5,6 @@ import ActionButton from "../UI/Buttons/ActionButton";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import {
   closeSidebar,
-  currencyType,
   openSidebar,
   openSignUp,
   setCurrency,
@@ -17,6 +16,7 @@ import AuthDialog from "../Auth/AuthDialog/AuthDialog";
 import ToggleTheme from "./ToggleTheme";
 import SelectDropdown from "../UI/SelectDropdown/SelectDropdown";
 import Logo from "../UI/Logo/Logo";
+import { Currency } from "../../../types/shared.types.";
 
 function Navbar() {
   const isSidebarOpen = useAppSelector((state) => state.ui.isSidebarOpen);
@@ -62,7 +62,7 @@ function Navbar() {
             id="currency"
             value={currency}
             options={currencies}
-            onChange={(value) => dispatch(setCurrency(value as currencyType))}
+            onChange={(value) => dispatch(setCurrency(value as Currency))}
           />
 
           <div className="group">

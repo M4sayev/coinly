@@ -1,4 +1,4 @@
-export type Currency = 'btc' | 'azn' | 'eur' | 'usd';
+export type Currency = "btc" | "azn" | "eur" | "usd";
 
 export interface Coin {
   id: string;

@@ -30,7 +30,7 @@ function SelectDropdown({ onChange, options, value }: DropdownProps) {
             className={cn(
               "h-full px-4 py-1 pr-8 appearance-none border rounded-md",
               " bg-secondary-600  text-accent",
-              "focus:ring-2 transition-colors relative cursor-pointer"
+              "focus:ring-2 transition-colors relative cursor-pointer uppercase"
             )}
           >
             <span>{value}</span>
