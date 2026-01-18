@@ -1,10 +1,10 @@
 import { cn, formatBigNumber, formatPercent } from "../../../utils/utils";
-import type { Coin } from "../../../state/coinsApi";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { currencyToSign } from "../../../constants/currencies";
 import TrailWrapper from "../TrailWrapper/TrailWrapper";
 import Link from "next/link";
+import { Coin } from "@/types/types";
 
 function CoinCard({
   id,
@@ -25,7 +25,7 @@ function CoinCard({
       <article
         className={cn(
           "bg-secondary-600 rounded-xl text-neutral-100",
-          "cursor-pointer border border-accent-dblue shadow-lg"
+          "cursor-pointer border border-accent-dblue shadow-lg",
         )}
         aria-labelledby="coin-card-name"
         data-testid="coin-card"

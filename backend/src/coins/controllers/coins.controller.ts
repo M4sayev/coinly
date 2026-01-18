@@ -2,13 +2,14 @@ import { Controller, Get, Param, Query } from '@nestjs/common';
 import { CoinsService } from '../services/coins.service';
 import { ApiQuery } from '@nestjs/swagger';
 import type { Currency } from 'src/types/coins/coins.types';
+import { currencySwaggerOptions } from 'src/swagger/template/template.descriptions';
 
 @Controller('coins')
 export class CoinsController {
   constructor(private readonly coinsService: CoinsService) {}
 
   @Get('market')
-  @ApiQuery({ name: 'currency', required: false, example: 'usd' })
+  @ApiQuery(currencySwaggerOptions)
   @ApiQuery({
     name: 'search',
     required: false,
@@ -24,22 +25,27 @@ export class CoinsController {
     return this.coinsService.getCoins(currency, search, pageNum);
   }
 
-  @Get(':coinID')
-  @ApiQuery({
-    name: 'currency',
-    required: false,
-    description: 'the currency in which the coin shoud be',
-  })
+  @Get(':coinID/analytics')
+  @ApiQuery(currencySwaggerOptions)
   @ApiQuery({
     name: 'timeInterval',
     required: false,
     description: 'time interval(days) within which the data is retrieved',
   })
-  async getOneCoin(
+  async getOneCoinPrices(
     @Param('coinID') coinID: string,
     @Query('currency') currency?: Currency,
     @Param('timeInterval') timeInterval?: number,
   ) {
     return this.coinsService.getCoin(coinID, currency, timeInterval);
+  }
+
+  @Get(':coinID')
+  @ApiQuery(currencySwaggerOptions)
+  async getOneCoin(
+    @Param('coinID') coinID: string,
+    @Query('currency') currency?: Currency,
+  ) {
+    return this.coinsService.getCoinsByIds(currency, coinID);
   }
 }

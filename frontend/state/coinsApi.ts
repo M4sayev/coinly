@@ -39,7 +39,7 @@ export const coinsApi = createApi({
     }),
     getOneCoinPrice: builder.query<MarketCoin, CoinMarketQuery, unknown>({
       query: ({ coinID, currency = "btc", timeInterval = 1 }) => ({
-        url: `/${coinID}?currency=${currency}&timeInterval=${timeInterval}`,
+        url: `/${coinID}/analytics?currency=${currency}&timeInterval=${timeInterval}`,
       }),
     }),
   }),
