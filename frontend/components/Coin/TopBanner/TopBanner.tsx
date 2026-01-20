@@ -21,7 +21,10 @@ function TopBanner({
 }: TopBannerProps) {
   const isHigh = high24 > 0;
   return (
-    <section className="flex justify-between items-center py-2 md:py-5 px-4 md:px-5">
+    <section
+      data-testid="top-banner"
+      className="flex justify-between items-center py-2 md:py-5 px-4 md:px-5"
+    >
       <div className="flex gap-2 items-center">
         <Image
           width={40}

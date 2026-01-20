@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TopBanner from "./TopBanner";
+import TopBanner from "../TopBanner";
 
 const mockCoin = {
   id: "test-coin",
@@ -25,7 +25,7 @@ describe("TopBanner", () => {
     );
 
     const img = screen.getByAltText(/test icon/i);
-    expect(img).toBeInTheDocument;
+    expect(img).toBeInTheDocument();
     expect(img).toHaveAttribute("height", "40");
     expect(img).toHaveAttribute("width", "40");
 

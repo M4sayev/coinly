@@ -8,13 +8,13 @@ function SkeletonGrid({ count = 45 }: SkeletonGridProps) {
   const items = Array.from({ length: count }, (_, i) => i);
   return (
     <ul
-      data-testid="skeleton-loader"
+      data-testid="coins-skeleton-loader"
       role="presentation"
       aria-hidden="true"
       className={cn(
         "font-roboto mx-auto mb-5 grid gap-4 justify-center w-[90%] max-w-[400px] grid-cols-1",
         "md:grid-cols-[repeat(auto-fill,minmax(300px,300px))] md:px-10 md:max-w-none",
-        "lg:grid-cols-[repeat(auto-fill,minmax(360px,360px))] "
+        "lg:grid-cols-[repeat(auto-fill,minmax(360px,360px))] ",
       )}
     >
       {items.map((item) => {
@@ -24,7 +24,7 @@ function SkeletonGrid({ count = 45 }: SkeletonGridProps) {
               className={cn(
                 "p-5 bg-secondary-600 rounded-xl text-neutral-100",
                 "border border-accent-dblue shadow-lg animate-pulse",
-                "[&_span]:bg-secondary-600 [&_span]:rounded  [&_span]:inline-block "
+                "[&_span]:bg-secondary-600 [&_span]:rounded  [&_span]:inline-block ",
               )}
             >
               <div className="flex gap-3 items-center mb-3">
