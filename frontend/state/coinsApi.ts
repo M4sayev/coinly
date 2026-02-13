@@ -31,7 +31,7 @@ export const coinsApi = createApi({
         url: `/${coinID}/analytics?currency=${currency}&timeInterval=${timeInterval}`,
       }),
     }),
-    getOneCoin: builder.query<Coin[], CoinSearchParams>({
+    getOneCoin: builder.query<any, CoinSearchParams>({
       query: ({ coinID, currency = "btc" }) => ({
         url: `/${coinID}?currency=${currency}`,
       }),

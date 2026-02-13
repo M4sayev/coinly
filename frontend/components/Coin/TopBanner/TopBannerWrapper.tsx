@@ -4,7 +4,7 @@ import TopBanner from "./TopBanner";
 import LoadingSR from "@/components/A11y/LoadingSR";
 
 interface TopBannerWrapperProps {
-  coin: Coin[] | undefined;
+  coin: any;
   isLoadingCoin: boolean;
   currency: Currency;
 }
@@ -23,11 +23,13 @@ function TopBannerWrapper({
       ) : (
         coin && (
           <TopBanner
-            currentPrice={coin[0].current_price}
-            name={coin[0].name}
-            symbol={coin[0].symbol}
-            high24={coin[0].high_24h}
-            src={coin[0].image}
+            currentPrice={
+              coin.market_data.current_price[currency.toLowerCase() ?? "btc"]
+            }
+            name={coin.name}
+            symbol={coin.symbol}
+            high24={coin.market_data.high_24h[currency.toLowerCase() ?? "btc"]}
+            src={coin.image.large}
             currency={currency}
           />
         )

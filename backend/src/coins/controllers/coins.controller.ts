@@ -37,7 +37,7 @@ export class CoinsController {
     @Query('currency') currency?: Currency,
     @Param('timeInterval') timeInterval?: number,
   ) {
-    return this.coinsService.getCoin(coinID, currency, timeInterval);
+    return this.coinsService.getCoinGraph(coinID, currency, timeInterval);
   }
 
   @Get(':coinID')
@@ -46,6 +46,6 @@ export class CoinsController {
     @Param('coinID') coinID: string,
     @Query('currency') currency?: Currency,
   ) {
-    return this.coinsService.getCoinsByIds(currency, coinID);
+    return this.coinsService.getSingleCoin(coinID, currency);
   }
 }
