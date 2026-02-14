@@ -5,8 +5,8 @@ function TopBannerSkeleton() {
     <div
       data-testid="top-banner-skeleton"
       className={cn(
-        "py-3 md:py-6 px-4 md:px-5 bg-secondary-900 rounded-lg mb-5",
-        "shadow-lg animate-pulse",
+        "py-3 md:py-6 px-4 md:px-5 rounded-lg mb-5",
+        "shadow-lg",
         "[&_span]:bg-secondary-300 [&_span]:rounded  [&_span]:inline-block ",
       )}
     >

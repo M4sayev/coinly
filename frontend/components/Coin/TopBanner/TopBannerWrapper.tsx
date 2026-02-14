@@ -14,7 +14,7 @@ function TopBannerWrapper({
   currency,
 }: TopBannerWrapperProps) {
   return (
-    <div className="bg-secondary-900 rounded-lg mb-5 shadow-lg text-neutral-100">
+    <div className="bg-(image:--gradient-bg) rounded-lg shadow-lg text-neutral-100">
       {isLoadingCoin ? (
         <>
           <TopBannerSkeleton />

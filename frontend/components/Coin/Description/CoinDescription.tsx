@@ -8,7 +8,11 @@ function CoinDescription({ desc }: { desc: string }) {
       <p className="text-neutral-200">
         {isCollapsed ? `${desc.slice(0, 480)}...` : desc}
       </p>
-      <button type="button" onClick={() => setIsCollapsed(!isCollapsed)}>
+      <button
+        className="underline"
+        type="button"
+        onClick={() => setIsCollapsed(!isCollapsed)}
+      >
         show more
       </button>
     </>

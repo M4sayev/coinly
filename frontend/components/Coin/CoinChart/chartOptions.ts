@@ -20,7 +20,7 @@ export const getChartOptions = (currency: Currency): ChartOptions<"line"> => ({
     y: {
       ticks: {
         callback: function (tickValue: number | string) {
-          return `${currencyToSign(currency)} ${tickValue}`;
+          return `${currencyToSign(currency)} ${Number(tickValue).toFixed(2)}`;
         },
       },
       border: {
