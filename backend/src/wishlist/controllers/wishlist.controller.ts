@@ -12,13 +12,14 @@ import { WishlistService } from '../services/wishlist.service';
 import { AddWishlistCoinDto } from 'src/dtos/wishlist/add-wishlist-coin.dto';
 import { ApiQuery } from '@nestjs/swagger';
 import type { Coin, Currency } from 'src/types/coins/coins.types';
+import { currencySwaggerOptions } from 'src/swagger/template/template.descriptions';
 
 @Controller('wishlist/coins')
 export class WishlistController {
   constructor(private readonly wishlistService: WishlistService) {}
 
   @Get(':id')
-  @ApiQuery({ name: 'currency', required: false, example: 'usd' })
+  @ApiQuery(currencySwaggerOptions)
   async getOne(
     @Param('id') id: string,
     @Query('currency') currency: Currency,
@@ -32,7 +33,7 @@ export class WishlistController {
   }
 
   @Get()
-  @ApiQuery({ name: 'currency', required: false, example: 'usd' })
+  @ApiQuery(currencySwaggerOptions)
   @ApiQuery({ name: 'page', required: false, example: 1 })
   async getAll(
     @Query('currency') currency: Currency,

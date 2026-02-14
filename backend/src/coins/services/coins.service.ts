@@ -97,13 +97,21 @@ export class CoinsService {
     return data;
   }
 
-  async getCoin(
+  async getCoinGraph(
     id: string,
     currency: Currency = 'btc',
     timeInterval: number = 1,
   ) {
     const data = await this.makeRequest(
       `${this.baseUrl}/coins/${id}/market_chart?vs_currency=${currency}&days=${timeInterval}`,
+    );
+
+    return data;
+  }
+
+  async getSingleCoin(id: string, currency: Currency = 'btc') {
+    const data = await this.makeRequest(
+      `${this.baseUrl}/coins/${id}?vs_currency=${currency}`,
     );
 
     return data;

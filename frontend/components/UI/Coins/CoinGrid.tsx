@@ -1,8 +1,8 @@
 import { HandCoins } from "lucide-react";
-import type { Coin } from "../../../state/coinsApi";
 import { cn } from "../../../utils/utils";
 import CoinCard from "./CoinCard";
 import EmptyCoinGrid from "./EmptyCoinGrid";
+import { Coin } from "@/types/types";
 
 interface CoinGridProps {
   coins: Coin[];
@@ -23,7 +23,7 @@ function CoinGrid({ coins }: CoinGridProps) {
       className={cn(
         "font-roboto mx-auto mb-5 grid gap-4 justify-center w-[90%] max-w-[400px] grid-cols-1",
         "md:grid-cols-[repeat(auto-fill,minmax(300px,300px))] md:px-10 md:max-w-none",
-        "lg:grid-cols-[repeat(auto-fill,minmax(360px,360px))] "
+        "lg:grid-cols-[repeat(auto-fill,minmax(360px,360px))] ",
       )}
     >
       {coins.map((coin) => (

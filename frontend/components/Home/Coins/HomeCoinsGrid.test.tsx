@@ -20,7 +20,7 @@ describe("HomeCoinGrid", () => {
     render(
       <Provider store={store}>
         <HomeCoinsGrid searchQuery={query} />
-      </Provider>
+      </Provider>,
     );
   };
   it("renders error message component on isError true", () => {
@@ -40,7 +40,7 @@ describe("HomeCoinGrid", () => {
     renderHomeGrid();
 
     const error = screen.getByText(
-      /We couldn't connect to the server. Please check your connection and try again/i
+      /We couldn't connect to the server. Please check your connection and try again/i,
     );
     expect(screen.queryByTestId("empty-coin-grid")).toBeNull();
     expect(error).toBeInTheDocument();
@@ -60,13 +60,13 @@ describe("HomeCoinGrid", () => {
     });
     renderHomeGrid();
 
-    const loader = screen.getByTestId("skeleton-loader");
-    expect(loader).toBeInTheDocument();
+    expect(screen.getByTestId("coins-skeleton-loader")).toBeInTheDocument();
+    expect(screen.getByTestId("loading-state-sr")).toBeInTheDocument();
 
     expect(
       screen.queryByText(
-        /We couldn't connect to the server. Please check your connection and try again/i
-      )
+        /We couldn't connect to the server. Please check your connection and try again/i,
+      ),
     ).toBeNull();
 
     expect(screen.queryByTestId("empty-coin-grid")).toBeNull();
@@ -91,8 +91,8 @@ describe("HomeCoinGrid", () => {
 
     expect(
       screen.queryByText(
-        /We couldn't connect to the server. Please check your connection and try again/i
-      )
+        /We couldn't connect to the server. Please check your connection and try again/i,
+      ),
     ).toBeNull();
 
     expect(screen.queryByTestId("empty-coin-grid")).toBeInTheDocument();
@@ -118,8 +118,8 @@ describe("HomeCoinGrid", () => {
 
     expect(
       screen.queryByText(
-        /We couldn't connect to the server. Please check your connection and try again/i
-      )
+        /We couldn't connect to the server. Please check your connection and try again/i,
+      ),
     ).toBeNull();
 
     expect(screen.queryByTestId("empty-coin-grid")).toBeNull();
@@ -144,7 +144,7 @@ describe("HomeCoinGrid", () => {
 
     renderHomeGrid();
 
-    const skeletonLoader = screen.getByTestId("skeleton-loader");
+    const skeletonLoader = screen.getByTestId("coins-skeleton-loader");
     expect(skeletonLoader).toBeInTheDocument();
 
     expect(screen.queryByRole("button", { name: /load more/i })).toBeNull();

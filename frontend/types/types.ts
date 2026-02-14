@@ -8,4 +8,5 @@ export interface Coin {
   image: string;
   price_change_percentage_24h: string;
   market_cap: number;
+  high_24h: number;
 }

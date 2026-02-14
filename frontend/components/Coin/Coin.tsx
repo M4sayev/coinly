@@ -1,22 +1,63 @@
 "use client";
 import { useAppSelector } from "@/hooks/reduxHooks";
-import { useGetOneCoinPriceQuery } from "@/state/coinsApi";
+import { useGetOneCoinQuery } from "@/state/coinsApi";
+import CoinChart from "./CoinChart/CoinChart";
+import TopBannerWrapper from "./TopBanner/TopBannerWrapper";
+import CoinDescription from "./Description/CoinDescription";
+import MarketData from "./MarketData/MarketData";
+import Details from "./Details/Details";
 
 function CoinClient({ coinID }: { coinID: string }) {
   const currency = useAppSelector((state) => state.ui.currency);
 
-  const { data } = useGetOneCoinPriceQuery({ coinID, currency });
+  const { data: coin, isLoading: isLoadingCoin } = useGetOneCoinQuery({
+    coinID,
+    currency,
+  });
 
-  console.log(data);
+  if (!coin && !isLoadingCoin) return <div>coin not found</div>;
 
   return (
-    <div className="max-7xl mx-auto py-10 max-w-6xl">
-      <div className="h-20 bg-secondary-900 rounded-lg mb-5 text-neutral-100">
-        {/* <Image src={}> </Image> */}
-        {coinID}
+    <div className="max-7xl mx-auto py-10 max-w-6xl grid gap-5">
+      <TopBannerWrapper
+        coin={coin}
+        currency={currency}
+        isLoadingCoin={isLoadingCoin}
+      />
+      <div className="flex gap-5 flex-col md:flex-row items-stretch">
+        <div className="min-h-90 p-5 md:p-10 flex-3 bg-(image:--gradient-bg) rounded-lg relative">
+          <CoinChart coinID={coinID} currency={currency} />
+        </div>
+        <div className="flex-2 flex flex-col gap-5">
+          <MarketData
+            isLoadingCoin={isLoadingCoin}
+            athDate={
+              coin?.market_data.ath_date[currency.toLowerCase() ?? "btc"]
+            }
+            athPercentage={
+              coin?.market_data.ath_change_percentage[
+                currency.toLowerCase() ?? "btc"
+              ]
+            }
+            totalSupply={coin?.market_data.total_supply}
+            marketCap={
+              coin?.market_data.market_cap[currency.toLowerCase() ?? "btc"]
+            }
+            ath={coin?.market_data.ath[currency.toLowerCase() ?? "btc"]}
+          />
+          <Details
+            categories={coin?.categories ?? []}
+            isLoading={isLoadingCoin}
+          />
+        </div>
       </div>
-      <div className="h-20 w-[70%] bg-secondary-900 rounded-lg"></div>
-      <div className="w-1/2 h-1/2 bg-color-secondary-900 rounded-lg"></div>
+
+      <article className=" p-5 md:p-10 flex-2 bg-(image:--gradient-bg) rounded-lg text-neutral-100 ">
+        <CoinDescription
+          isLoading={isLoadingCoin}
+          desc={coin?.description.en ?? "coin description"}
+        />
+      </article>
     </div>
   );
 }

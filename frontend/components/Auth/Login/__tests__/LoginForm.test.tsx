@@ -28,8 +28,8 @@ describe("LoginForm", () => {
     await userEvent.click(submitButton);
 
     expect(consoleSpy).toHaveBeenCalledWith({
-      "login-email-field": "test@example.com",
-      "login-password-field": "password123",
+      email: "test@example.com",
+      password: "password123",
     });
   });
   it("calls setAuthView when forgot password is clicked", () => {

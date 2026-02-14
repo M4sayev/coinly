@@ -3,7 +3,6 @@ import { cn } from "../../../utils/utils";
 import Particles from "../../UI/Particles";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { coinImages } from "../../../constants/coinImages";
-import { Currency } from "@/types/types";
 
 function HomeHero() {
   const currency = useAppSelector((state) => state.ui.currency);

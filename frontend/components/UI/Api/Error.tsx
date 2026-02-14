@@ -1,8 +1,9 @@
 import type { SerializedError } from "@reduxjs/toolkit";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import type { PropsWithChildren } from "react";
 
 interface ErrorProps extends PropsWithChildren {
-  error: SerializedError | undefined;
+  error: SerializedError | FetchBaseQueryError | undefined;
 }
 function Error({ error, children }: ErrorProps) {
   console.log(error);

@@ -7,6 +7,7 @@ import EmptyCoinGrid from "../../UI/Coins/EmptyCoinGrid";
 import SkeletonGrid from "../../UI/Coins/SkeletonGrid";
 import CoinGrid from "../../UI/Coins/CoinGrid";
 import CrossedDollar from "../../../assets/crossed-dollar.svg";
+import LoadingSR from "@/components/A11y/LoadingSR";
 
 interface HomeCoinsGridProps {
   searchQuery: string;
@@ -42,7 +43,13 @@ function HomeCoinsGrid({ searchQuery }: HomeCoinsGridProps) {
       </Error>
     );
 
-  if (isLoading) return <SkeletonGrid />;
+  if (isLoading)
+    return (
+      <>
+        <LoadingSR text="loading coin info cards" />
+        <SkeletonGrid />;
+      </>
+    );
 
   if (!allResults || !allResults.length)
     return (

@@ -25,7 +25,7 @@ function Wrapper({
       placeholder="Enter your password"
       register={register}
       error={error}
-      rules={{ required: true }}
+      name="test"
       showForgot={showForgot}
       onForgotPassword={onForgotPassword}
     />
@@ -64,7 +64,7 @@ describe("PasswordField", () => {
         error={mockError}
         showForgot={true}
         onForgotPassword={onForgotPassword}
-      />
+      />,
     );
 
     const button = screen.getByRole("button", {
@@ -75,7 +75,7 @@ describe("PasswordField", () => {
   it("does not show forgot password button either onForgotPassword or showForgot is false", () => {
     const onForgotPassword = vi.fn();
     const { rerender } = render(
-      <Wrapper error={mockError} showForgot={true} />
+      <Wrapper error={mockError} showForgot={true} />,
     );
 
     const buttonOne = screen.queryByRole("button", {

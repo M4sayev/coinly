@@ -6,7 +6,9 @@ import { mockError } from "../../../../test/mockData";
 
 function Wrapper({ error }: { error?: FieldError }) {
   const { register } = useForm<FormValues>({ mode: "onBlur" });
-  return <TermsAndPolicy id="test" register={register} error={error} />;
+  return (
+    <TermsAndPolicy id="test" name="test" register={register} error={error} />
+  );
 }
 
 describe("TermsAndPolicy", () => {
