@@ -30,6 +30,7 @@ function CoinClient({ coinID }: { coinID: string }) {
         </div>
         <div className="flex-2 flex flex-col gap-5">
           <MarketData
+            isLoadingCoin={isLoadingCoin}
             athDate={
               coin?.market_data.ath_date[currency.toLowerCase() ?? "btc"]
             }
@@ -44,12 +45,18 @@ function CoinClient({ coinID }: { coinID: string }) {
             }
             ath={coin?.market_data.ath[currency.toLowerCase() ?? "btc"]}
           />
-          <Details categories={coin?.categories ?? []} />
+          <Details
+            categories={coin?.categories ?? []}
+            isLoading={isLoadingCoin}
+          />
         </div>
       </div>
 
       <article className=" p-5 md:p-10 flex-2 bg-(image:--gradient-bg) rounded-lg text-neutral-100 ">
-        <CoinDescription desc={coin?.description.en ?? "coin description"} />
+        <CoinDescription
+          isLoading={isLoadingCoin}
+          desc={coin?.description.en ?? "coin description"}
+        />
       </article>
     </div>
   );

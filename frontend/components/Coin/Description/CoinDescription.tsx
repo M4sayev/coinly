@@ -1,7 +1,23 @@
+import LoadingSR from "@/components/A11y/LoadingSR";
 import { useState } from "react";
+import CoinDescriptionSkeleton from "./CoinDescriptionSkeleton";
 
-function CoinDescription({ desc }: { desc: string }) {
+function CoinDescription({
+  desc,
+  isLoading,
+}: {
+  desc: string;
+  isLoading: boolean;
+}) {
   const [isCollapsed, setIsCollapsed] = useState(true);
+
+  if (true)
+    return (
+      <>
+        <LoadingSR text="loading the coin description" />
+        <CoinDescriptionSkeleton />
+      </>
+    );
   return (
     <>
       <h2 className="mb-2 text-lg">Description</h2>

@@ -5,9 +5,9 @@ function CoinChartSkeleton() {
     <div
       className={cn(
         "flex flex-col justify-around relative",
-        "bg-secondary-900 rounded-lg min-h-75 h-full",
+        "bg-(image:--gradient-bg) rounded-lg min-h-100 h-full",
         "shadow-lg animate-pulse",
-        "[&_span]:bg-secondary-300 [&_span]:rounded  [&_span]:inline-block ",
+        "[&_span]:bg-secondary-600 [&_span]:rounded  [&_span]:inline-block ",
       )}
     >
       {Array(8)
@@ -16,7 +16,7 @@ function CoinChartSkeleton() {
           return (
             <div
               key={`char-skeleton-${index}`}
-              className="flex items-center gap-5"
+              className="flex items-center gap-15"
             >
               <span className="w-20 h-4 "></span>
               <span className="w-full h-1 "></span>
