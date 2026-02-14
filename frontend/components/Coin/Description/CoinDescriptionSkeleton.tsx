@@ -13,6 +13,11 @@ function CoinDescriptionSkeleton() {
       <span className="text-sm text-neutral-200 h-5 w-full"></span>
       <span className="text-sm text-neutral-200 h-5 w-full"></span>
       <span className="text-sm text-neutral-200 h-5 w-full"></span>
+      <span className="text-sm text-neutral-200 h-5 w-full sm:hidden"></span>
+      <span className="text-sm text-neutral-200 h-5 w-full sm:hidden"></span>
+      <span className="text-sm text-neutral-200 h-5 w-full sm:hidden"></span>
+      <span className="text-sm text-neutral-200 h-5 w-full sm:hidden"></span>
+      <span className="text-sm text-neutral-200 h-5 w-full sm:hidden"></span>
       <span className="text-sm text-neutral-200 h-5 w-20"></span>
     </div>
   );

@@ -11,7 +11,7 @@ function CoinDescription({
 }) {
   const [isCollapsed, setIsCollapsed] = useState(true);
 
-  if (true)
+  if (isLoading)
     return (
       <>
         <LoadingSR text="loading the coin description" />
